@@ -1,0 +1,6 @@
+JSON_BASE_DIR =  "/home/havoksahil/Projects/cocAgent/res/jsons"
+JSON_BUILDINGS_FILE = JSON_BASE_DIR + "/buildings.json"
+JSON_CHARACTERS_FILE = JSON_BASE_DIR + "/characters.json"
+JSON_TOWNHALL_LEVELS_FILE = JSON_BASE_DIR + "/townhall_levels.json"
+JSON_OBJECT_IDS_FILE = JSON_BASE_DIR + "/obj_ids.json"
+JSON_OBJECT_TRAPS_FILE = JSON_BASE_DIR + "/traps.json"

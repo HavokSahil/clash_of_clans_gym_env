@@ -1,0 +1,4580 @@
+{
+    "BB2_Pond_1": {
+        "ClearCost": [
+            60000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            45
+        ],
+        "ExportName": [
+            "env_bb2_pond_01_2x2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_POND"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_POND"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Pond_2": {
+        "ClearCost": [
+            60000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            45
+        ],
+        "ExportName": [
+            "env_bb2_pond_02_2x2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_POND"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_POND"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Pond_3": {
+        "ClearCost": [
+            90000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            60
+        ],
+        "ExportName": [
+            "env_bb2_pond_03_3x3"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_POND_OVERGROWN"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_POND_OVERGROWN"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "BB2_Pond_4": {
+        "ClearCost": [
+            60000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            45
+        ],
+        "ExportName": [
+            "env_bb2_pond_01_3x3"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_POND_LARGE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_POND_LARGE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "BB2_Pond_5": {
+        "ClearCost": [
+            60000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            45
+        ],
+        "ExportName": [
+            "env_bb2_pond_02_3x3"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_POND_LARGE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_POND_LARGE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "BB2_Root_1": {
+        "ClearCost": [
+            30000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_bb2_Bigtree_2x2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_ROOT"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_ROOT"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Root_2": {
+        "ClearCost": [
+            30000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_bb2_vine_tree_2x2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_ROOT"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_ROOT"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Root_Large": {
+        "ClearCost": [
+            80000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            60
+        ],
+        "ExportName": [
+            "env_bb2_grove_3x3"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_ROOT_LARGE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_ROOT_LARGE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "BB2_Root_Small_1": {
+        "ClearCost": [
+            15000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_bb2_tallgrass_01_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_ROOT_SMALL"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_ROOT_SMALL"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Root_Small_2": {
+        "ClearCost": [
+            15000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_bb2_tallgrass_02_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_ROOT_SMALL"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_ROOT_SMALL"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Root_Small_3": {
+        "ClearCost": [
+            15000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_bb2_treestump_2x2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_ROOT_SMALL"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_ROOT_SMALL"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Root_Small_4": {
+        "ClearCost": [
+            20000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_bb2_vine_tree_small_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_ROOT_SMALL"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_ROOT_SMALL"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Stone_1": {
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_bb2_stone_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Stone_2": {
+        "ClearCost": [
+            15000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_bb2_stone_1x2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Stone_3": {
+        "ClearCost": [
+            15000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_bb2_stone_path_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Stone_4": {
+        "ClearCost": [
+            40000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_bb2_stone_pillar_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "BB2_Stone_5": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_bb2_stone_path_1x2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "RespawnStage": [
+            1
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Big_Pine Tree": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_big_pine_tree_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BIG_TREE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BIG_TREE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Birthday TombStone": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "tombstone_birthday"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASPRESENT"
+        ],
+        "LootCount": [
+            5000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASPRESENT"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "Birthday2017": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "deco_birthday_cake"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BIRTHDAY2017"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BIRTHDAY2017"
+        ],
+        "UiSortingNumber": [
+            3
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Birthday2018": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "deco_6y_birthday_cake"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BIRTHDAY2018"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BIRTHDAY2018"
+        ],
+        "UiSortingNumber": [
+            3
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Birthday2019": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            7777
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_birthday2019_balloon_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BIRTHDAY2019"
+        ],
+        "LootCount": [
+            77777
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BIRTHDAY2019"
+        ],
+        "UiSortingNumber": [
+            3
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Birthday2020": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            8888
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "deco_8y_birthday_cake"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BIRTHDAY2020"
+        ],
+        "LootCount": [
+            88888
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BIRTHDAY2020"
+        ],
+        "UiSortingNumber": [
+            3
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Birthday2021": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            9999
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "deco_9y_birthday_cake"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BIRTHDAY2021"
+        ],
+        "LootCount": [
+            99999
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BIRTHDAY2021"
+        ],
+        "UiSortingNumber": [
+            3
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Birthday2022": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "deco_10y_birthday_cake_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BIRTHDAY2022"
+        ],
+        "LootCount": [
+            101010
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BIRTHDAY2022"
+        ],
+        "UiSortingNumber": [
+            3
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Birthday2023": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            1100
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "deco_11y_birthday_cake_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BIRTHDAY2023"
+        ],
+        "LootCount": [
+            11000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BIRTHDAY2023"
+        ],
+        "UiSortingNumber": [
+            3
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Birthday2024": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            1200
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "12th_anni_cake_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BIRTHDAY2024"
+        ],
+        "LootCount": [
+            12000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BIRTHDAY2024"
+        ],
+        "UiSortingNumber": [
+            3
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Bonus Gembox": {
+        "AppearancePeriodHours": [
+            168
+        ],
+        "ClearCost": [
+            1000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "bonus_gembox"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_BONUS_GEMBOX"
+        ],
+        "LootCount": [
+            25
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_BONUS_GEMBOX"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Campfire": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "fireplace_lvl7_deco"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_CAMP_FIRE_DECO"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_CAMP_FIRE_DECO"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Campfire2": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "fireplace_lvl1_deco"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_CAMP_FIRE_DECO"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_CAMP_FIRE_DECO"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Clashween_2024": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_halloween_2024"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_CLASHWEEN_2024"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_CLASHWEEN_2024"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "DarkTombStone": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "tombstone_dark"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "LootCount": [
+            1
+        ],
+        "LootResource": [
+            "DarkElixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "DeployAreaMarker": {
+        "ClearCost": [
+            1
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "ground_endTop"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_DEPLOY_AREA_MARKER"
+        ],
+        "LootCount": [
+            1
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/building_bases.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_DEPLOY_AREA_MARKER"
+        ],
+        "UiSortingNumber": [
+            999
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "Fallen Tree": {
+        "ClearCost": [
+            1000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_fallen_tree"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TRUNK"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TRUNK"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Fallen Tree_village2": {
+        "ClearCost": [
+            1000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_fallen_tree"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TRUNK"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TRUNK"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Fence": {
+        "ClearCost": [
+            2000000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "cc_impassable_01"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_RIVER"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_WATER"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "FootballPlant": {
+        "AppearancePeriodHours": [
+            168
+        ],
+        "ClearCost": [
+            3600
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            9
+        ],
+        "ExportName": [
+            "env_obstacle_football_asset_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BALL"
+        ],
+        "LootCount": [
+            9
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BALL"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "GingerbreadTombStone": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "gingerbread_ tombstone"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "LootCount": [
+            1
+        ],
+        "LootResource": [
+            "SourElixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "Halloween2014": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_tombArm_Hween"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2014"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2014"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Halloween2015": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_cauldron"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2015"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2015"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Halloween2016": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_halloween2016_maw"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2016"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2016"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Halloween2017": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_halloween2017"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2017"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2017"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Halloween2018": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_halloween2018_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2018"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2018"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Halloween2019": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_halloween2019_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2019"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2019"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Halloween2020": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_halloween2020"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2020"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2020"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Halloween2021": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_halloween2021_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2021"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2021"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Halloween2022": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_halloween2022_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2022"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2022"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Halloween2023": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_halloween2023_idle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_HALLOWEEN2023"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_HALLOWEEN2023"
+        ],
+        "UiSortingNumber": [
+            2
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Hero TombStone": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "tombstone_hero"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "LootCount": [
+            5
+        ],
+        "LootResource": [
+            "DarkElixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "LanternCNY2020": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            7777
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "floating_cny_lantern"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_LANTERN_CNY2019"
+        ],
+        "LootCount": [
+            77777
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_LANTERN_CNY2019"
+        ],
+        "UiSortingNumber": [
+            4
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "LanternCNY2023": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            7777
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "floating_bunny_lantern"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_LNY_LANTERN_2023"
+        ],
+        "LootCount": [
+            77777
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_LNY_LANTERN_2023"
+        ],
+        "UiSortingNumber": [
+            4
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Large Stone": {
+        "ClearCost": [
+            20000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_large_stone"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Large Stone2": {
+        "ClearCost": [
+            20000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_large_stone_b"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Large Stone_village2": {
+        "ClearCost": [
+            20000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_large_stone"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Large Stone_village22": {
+        "ClearCost": [
+            20000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_large_stone_b"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Large_Pine_tree": {
+        "ClearCost": [
+            20000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            60
+        ],
+        "ExportName": [
+            "env_pine_patch_4x4"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_LARGE_PINE_TREE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_LARGE_PINE_TREE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "LegacyLootCart": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "mega_tombstone"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_LOOT_CART_INFO"
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_LOOT_CART"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "LnyPlaceholder": {
+        "ClearCost": [
+            20000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_large_stone"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "MailBoxCNY2023": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            8888
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "cny_2023_mailbox"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_LNY2024"
+        ],
+        "LootCount": [
+            88888
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_LNY2024"
+        ],
+        "UiSortingNumber": [
+            4
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Mountain 4x4 Gold Mine": {
+        "ClearCost": [
+            2000000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "cc_bighill_4x4_02_mine"
+        ],
+        "Height": [
+            4
+        ],
+        "InfoTID": [
+            "TID_DECO_HILL_3"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_DECO_HILL_3"
+        ],
+        "Width": [
+            4
+        ]
+    },
+    "Mushrooms": {
+        "ClearCost": [
+            100
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_mushrooms"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_MUSHROOM"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_MUSHROOM"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Mushrooms_village2": {
+        "ClearCost": [
+            100
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_mushrooms"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_MUSHROOM"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_MUSHROOM"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Npc Plant 1": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_npc_plant1"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Npc Plant 2": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_npc_plant2"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Old Barbarian Statue": {
+        "ClearCost": [
+            200000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            60
+        ],
+        "ExportName": [
+            "env_barbarian_stone_3x3"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_OLD_BARBARIAN_STATUE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_OLD_BARBARIAN_STATUE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "OvergrowthGrass": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "entangle_grass"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "LootCount": [
+            1
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "Passable Stone 1": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_c"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Passable Stone 2": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_d"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Pine Tree": {
+        "ClearCost": [
+            2000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_pinetree_1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Pine Tree_village2": {
+        "ClearCost": [
+            2000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_pinetree_2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Sharp Stone 1": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_sharpstone_1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Sharp Stone 2": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_sharpstone_2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Sharp Stone 3": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_sharpstone_3"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Sharp Stone 4": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_sharpstone_4"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Sharp Stone 5": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_sharpstone_5"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Small Pillar 1 new": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env2_rock_pillar_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 1": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_a"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 1 new": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env2_small_rock_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 1_village2": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_a"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 2": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_b"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 2 new": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env2_small_rocks_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 2_village2": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_b"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 3": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_c"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 3_village2": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_c"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 4": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_d"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small Stone 4_village2": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_stone_d"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Small_Pine Tree": {
+        "ClearCost": [
+            2000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_small_pine_tree_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_SMALL_TREE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_SMALL_TREE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "SourTombStone": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "tombstone_sour"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "LootCount": [
+            1
+        ],
+        "LootResource": [
+            "SourElixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "Spike Obstacle": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            1000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "spike_obstacle"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_SPIKE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_SPIKE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Square Bush": {
+        "ClearCost": [
+            250
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_square_bush_a"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BUSH"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BUSH"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Square Bush_village2": {
+        "ClearCost": [
+            250
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_square_bush_a"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_BUSH"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_BUSH"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Square Tree": {
+        "ClearCost": [
+            7500
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_square_tree_a"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Square Tree 2": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_square_tree_b"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Square Tree 2_village2": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_square_tree_b"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Square Tree_village2": {
+        "ClearCost": [
+            7500
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_square_tree_a"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TREE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "Stone Pillar 1": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_stonepillar_a"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Stone Pillar 1_village2": {
+        "ClearCost": [
+            10000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            15
+        ],
+        "ExportName": [
+            "env_stonepillar_a"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_STONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Tall grass 1": {
+        "ClearCost": [
+            50
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ExportName": [
+            "TallGrass_01_1"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_GRASS"
+        ],
+        "LootResource": [
+            "Elixir2"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_GRASS"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "Tall grass 2": {
+        "ClearCost": [
+            50
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ExportName": [
+            "TallGrass_02_1"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_GRASS"
+        ],
+        "LootResource": [
+            "Elixir2"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_GRASS"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "TombStone": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "tombstone"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "LootCount": [
+            20
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "TombStone_village2": {
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ExportName": [
+            "tombstone"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "LootCount": [
+            20
+        ],
+        "LootResource": [
+            "Elixir2"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TOMBSTONE"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "Tree Branch CNY2021": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            7777
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "treebranch_cny2021"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_CNY2021"
+        ],
+        "LootCount": [
+            77777
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_CNY2021"
+        ],
+        "UiSortingNumber": [
+            4
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Tree Stump": {
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Elixir2"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_tree_stump_1x1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TREE_STUMP"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TREE_STUMP"
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Tree Trunk 1": {
+        "ClearCost": [
+            1000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_treetrunk_a"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TRUNK"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TRUNK"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Tree Trunk 2": {
+        "ClearCost": [
+            1000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "env_treetrunk_b"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_TRUNK"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_TRUNK"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas TombStone": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "tombstone_xmas"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASPRESENT"
+        ],
+        "LootCount": [
+            1000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASPRESENT"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "Xmas TombStone2014": {
+        "ClearResource": [
+            "Gold"
+        ],
+        "ExportName": [
+            "tombstone_xmas"
+        ],
+        "Height": [
+            1
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASPRESENT"
+        ],
+        "LootCount": [
+            5000
+        ],
+        "LootResource": [
+            "Elixir"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASPRESENT"
+        ],
+        "Width": [
+            1
+        ]
+    },
+    "Xmas tree": {
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_1"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            50000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2013": {
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_2"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2014": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_3"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2015": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_4"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2016": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_5"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2017": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_6"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2018": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_7"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2019": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_8"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2020": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_9"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2021": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_10"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2022": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "env_xmastree_11"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2023": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "gingerbread_tree"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "Xmas tree2024": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            25000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            30
+        ],
+        "ExportName": [
+            "toy_tree"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_XMASTREE"
+        ],
+        "UiSortingNumber": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "fireworksCNY2018": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            500
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            5
+        ],
+        "ExportName": [
+            "fireworks_cny2018"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_CNY2017"
+        ],
+        "LootCount": [
+            25000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_CNY2017"
+        ],
+        "UiSortingNumber": [
+            4
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "lanternCNY2019": {
+        "AppearancePeriodHours": [
+            96
+        ],
+        "ClearCost": [
+            1000
+        ],
+        "ClearResource": [
+            "Gold2"
+        ],
+        "ClearTimeSeconds": [
+            5
+        ],
+        "ExportName": [
+            "lantern_cny2019"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_LANTERN_CNY2019"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Elixir2"
+        ],
+        "SWF": [
+            "sc/buildings2.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_LANTERN_CNY2019"
+        ],
+        "UiSortingNumber": [
+            4
+        ],
+        "VillageType": [
+            1
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "mountain 2x2 1": {
+        "ClearCost": [
+            2000000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "cc_bighill_2x2_01"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_DECO_HILL_3"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_DECO_HILL_3"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "mountain 2x2 2": {
+        "ClearCost": [
+            2000000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "cc_bighill_2x2_02"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_DECO_HILL_3"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_DECO_HILL_3"
+        ],
+        "Width": [
+            2
+        ]
+    },
+    "mountain 3x3 1": {
+        "ClearCost": [
+            2000000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "cc_bighill_3x3_01"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_DECO_HILL_3"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_DECO_HILL_3"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "mountain 3x3 2": {
+        "ClearCost": [
+            2000000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "cc_bighill_3x3_02"
+        ],
+        "Height": [
+            3
+        ],
+        "InfoTID": [
+            "TID_DECO_HILL_3"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_DECO_HILL_3"
+        ],
+        "Width": [
+            3
+        ]
+    },
+    "mountain 4x4 1": {
+        "ClearCost": [
+            2000000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "cc_bighill_4x4_01"
+        ],
+        "Height": [
+            4
+        ],
+        "InfoTID": [
+            "TID_DECO_HILL_3"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_DECO_HILL_3"
+        ],
+        "Width": [
+            4
+        ]
+    },
+    "mountain 4x4 2": {
+        "ClearCost": [
+            2000000
+        ],
+        "ClearResource": [
+            "Elixir"
+        ],
+        "ClearTimeSeconds": [
+            10
+        ],
+        "ExportName": [
+            "cc_bighill_4x4_02"
+        ],
+        "Height": [
+            4
+        ],
+        "InfoTID": [
+            "TID_DECO_HILL_3"
+        ],
+        "LootResource": [
+            "Diamonds"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_DECO_HILL_3"
+        ],
+        "Width": [
+            4
+        ]
+    },
+    "treeCNY2018": {
+        "AppearancePeriodHours": [
+            120
+        ],
+        "ClearCost": [
+            1000
+        ],
+        "ClearResource": [
+            "Gold"
+        ],
+        "ClearTimeSeconds": [
+            5
+        ],
+        "ExportName": [
+            "fortunetree_cny2018"
+        ],
+        "Height": [
+            2
+        ],
+        "InfoTID": [
+            "TID_OBSTACLE_FORTUNE_TREE"
+        ],
+        "LootCount": [
+            75000
+        ],
+        "LootResource": [
+            "Gold"
+        ],
+        "SWF": [
+            "sc/buildings.sc"
+        ],
+        "TID": [
+            "TID_OBSTACLE_FORTUNE_TREE"
+        ],
+        "UiSortingNumber": [
+            4
+        ],
+        "Width": [
+            2
+        ]
+    }
+}
