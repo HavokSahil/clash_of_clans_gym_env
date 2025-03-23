@@ -1,35 +1,22 @@
 from GameEngine.troops import *
 from GameEngine.structures import *
+from GameEngine.base import *
+from GameEngine.renderer import *
 
-barbarian = Barbarian(Barbarian.LEVEL3)
-archer = Archer(Archer.LEVEL1)
-goblin = Goblin(Goblin.LEVEL7)
-giant = Giant(Giant.LEVEL6)
-wall_breaker = WallBreaker(WallBreaker.LEVEL1)
-balloon = Balloon()
-# print(
-#     barbarian,
-#     archer,
-#     goblin,
-#     giant,
-#     wall_breaker,
-#     balloon,
-#     sep='\n'*2)
-
-
-mortar = Mortar(Mortar.LEVEL3)
-cannon = Cannon(Cannon.LEVEL1)
-archerTower = ArcherTower(ArcherTower.LEVEL4)
-wizardTower = WizardTower(WizardTower.LEVEL5)
+scene = SceneBase()
 townhall = TownHall(TownHall.LEVEL5)
-wall = Wall(Wall.LEVEL4)
+castle = AllianceCastle(AllianceCastle.LEVEL3)
 
-print(
-    mortar,
-    cannon,
-    archerTower,
-    wizardTower,
-    townhall,
-    wall,
-    sep="\n"*2
-)
+scene.place_building(townhall, 10, 10)
+scene.place_building(castle, 11, 7)
+scene.place_building(Cannon(Cannon.LEVEL5), 10, 15)
+
+for i in range(10):
+    scene.place_building(Wall(Wall.LEVEL2), 9, 6 + i)
+    scene.place_building(Wall(Wall.LEVEL4), 14, 6 + i)
+
+scene.place_troop(WallBreaker(WallBreaker.LEVEL3), 20, 10)
+scene.place_troop(Balloon(Balloon.LEVEL5), 20, 13)
+
+viewer = SceneRenderer(scene)
+viewer.run()

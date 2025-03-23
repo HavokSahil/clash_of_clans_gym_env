@@ -10,6 +10,7 @@ url = "https://coc.guide/resource"
 # url = "https://coc.guide/other"
 # url = "https://coc.guide/troop"
 # url = "https://coc.guide/spell"
+url = "https://coc.guide/army"
 
 
 response = urlopen(url)

@@ -19,16 +19,41 @@ class BaseStructure:
     CLASS_WALL      = 0x05
     CLASS_OTHERS    = 0x06
 
-    def __init__(self, name: str):
+    IMAGE_MAP = {
+        'Town Hall': PATH_IMAGE_TOWNHALL,
+        'Alliance Castle': PATH_IMAGE_CASTLE,
+        'Wall': PATH_IMAGE_WALL,
+        'Troop Housing': PATH_IMAGE_CAMP,
+        'Barrack': PATH_IMAGE_BARRACK,
+        'Laboratory': PATH_IMAGE_LAB,
+        'Spell Forge': PATH_IMAGE_SPELL_FACTORY,
+        'Builder6Home': PATH_IMAGE_BUILDER_HOME,
+        'Elixir Pump': PATH_IMAGE_ELIXIR_COLLECTOR,
+        'Gold Mine': PATH_IMAGE_GOLD_MINE,
+        'Elixir Storage': PATH_IMAGE_ELIXIR_STORAGE,
+        'Gold Storage': PATH_IMAGE_GOLD_STORAGE,
+        'Cannon': PATH_IMAGE_CANNON,
+        'Archer Tower': PATH_IMAGE_ARCHER_TOWER,
+        'Mortar': PATH_IMAGE_MORTAR,
+        'Air Defense': PATH_IMAGE_AIR_DEFENSE,
+        'Wizard Tower': PATH_IMAGE_WIZARD_TOWER
+    }
+
+    def __init__(self, name: str, id_dict: dict = None):
         self.name: str = name.title()
-        self.id = ''
+        self.id = self.get_id(id_dict)
+
+        self.is_initialized = False
         self.level: int = BaseStructure.LEVEL1
+        self.current_hitpoint: int = None
+
         self.type: int = BaseStructure.CLASS_OTHERS
         self.width: int = None
         self.height: int = None
         self.building_levels: List[int] = None
         self.hitpoints: List[int] = None
         self.townhall: List[int] = None
+        self.image_path = ''
 
     def contains_required_keys(self, obj: dict = None) -> bool:
         if (obj is None): return False
@@ -61,24 +86,61 @@ class BaseStructure:
         self.building_levels = obj['BuildingLevel']
         self.townhall = obj['TownHallLevel']
         self.hitpoints = obj['Hitpoints']
+
+        self.image_path = self.IMAGE_MAP[self.name] if self.name in self.IMAGE_MAP.keys() else ''
+
         return 0
+    
+    def get_id(self, obj: dict = None) -> str:
+        if not isinstance(obj, dict):
+            with open(JSON_OBJECT_IDS_FILE, 'r') as f:
+                obj = dict(json.load(f))
+            if not isinstance(obj, dict):
+                raise Exception(f"ERROR: ID for object `{self.name}` not found.")
+            
+        if not self.name in obj.keys():
+            raise Exception(f"ERROR: ID for object `{self.name}` not found.")
+        return obj[self.name]
+
 
     def get_max_level(self) -> int:
         if (self.building_levels and len(self.building_levels)):
             return self.building_levels[-1]
         return -1
     
+    def get_allowed_levels(self, townhall_level: int) -> int:
+        if not (self.building_levels and self.townhall): return []
+        return [level for level, th in zip(self.building_levels, self.townhall) if th<=townhall_level]        
+    
     def set_level(self, level: int) -> bool:
         if (level in range(1, self.get_max_level())):
             self.level = level
             return True
-        return False    
+        return False
+    
+    def set_level_safe(self, level: int, townhall_level: int) -> bool:
+        if level in self.get_allowed_levels(townhall_level):
+            self.level = level
+            self.is_initialized = True
+            self.current_hitpoint = self.hitpoints[self.level - 1]
+            return True
+        
+        self.is_initialized = False
+        raise Exception(f"ERROR: Invalid level [Townhall Constraint Failed] for {self.name}.")
+        # print(f"ERROR: Invalid level [Townhall Constraint Failed] for {self.name}.")
+        # return False
+
+    def get_image_path(self) -> str:
+        return self.image_path + f'/level_{self.level}.png'
 
     def __str__(self):
         return f"""Building:
     name: {self.name}
     id: {self.id}
+    image_path: {self.image_path}
+    is_initialized: {self.is_initialized}
     level: {self.level}
+    current_hitpoint: {self.current_hitpoint}
     type: {self.type}
     width: {self.width}
     height: {self.height}
@@ -225,19 +287,26 @@ class ResourceStructure(BaseStructure):
 class TownHall(ResourceStructure):
     def __init__(self, level: int = ResourceStructure.LEVEL1, obj: dict = None):
         super().__init__("Town Hall", ResourceStructure.CLASS_STORE_BOTH)
-
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self)->ResourceStructure:
+        self.is_initialized = True
+        return self
 
 
 class AllianceCastle(BaseStructure):
     def __init__(self, level: int = BaseStructure.LEVEL1, obj: dict = None):
         super().__init__("Alliance Castle")
         self.housing_space: int = None
-        self.type = AllianceCastle.CLASS_CASTLE
-
+        self.type = AllianceCastle.CLASS_OTHERS
         self.load_obj(obj)
         self.set_level(level)
+
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> BaseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 
@@ -271,126 +340,160 @@ class Wall(BaseStructure):
         super().load_obj(obj)
         self.set_level(level)
 
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> BaseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
+
 
 class TroopHousing(BaseStructure):
     def __init__(self, level: int = BaseStructure.LEVEL1, obj: dict = None):
         super().__init__("Troop Housing")
-
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> BaseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class Barrack(BaseStructure):
     def __init__(self, level: int = BaseStructure.LEVEL1, obj: dict = None):
         super().__init__("Barrack")
-
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> BaseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class Laboratory(BaseStructure):
     def __init__(self, level: int = BaseStructure.LEVEL1, obj: dict = None):
         super().__init__("Laboratory")
-
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> BaseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class SpellForge(BaseStructure):
     def __init__(self, level: int = BaseStructure.LEVEL1, obj: dict = None):
         super().__init__("Spell Forge")
-
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> BaseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class BuilderHome(BaseStructure):
     def __init__(self, level: int = BaseStructure.LEVEL1, obj: dict = None):
         super().__init__("Builder6Home")
-
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> BaseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class ElixirPump(ResourceStructure):
     def __init__(self, level: int = ResourceStructure.LEVEL1, obj: dict = None):
-        super().__init__('Elixir Pump')
-        self.resource_type = ResourceStructure.CLASS_RESOURCE_ELIXIR
-
+        super().__init__('Elixir Pump', ResourceStructure.CLASS_STORE_ELIXIR)
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> ResourceStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
     
 
 class GoldMine(ResourceStructure):
     def __init__(self, level: int = ResourceStructure.LEVEL1, obj: dict = None):
-        super().__init__('Gold Mine')
-        self.resource_type = ResourceStructure.CLASS_RESOURCE_GOLD
-
+        super().__init__('Gold Mine', ResourceStructure.CLASS_STORE_GOLD)
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> ResourceStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class ElixirStorage(ResourceStructure):
     def __init__(self, level: int = ResourceStructure.LEVEL1, obj: dict = None):
-        super().__init__('Elixir Storage')
-        self.resource_type = ResourceStructure.CLASS_RESOURCE_ELIXIR
-
+        super().__init__('Elixir Storage', ResourceStructure.CLASS_STORE_ELIXIR)
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> ResourceStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class GoldStorage(ResourceStructure):
     def __init__(self, level: int = ResourceStructure.LEVEL1, obj: dict = None):
-        super().__init__('Gold Storage')
-        self.resource_type = ResourceStructure.CLASS_RESOURCE_GOLD
-
+        super().__init__('Gold Storage', ResourceStructure.CLASS_STORE_GOLD)
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> ResourceStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class Cannon(DefenseStructure):
     def __init__(self, level: int = DefenseStructure.LEVEL1, obj: dict = None):
         super().__init__("Cannon")
-
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> DefenseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class ArcherTower(DefenseStructure):
     def __init__(self, level: int = DefenseStructure.LEVEL1, obj: dict = None):
         super().__init__("Archer Tower")
-
-        super().load_obj(obj)
         self.set_level(level)
+        super().load_obj(obj)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> DefenseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class Mortar(DefenseStructure):
     def __init__(self, level: int = DefenseStructure.LEVEL1, obj: dict = None):
         super().__init__("Mortar")
-
         super().load_obj(obj)
         self.set_level(level)
 
-
-class Cannon(DefenseStructure):
-    def __init__(self, level: int = DefenseStructure.LEVEL1, obj: dict = None):
-        super().__init__("Cannon")
-
-        super().load_obj(obj)
-        self.set_level(level)
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> DefenseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class AirDefense(DefenseStructure):
     def __init__(self, level: int = DefenseStructure.LEVEL1, obj: dict = None):
         super().__init__("Air Defense")
-
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> DefenseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self
 
 
 class WizardTower(DefenseStructure):
     def __init__(self, level: int = DefenseStructure.LEVEL1, obj: dict = None):
         super().__init__("Wizard Tower")
-        
         super().load_obj(obj)
         self.set_level(level)
+
+    def init(self, townhall_level: int = TownHall.LEVEL1) -> DefenseStructure:
+        self.set_level_safe(self.level, townhall_level)
+        return self

@@ -19,6 +19,16 @@ class TroopBase:
     BUILDING_PREFERENCE_RESOURCE = 0x03
     BUILDING_PREFERENCE_WALL     = 0x04
 
+    IMAGE_MAP = {
+        "Barbarian": PATH_IMAGE_BARBARIAN,
+        "Archer": PATH_IMAGE_ARCHER,
+        "Giant": PATH_IMAGE_GIANT,
+        "Goblin": PATH_IMAGE_GOBLIN,
+        "Wall Breaker": PATH_IMAGE_WALL_BREAKER,
+        "Balloon": PATH_IMAGE_BALLOON,
+        "Wizard": PATH_IMAGE_WIZARD
+    }
+
     def __init__(self, name: str):
 
         self.name = name.title()
@@ -38,6 +48,7 @@ class TroopBase:
         self.ground_targets: bool = None
         self.air_target: bool = None
         self.is_flying: bool = None
+        self.image_path: str = None
 
         if self._load_obj() == -1:
             print(f"ERROR: Object `{self.name}` couldn't be created.")
@@ -66,6 +77,8 @@ class TroopBase:
             self.speed = data['Speed'][0]
             self.visual_level = data['VisualLevel']
             self.ground_targets = data['GroundTargets'][0]
+
+            self.image_path = TroopBase.IMAGE_MAP[self.name] if self.name in TroopBase.IMAGE_MAP.keys() else ''
 
             if 'AirTargets' in data.keys():
                 self.air_target = data['AirTargets'][0]
@@ -114,14 +127,30 @@ class TroopBase:
         return -1
     
     def set_level(self, level: int):
-        assert TroopBase.LEVEL1 <= level <= self.max_level()
+        max_lvl = self.max_level()
+        if level > max_lvl:
+            print(f"WARNING: Level {level} exceeds max {max_lvl}, setting to max.")
+            level = max_lvl
         self.level = level
+
+
+    def can_attack_air(self) -> bool:
+        return self.air_target
+
+    def can_attack_ground(self) -> bool:
+        return self.ground_targets
+    
+    def attack_damage(self) -> int:
+        return self.dps[self.level - 1]
+
+
 
     def __str__(self):
         return f"""Troop: {self.name}
     id: {self.id}
     level: {self.level}
     building_preference: {self.building_preference}
+    image_path: {self.image_path}
     air_target: {self.air_target}
     attack_range: {self.attack_range}
     barrack_level: {self.barrack_level}
