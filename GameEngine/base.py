@@ -30,9 +30,7 @@ class SceneBase:
         self.buildings = AllStructures()
         self.placed_buildings_count = dict()
         self.buildings_max_count = dict()
-        self.buildings_max_level = {
-            "Town Hall": TownHall.LEVEL5,
-        }
+        self.buildings_max_level = dict()
 
         self.troops = AllTroops()
         self.troops_max_level = dict()
@@ -61,6 +59,8 @@ class SceneBase:
                     self.buildings_max_level[structure_name] = -1
             
             self.buildings_max_count["Town Hall"] = 1
+            self.buildings_max_level["Town Hall"] = TownHall.LEVEL5
+
             
             # Get the Laboratory level for TownHall level 5
             _laboratory = self.buildings.get("Laboratory")
@@ -149,6 +149,8 @@ class SceneBase:
         for y, x in self.building_positions[buildingID]:
             self.map[y, x]["building"] = -1
 
+        building = self.placed_buildings[buildingID]
+        self.placed_buildings_count[building.name] -= 1
         del self.building_positions[buildingID]
         del self.placed_buildings[buildingID]
 
@@ -242,7 +244,9 @@ class SceneBase:
 
     def transition(self):
         # Check if Townhall is placed
-        assert(self.placed_buildings_count["Town Hall"] == 1)
+        if "Town Hall" not in self.placed_buildings_count:
+            print("WARNING: Town Hall not placed")
+            return
 
         placed_troops = self.placed_troops.copy().items()
 

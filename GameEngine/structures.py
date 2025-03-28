@@ -93,6 +93,8 @@ class BaseStructure:
         self.townhall = obj['TownHallLevel']
         self.hitpoints = obj['Hitpoints']
 
+        self.current_hitpoint = self.hitpoints[0]
+
         self.image_path = self.IMAGE_MAP[self.name] if self.name in self.IMAGE_MAP.keys() else ''
 
         return 0
@@ -234,6 +236,11 @@ class DefenseStructure(BaseStructure):
             return
 
         closest_target = tuple(min(target_positions, key = lambda pos: (pos[0] - start_y)**2 + (pos[1] - start_x)**2))
+        closest_dist = math.sqrt((closest_target[0] - start_y)**2 + (closest_target[1] - start_x)**2)
+        if closest_dist > self.max_attack_range/100:
+            # No troop in range
+            self.current_target_troop_id = -1
+            return
         self.current_target_troop_id = troop_label[closest_target[0], closest_target[1]]
 
     def transition(self, troop_mask: np.ndarray, troop_label: np.ndarray):   
