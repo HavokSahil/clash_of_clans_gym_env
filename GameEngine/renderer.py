@@ -39,10 +39,13 @@ class SceneRenderer:
         self.selected_card = -1
         self.grid_on = False
 
+        self.mouse_pressed = False
+
         self.hover_pos = (-1, -1)
         self.hovered_building = None
         self.hovered_building_backup = None
         self.erase = False
+        self.change_levels = False
         
         # Initialize pygame_gui
         self.manager = pygame_gui.UIManager((WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -64,7 +67,7 @@ class SceneRenderer:
         # Start button
         self.start_button = pygame_gui.elements.UIButton(
             relative_rect=pygame.Rect((10, int(WINDOW_HEIGHT * 0.7) + 10), (SIDEBAR_WIDTH - 20, 50)),
-            text="Start",
+            text="Start Attack",
             manager=self.manager,
             container=self.sidebar_panel
         )
@@ -83,9 +86,9 @@ class SceneRenderer:
             container=self.sidebar_panel
         )
 
-        self.reset_button = pygame_gui.elements.UIButton(
+        self.levels_button = pygame_gui.elements.UIButton(
             relative_rect=pygame.Rect((10, int(WINDOW_HEIGHT * 0.7) + 190), (SIDEBAR_WIDTH - 20, 50)),
-            text="Reset",
+            text="Change Level",
             manager=self.manager,
             container=self.sidebar_panel
         )
@@ -166,8 +169,8 @@ class SceneRenderer:
 
                     health = building.get_health()
                     # Show the health bar
-                    pygame.draw.rect(self.screen, (255, 0, 0), (draw_x, draw_y - 2, TILE_SIZE-2, 3))
-                    pygame.draw.rect(self.screen, (0, 255, 0), (draw_x, draw_y - 2, (TILE_SIZE-2) * health, 3))
+                    pygame.draw.rect(self.screen, (255, 0, 0), (draw_x + 4, draw_y - 2, TILE_SIZE * building.width - 8, 3))
+                    pygame.draw.rect(self.screen, (0, 255, 0), (draw_x + 4, draw_y - 2, (TILE_SIZE * building.width - 8) * health, 3))
 
                     img = self.load_image(building.get_image_path(), building.width, building.height)
                     self.screen.blit(img, (draw_x, draw_y))
@@ -294,6 +297,7 @@ class SceneRenderer:
                 
             self.current_frame = (self.current_frame + 1) % self.fps
 
+            self.handle_mouse_pressed()
             self.handle_events()
             self.draw_scene()
             self.manager.update(time_delta)
@@ -307,7 +311,7 @@ class SceneRenderer:
             self.show_message("Town Hall is not placed.")
             return
         self.sim_on = not self.sim_on
-        self.start_button.set_text("Pause" if self.sim_on else "Start")
+        self.start_button.set_text("Pause Attack" if self.sim_on else "Start Attack")
 
     def handle_press_clear(self):
         for buildingID in list(self.scene.placed_buildings.keys()):
@@ -320,10 +324,11 @@ class SceneRenderer:
 
     def handle_press_erase(self):
         self.erase = not self.erase
-        self.erase_button.set_text("Erase" if not self.erase else "Cancel")
+        self.erase_button.set_text("Erase" if not self.erase else "Leave Erase")
 
-    def handle_press_reset(self):
-        pass
+    def handle_press_levels(self):
+        self.change_levels = not self.change_levels
+        self.levels_button.set_text("Change Level" if not self.change_levels else "Leave Change Level")
 
     def update_hover_tile(self, pos: Tuple[int, int]):
         if pos[0] in range(PADDING_SIZE, SCENE_WIDTH + PADDING_SIZE) and pos[1] in range(PADDING_SIZE, SCENE_HEIGHT + PADDING_SIZE):
@@ -340,6 +345,13 @@ class SceneRenderer:
                 else:
                     self.hovered_building = None
 
+    def handle_mouse_pressed(self):
+        if not self.mouse_pressed: return
+        if self.selected_card != -1:
+            self.place_building(self.selected_card)
+        if self.erase:
+            self.handle_click_hovered_building()
+
 
     def handle_click_hovered_building(self):
         if self.hovered_building is not None:
@@ -355,9 +367,9 @@ class SceneRenderer:
             else:
                 pos = self.hovered_building.position
                 buildingID = self.scene.map[pos[0], pos[1]]["building"]
-                self.show_level_selection(self.hovered_building.name, buildingID)
+                if self.change_levels:
+                    self.show_level_selection(self.hovered_building.name, buildingID)
             
-
     def handle_events(self):
         """ Handle user interactions like closing the window and UI events. """
         for event in pygame.event.get():
@@ -366,9 +378,10 @@ class SceneRenderer:
             elif event.type == pygame.MOUSEMOTION:
                 self.update_hover_tile(event.pos)
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                if self.selected_card != -1:
-                    self.place_building(self.selected_card)
+                self.mouse_pressed = True
                 self.handle_click_hovered_building()
+            elif event.type == pygame.MOUSEBUTTONUP:
+                self.mouse_pressed = False
 
             elif event.type == pygame.USEREVENT and event.user_type == pygame_gui.UI_SELECTION_LIST_NEW_SELECTION:
                 selected_level = event.text  # Example: "Level 3"
@@ -383,8 +396,8 @@ class SceneRenderer:
                     self.handle_press_erase()
                 elif event.ui_element == self.clear_button:
                     self.handle_press_clear()
-                elif event.ui_element == self.reset_button:
-                    self.handle_press_reset()
+                elif event.ui_element == self.levels_button:
+                    self.handle_press_levels()
                 else:
                     for idx, card in enumerate(self.building_cards):
                         if event.ui_element == card:

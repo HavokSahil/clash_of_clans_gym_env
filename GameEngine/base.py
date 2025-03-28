@@ -305,7 +305,7 @@ class SceneBase:
             self.remove_building(buildingID)
 
         # Transition all the left buildings
-        dead_troops = set()
+        dead_troops = dict()
         for buildingID, building in self.placed_buildings.items():
             assert(isinstance(building, BaseStructure))
             if (building.type == BaseStructure.CLASS_DEFENSE):
@@ -313,16 +313,22 @@ class SceneBase:
                 hit = building.transition(self.generate_troop_mask(), self.generate_troop_label())
                 if hit:
                     targeted_troop = building.current_target_troop_id
-                    troop = self.placed_troops[targeted_troop]
-                    assert(isinstance(troop, TroopBase))
-                    troop.current_hitpoint -= building.damage() * building.max_attack_timer / 3000
-                    if (troop.current_hitpoint <= 0):
-                        dead_troops.add(targeted_troop)
-                        building.revoke()
+                    if targeted_troop in self.placed_troops:
+                        troop = self.placed_troops[targeted_troop]
+                        assert(isinstance(troop, TroopBase))
+                        troop.current_hitpoint -= building.damage() * building.max_attack_timer / 3000
+                        if (troop.current_hitpoint <= 0):
+                            if targeted_troop in dead_troops:
+                                dead_troops[targeted_troop].append(buildingID)
+                            else:
+                                dead_troops[targeted_troop] = [buildingID]
     
-        for troopID in dead_troops:
-            print(dead_troops)
+        for troopID, buildingIDs in dead_troops.items():
+            troop = self.placed_troops[troopID]
             self.remove_troop(troopID)
+            for buildingID in buildingIDs:
+                building = self.placed_buildings[buildingID]
+                building.revoke()
 
 
     def __str__(self):
