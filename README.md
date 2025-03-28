@@ -1,5 +1,8 @@
 # Project: Clash of Clans Attack AI
 
+![output](https://github.com/user-attachments/assets/ff410b9a-4537-45ae-aaf0-df9721cc29d6)
+
+
 ## Overview:
 ---------
 Currently this is a simple Python-based scene visualization system built using Pygame. It allows placing and rendering structures (buildings) and units (troops) on a 2D grid-based map.
