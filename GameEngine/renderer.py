@@ -5,6 +5,7 @@ import pygame_gui
 from .base import SceneBase
 from .structures import *
 from .troops import *
+from typing import Tuple, Set
 
 TILE_SIZE = 20  # Each tile is 32x32 pixels
 PADDING_SIZE = SceneBase.BASE_PADDING * TILE_SIZE  # Padding space in pixels
@@ -47,6 +48,9 @@ class SceneRenderer:
         self.hovered_building_backup = None
         self.erase = False
         self.change_levels = False
+
+        self.is_deploying = False
+        self.deployable_troopID = set()
         
         # Initialize pygame_gui
         self.manager = pygame_gui.UIManager((WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -64,13 +68,19 @@ class SceneRenderer:
             container=self.troop_panel
         )
 
-        self.recruited_troop_scroll_container = pygame_gui.elements.UIScrollingContainer(
-            relative_rect=pygame.Rect((0, int(WINDOW_HEIGHT * 0.40)), (TROOP_PANEL_WIDTH, int(WINDOW_HEIGHT * 0.60))),
+        self.camp_capacity_label = pygame_gui.elements.UILabel(
+            relative_rect=pygame.Rect((10, int(WINDOW_HEIGHT * 0.45)), (300, 30)),
+            text=f"Camp Capacity: {self.scene.current_housed_space}/{self.scene.max_housing_space}",
             manager=self.manager,
             container=self.troop_panel
         )
 
-        
+        self.recruited_troop_scroll_container = pygame_gui.elements.UIScrollingContainer(
+            relative_rect=pygame.Rect((0, int(WINDOW_HEIGHT * 0.50)), (TROOP_PANEL_WIDTH, int(WINDOW_HEIGHT * 0.50))),
+            manager=self.manager,
+            container=self.troop_panel
+        )
+
         # Create scrolling container for sidebar
         self.sidebar_panel = pygame_gui.elements.UIPanel(
             relative_rect=pygame.Rect((SCENE_WIDTH, 0), (SIDEBAR_WIDTH, WINDOW_HEIGHT)),
@@ -120,9 +130,46 @@ class SceneRenderer:
         self.troop_cards = []
         self.populate_troop_sidebar()
 
+        self.recruit_cards = []
+        self.populate_recruited_troop_sidebar()
+
 
         # Adjust scrollable area based on content
         self.scroll_container.set_scrollable_area_dimensions((SIDEBAR_WIDTH, max(600, len(self.building_cards) * 60)))
+
+    def populate_recruited_troop_sidebar(self):
+
+        for card in self.recruit_cards:
+            card.panel.kill()  # Remove the entire panel
+        
+        self.recruit_cards.clear() 
+
+        y_offset = 10
+        group_map = dict()
+        for troopID, troop in self.scene.housed_troops.items():
+            group_tag = troop.name + str(troop.level)
+            if group_tag in group_map:
+                group_map[group_tag].add(troopID)
+            else:
+                group_map[group_tag] = {troopID}
+
+        for group_tag, troopIDs in group_map.items():
+            troop = self.scene.housed_troops[list(troopIDs)[0]]
+            card = ArmyCard(
+                troop_name=troop.name,
+                troop_level=troop.level,
+                troopIDs=troopIDs, 
+                position=(10, y_offset),
+                manager=self.manager,
+                container=self.recruited_troop_scroll_container,
+                deploy_callback=self.deploy_troop,
+                disband_callback=self.disband_troop)
+            self.recruit_cards.append(card)
+            y_offset += 60
+
+        self.recruited_troop_scroll_container.set_scrollable_area_dimensions(
+            (TROOP_PANEL_WIDTH, max(int(WINDOW_HEIGHT * 0.5), len(self.recruit_cards) * 60))
+        )
 
     def populate_troop_sidebar(self):
         """Generate troop cards in the troop panel."""
@@ -141,13 +188,35 @@ class SceneRenderer:
             y_offset += 60  # Space out cards
 
         # Adjust the scrollable area based on the number of troop cards
-        self.troop_scroll_container.set_scrollable_area_dimensions((TROOP_PANEL_WIDTH, max(600, len(self.troop_cards) * 60)))
+        self.troop_scroll_container.set_scrollable_area_dimensions((TROOP_PANEL_WIDTH, max(int(WINDOW_HEIGHT * 0.4), len(self.troop_cards) * 60)))
 
+    def recruit_troop(self, troop: TroopBase):
+        if self.scene.current_housed_space == self.scene.max_housing_space:
+            self.show_message("Camp is full.")
+            return
+        self.scene.recruit_troop(copy.deepcopy(troop))
+        self.camp_capacity_label.set_text(f"Camp Capacity: {self.scene.current_housed_space}/{self.scene.max_housing_space}")
+        self.populate_recruited_troop_sidebar()
 
-    def recruit_troop():
-        pass
+    def deploy_troop(self, troopIDs: Set[int]):
+        if self.is_deploying:
+            self.deployable_troopID = troopIDs
+            return
+
+        self.is_deploying = True
+        self.deployable_troopID = troopIDs
+        self.camp_capacity_label.set_text(f"Camp Capacity: {self.scene.current_housed_space}/{self.scene.max_housing_space}")
+        self.populate_recruited_troop_sidebar()
+
+    def disband_troop(self, troopID: int):
+        print("Disbanding troop", troopID)
+        self.scene.disband_troop(troopID)
+        self.camp_capacity_label.set_text(f"Camp Capacity: {self.scene.current_housed_space}/{self.scene.max_housing_space}")
+        self.populate_recruited_troop_sidebar()
+
 
     def populate_sidebar(self):
+        """Generate building cards in the sidebar."""
         y_offset = 10
         for building in self.scene.buildings.get_all():
             assert(isinstance(building, BaseStructure))
@@ -163,6 +232,7 @@ class SceneRenderer:
             self.building_cards.append(card)
             self.card_context[len(self.building_cards) - 1] = building
             y_offset += 60
+            
 
     def load_image(self, image_path, width=1, height=1):
         """ Load and scale images, caching them to optimize performance. """
@@ -250,6 +320,21 @@ class SceneRenderer:
                     pygame.draw.rect(self.screen, (0, 255, 0), (troop_x, troop_y - 2, (TILE_SIZE-2) * troop_health, 3))
 
                     self.screen.blit(img, (troop_x, troop_y))
+
+
+        # Draw hovered troop
+        if self.is_deploying:
+            print(self.deployable_troopID)
+            if len(self.deployable_troopID) != 0:
+                _troopID = list(self.deployable_troopID)[0]
+                if self.hover_pos[0] != -1 and self.hover_pos[1] != -1:
+                    draw_x = self.hover_pos[1] * TILE_SIZE + PADDING_SIZE
+                    draw_y = self.hover_pos[0] * TILE_SIZE + PADDING_SIZE
+                    troop = self.scene.housed_troops[_troopID]
+                    assert(isinstance(troop, TroopBase))
+                    img = self.load_image(troop.image_path)
+                    img = pygame.transform.scale(img, (TILE_SIZE, TILE_SIZE))
+                    self.screen.blit(img, (draw_x, draw_y))
 
 
         if self.grid_on and self.selected_card != -1:
@@ -417,12 +502,24 @@ class SceneRenderer:
                 else:
                     self.hovered_building = None
 
+    def handle_troop_deploy(self):
+        if len(self.deployable_troopID) == 0:
+            self.is_deploying = False
+        else:  
+            _troopID = self.deployable_troopID.pop()
+            print("Deploying troop: ", _troopID)
+            self.scene.place_troop(_troopID, self.hover_pos[0], self.hover_pos[1])
+        
+        self.populate_recruited_troop_sidebar()
+
     def handle_mouse_pressed(self):
         if not self.mouse_pressed: return
         if self.selected_card != -1:
             self.place_building(self.selected_card)
         if self.erase:
             self.handle_click_hovered_building()
+        if self.is_deploying:
+            self.handle_troop_deploy()
 
 
     def handle_click_hovered_building(self):
@@ -460,6 +557,15 @@ class SceneRenderer:
                 selected_buildingID = int(selected_level.split(":")[0])
                 level = int(selected_level.split(" ")[1])
                 self.scene.update_level(selected_buildingID, level)
+
+            # On Press escape key
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                self.is_deploying = False
+                self.deployable_troopID.clear()
+                self.erase = False
+                self.change_levels = False
+                self.selected_card = -1
+                self.grid_on = False
                     
             elif event.type == pygame.USEREVENT and event.user_type == pygame_gui.UI_BUTTON_PRESSED:
                 if event.ui_element == self.start_button:
@@ -476,6 +582,9 @@ class SceneRenderer:
                             self.handle_select_card(idx)
 
                     for idx, card in enumerate(self.troop_cards):
+                        card.handle_event(event)
+
+                    for idx, card in enumerate(self.recruit_cards):
                         card.handle_event(event)
 
             self.manager.process_events(event)
@@ -542,3 +651,50 @@ class TroopCard:
             self.level_change_callback(self.troop.level - 1)
         elif event.ui_element == self.recruit_button:
                 self.recruit_callback(self.troop)
+
+class ArmyCard:
+    def __init__(self, troop_name: str, troop_level: int, troopIDs: Set[int], position, manager, container, disband_callback, deploy_callback):
+        self.troop_name = troop_name
+        self.troop_level = troop_level
+        self.troopIDs = troopIDs
+        self.manager = manager
+        self.container = container
+        self.deploy_callback = deploy_callback
+        self.disband_callback = disband_callback
+
+        self.panel = pygame_gui.elements.UIPanel(
+            relative_rect=pygame.Rect(position, (290, 50)),
+            manager=manager,
+            container=container
+        )
+
+        # Troop name label
+        self.label = pygame_gui.elements.UILabel(
+            relative_rect=pygame.Rect((10, 10), (170, 30)),
+            text=f"{troop_name} (Lv {troop_level}) x{len(troopIDs)}",
+            manager=manager,
+            container=self.panel
+        )
+
+        # Place troop button
+        self.place_button = pygame_gui.elements.UIButton(
+            relative_rect=pygame.Rect((180, 10), (60, 30)),
+            text="Deploy",
+            manager=manager,
+            container=self.panel
+        )
+
+        # Remove troop button
+        self.remove_button = pygame_gui.elements.UIButton(
+            relative_rect=pygame.Rect((250, 10), (30, 30)),
+            text="X",
+            manager=manager,
+            container=self.panel
+        )
+
+    def handle_event(self, event):
+        """ Handle button clicks. """
+        if event.ui_element == self.place_button:
+            self.deploy_callback(self.troopIDs)
+        elif event.ui_element == self.remove_button:
+            self.disband_callback(self.troopIDs.pop())

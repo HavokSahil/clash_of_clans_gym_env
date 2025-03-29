@@ -38,10 +38,14 @@ class SceneBase:
         self.max_housing_space: int = 0
         self.current_housed_space: int = 0
 
+        self.housed_troops = dict() # {ID[int]: (object)}
+
         self.total_building_hitpoints: int = 0
         self.current_building_hitpoints: int = 0
 
         self.stars = 0
+
+        self.troopID_counter = 0
 
         self.load_scene_entity()
 
@@ -169,13 +173,40 @@ class SceneBase:
         return self.stars
     
 
-    def place_troop(self, troop: TroopBase, y: int, x: int):
+    def recruit_troop(self, troop: TroopBase):
+        if (self.current_housed_space + troop.housing_space) > self.max_housing_space:
+            print("WARNING: Housing space exceeded")
+            return
+        
+        self.housed_troops[self.troopID_counter] = troop
+        self.current_housed_space += troop.housing_space
+        self.troopID_counter += 1
+
+    def disband_troop(self, troopID: int):
+        if troopID not in self.housed_troops:
+            return
+        troop = self.housed_troops[troopID]
+        self.current_housed_space -= troop.housing_space
+        del self.housed_troops[troopID]
+        
+
+    def place_troop(self, _troopID: int, y: int, x: int):
         if not self.in_bounds(y, x):
             return False
-        _troopID = len(self.placed_troops.keys())
+        
+        if _troopID not in self.housed_troops:
+            return False
+        
+        if _troopID in self.placed_troops:
+            return False
+        
+        troop = self.housed_troops[_troopID]
         self.map[y, x]["troops"].add(_troopID)
         troop.current_position = (y, x)
+
         self.placed_troops[_troopID] = troop
+        self.disband_troop(_troopID)
+
         return True
     
     def destroy_building(self, buildingID: int):
@@ -314,7 +345,7 @@ class SceneBase:
         return all_mask
 
 
-    def remove_troop(self, troopID: int):
+    def kill_troop(self, troopID: int):
         if troopID not in self.placed_troops:
             return
         troop = self.placed_troops[troopID]
@@ -330,16 +361,14 @@ class SceneBase:
             print("WARNING: Town Hall not placed")
             return
 
-        placed_troops = self.placed_troops.copy().items()
-
         destroyed_buildings = set()
         targeted_buildings = dict()
 
         # Transition all the troops 
-        for troopID, troop in placed_troops:
+        for troopID, troop in self.placed_troops.items():
             y, x = troop.current_position
             self.map[y, x]["troops"].remove(troopID)
-
+            
             attack = troop.transition(self.generate_all_mask())
 
             current_target = troop.current_target

@@ -261,6 +261,7 @@ class TroopBase:
         self.move_toward_target()
         return False
     
+
     def find_path_with_wall(self, scene_mask: np.ndarray):
         start_y, start_x = self.current_position
         open_set = [(0, start_y, start_x)]
