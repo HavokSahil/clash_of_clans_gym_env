@@ -1,6 +1,7 @@
 from .structures import *
 from .troops import *
 import numpy as np
+import time
 
 class SceneBase:
 
@@ -43,12 +44,23 @@ class SceneBase:
         self.total_building_hitpoints: int = 0
         self.current_building_hitpoints: int = 0
 
+        self.start_time = -1
+        self.current_time = -1
+        self.total_time = 90   # in seconds
+
         self.stars = 0
 
         self.troopID_counter = 0
 
         self.load_scene_entity()
 
+    def get_elasped_time(self):
+        if self.current_time > self.start_time:
+            return self.current_time - self.start_time
+        return 0
+
+    def get_rem_time(self) -> int:
+        return self.total_time - int(self.get_elasped_time())
 
     def clear(self):
         self.placed_buildings.clear()
@@ -155,7 +167,11 @@ class SceneBase:
             return 0.0
         
     def should_sim_stop(self):
-        return self.stars == 3 or len(self.placed_troops.keys()) == 0
+        flag1 = self.stars == 3
+        flag2 = (len(self.housed_troops.keys()) + len(self.placed_troops.keys())) == 0
+        flag3 = self.get_rem_time() == 0
+
+        return flag1 or flag2 or flag3
     
 
     def can_place_building(self, y, x, width, height):
@@ -268,23 +284,45 @@ class SceneBase:
             self.total_building_hitpoints += building.max_hitpoints()
 
 
-    def generate_troop_mask(self) -> np.ndarray:
+    def generate_troop_mask(self, flying:bool = False) -> np.ndarray:
         troop_mask = np.zeros((SceneBase.BASE_HEIGHT, SceneBase.BASE_WIDTH), dtype=bool)
         for y in range(SceneBase.BASE_HEIGHT):
             for x in range(SceneBase.BASE_WIDTH):
                 troopID_set = self.map[y, x]["troops"]
-                troop_mask[y, x] = len(troopID_set) != 0
+                if len(troopID_set) == 0:
+                    troop_mask[y, x] = 0
+                else:
+                    for troopID in troopID_set:
+                        troop = self.placed_troops[troopID]
+                        if flying:
+                            if troop.is_flying:
+                                troop_mask[y, x] = 1
+                                break
+                        else:
+                            if not troop.is_flying:
+                                troop_mask[y, x] = 1
+                                break 
         return troop_mask
     
 
-    def generate_troop_label(self) -> np.ndarray:
+    def generate_troop_label(self, flying=False) -> np.ndarray:
         troop_label = np.zeros((SceneBase.BASE_HEIGHT, SceneBase.BASE_WIDTH), dtype=int)
         for y in range(SceneBase.BASE_HEIGHT):
             for x in range(SceneBase.BASE_WIDTH):
-                if (len(self.map[y, x]["troops"])):
-                    troop_label[y, x] = list(self.map[y, x]["troops"])[0]
-                else:
-                    troop_label[y, x] = -1
+                troop_label[y, x] = -1
+                troopID_set = self.map[y, x]["troops"]
+                if len(troopID_set) == 0:
+                    continue
+                for troopID in troopID_set:
+                    troop = self.placed_troops[troopID]
+                    if flying:
+                        if troop.is_flying:
+                            troop_label[y, x] = troopID
+                            break
+                    else:
+                        if not troop.is_flying:
+                            troop_label[y, x] = troopID
+                            break
         return troop_label
 
 
@@ -356,6 +394,9 @@ class SceneBase:
 
 
     def transition(self):
+
+        self.current_time = time.time()
+
         # Check if Townhall is placed
         if "Town Hall" not in self.placed_buildings_count:
             print("WARNING: Town Hall not placed")
@@ -368,7 +409,7 @@ class SceneBase:
         for troopID, troop in self.placed_troops.items():
             y, x = troop.current_position
             self.map[y, x]["troops"].remove(troopID)
-            
+
             attack = troop.transition(self.generate_all_mask())
 
             current_target = troop.current_target
@@ -414,20 +455,37 @@ class SceneBase:
                 troop.revoke()
             self.destroy_building(buildingID)
 
+        troop_mask_flying = self.generate_troop_mask(flying=True)
+        troop_mask_ground = self.generate_troop_mask(flying=False)
+        troop_mask = troop_mask_flying | troop_mask_ground
+
+        troop_label_flying = self.generate_troop_label(flying=True)
+        troop_label_ground = self.generate_troop_label(flying=False)
+        troop_label = np.maximum(troop_label_flying, troop_label_ground)
+
         # Transition all the left buildings
         dead_troops = dict()
         for buildingID, building in self.placed_buildings.items():
             assert(isinstance(building, BaseStructure))
             if (building.type == BaseStructure.CLASS_DEFENSE):
                 assert(isinstance(building, DefenseStructure))
-                hit = building.transition(self.generate_troop_mask(), self.generate_troop_label())
+                hit = None
+                if building.air_targets and not building.ground_targets:
+                    hit = building.transition(troop_mask_flying, troop_label_flying)
+                elif not building.air_targets and building.ground_targets:
+                    hit = building.transition(troop_mask_ground, troop_label_ground)
+                else:           
+                    hit = building.transition(troop_mask, troop_label)
+                    
+                assert(hit is not None)
+
                 if hit:
                     targeted_troop = building.current_target_troop_id
                     if targeted_troop in self.placed_troops:
                         troop = self.placed_troops[targeted_troop]
                         assert(isinstance(troop, TroopBase))
                         troop.current_hitpoint = troop.current_hitpoint - building.damage() * building.max_attack_timer / 3000
-                        if (troop.current_hitpoint == 0):
+                        if (troop.current_hitpoint <= 0):
                             if targeted_troop in dead_troops:
                                 dead_troops[targeted_troop].append(buildingID)
                             else:
@@ -435,7 +493,7 @@ class SceneBase:
     
         for troopID, buildingIDs in dead_troops.items():
             troop = self.placed_troops[troopID]
-            self.remove_troop(troopID)
+            self.kill_troop(troopID)
             for buildingID in buildingIDs:
                 building = self.placed_buildings[buildingID]
                 building.revoke()

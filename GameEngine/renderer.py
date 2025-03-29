@@ -1,3 +1,4 @@
+import time
 import math
 import copy
 import pygame
@@ -199,10 +200,11 @@ class SceneRenderer:
         self.populate_recruited_troop_sidebar()
 
     def deploy_troop(self, troopIDs: Set[int]):
-        if self.is_deploying:
-            self.deployable_troopID = troopIDs
+        if self.is_deploying and self.deployable_troopID == troopIDs:
+            self.is_deploying = False
+            self.deployable_troopID.clear()
             return
-
+        
         self.is_deploying = True
         self.deployable_troopID = troopIDs
         self.camp_capacity_label.set_text(f"Camp Capacity: {self.scene.current_housed_space}/{self.scene.max_housing_space}")
@@ -384,6 +386,11 @@ class SceneRenderer:
             else:
                 self.screen.blit(star_vacant, (x, y))
 
+        # Draw the time
+        font = pygame.font.Font(None, 32)
+        text = font.render(f"Time Rem: {self.scene.get_rem_time()}", True, TEXT_COLOR)
+        self.screen.blit(text, (SCENE_WIDTH//2 + 200, 10))
+
     def handle_select_card(self, card_index: int):
         if self.selected_card == card_index:
             self.selected_card = -1
@@ -469,6 +476,7 @@ class SceneRenderer:
             self.show_message("Town Hall is not placed.")
             return
         self.sim_on = not self.sim_on
+        self.scene.start_time = time.time()
         self.start_button.set_text("Pause Attack" if self.sim_on else "Start Attack")
 
     def handle_press_clear(self):
