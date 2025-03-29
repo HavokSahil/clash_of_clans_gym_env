@@ -30,3 +30,6 @@ PATH_IMAGE_ARCHER_TOWER     = "res/defenses/images/archer_tower"
 PATH_IMAGE_MORTAR           = "res/defenses/images/mortar"
 PATH_IMAGE_AIR_DEFENSE      = "res/defenses/images/air_defense"
 PATH_IMAGE_WIZARD_TOWER     = "res/defenses/images/wizard_tower"
+
+PATH_PNG_STAR_VACANT = "res/images/star_vacant.png"
+PATH_PNG_STAR_FILLED = "res/images/star_filled.png"

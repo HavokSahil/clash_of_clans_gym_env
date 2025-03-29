@@ -148,6 +148,9 @@ class BaseStructure:
     def get_health(self) -> float:
         return self.current_hitpoint / self.hitpoints[self.level - 1]
 
+    def max_hitpoints(self) -> int:
+        return self.hitpoints[self.level - 1]
+
     def __str__(self):
         return f"""Building:
     name: {self.name}

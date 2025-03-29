@@ -1,3 +1,4 @@
+import random
 import math
 from .constants import *
 import json
@@ -260,6 +261,7 @@ class TroopBase:
         self.move_toward_target()
         return False
     
+
     def find_path_with_wall(self, scene_mask: np.ndarray):
         start_y, start_x = self.current_position
         open_set = [(0, start_y, start_x)]
@@ -277,7 +279,9 @@ class TroopBase:
                 self.target_wall = (y, x)
                 break
             
-            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]:
+            neibs = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
+            random.shuffle(neibs)
+            for dx, dy in neibs:
                 nx, ny = x + dx, y + dy
                 if 0 <= nx < scene_mask.shape[1] and 0 <= ny < scene_mask.shape[0]:
                     cost = g_score[(y, x)] + 1
@@ -298,7 +302,7 @@ class TroopBase:
             self.path.append(current)
 
     @staticmethod   
-    def octile_distance(start, goal, D=1, D2=math.sqrt(2)):
+    def octile_distance(start, goal, D=1, D2=math.sqrt(1)):
         dx = abs(start[0] - goal[0])
         dy = abs(start[1] - goal[1])
         return D * max(dx, dy) + (D2 - D) * min(dx, dy)
@@ -317,7 +321,9 @@ class TroopBase:
             if self.current_target == (y, x):
                 break
             
-            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]:
+            neibs = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
+            random.shuffle(neibs)
+            for dx, dy in neibs:
                 nx, ny = x + dx, y + dy
                 if 0 <= nx < scene_mask.shape[1] and 0 <= ny < scene_mask.shape[0]:
                     cost = g_score[(y, x)] + 1
@@ -476,6 +482,17 @@ class AllTroops:
             return self.wizard
         else:
             return None
+        
+    def all_troops(self) -> List[TroopBase]:
+        return [
+            self.barbarian,
+            self.archer,
+            self.giant,
+            self.goblin,
+            self.wall_breaker,
+            self.balloon,
+            self.wizard
+        ]
 
     def __str__(self):
         return f"""All Troops:
@@ -503,19 +520,4 @@ class AllTroops:
         self.goblin.level = data["Goblin"]["level"]
         self.wall_breaker.level = data["Wall Breaker"]["level"]
         self.balloon.level = data["Balloon"]["level"]
-
-if __name__ == "__main__":
-    barbarian = Barbarian(Barbarian.LEVEL3)
-    archer = Archer(Archer.LEVEL1)
-    giant = Giant(Giant.LEVEL6)
-    wall_breaker = WallBreaker(WallBreaker.LEVEL1)
-    balloon = Balloon(Balloon.LEVEL5)
-
-    print(
-        barbarian,
-        archer,
-        giant,
-        wall_breaker,
-        balloon,
-        sep='\n')
 
