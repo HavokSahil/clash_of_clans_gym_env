@@ -1,6 +1,7 @@
 # Project: Clash of Clans Attack AI
 
-![output](https://github.com/user-attachments/assets/ff410b9a-4537-45ae-aaf0-df9721cc29d6)
+![output](https://github.com/user-attachments/assets/d5c0f638-57c8-4115-8661-724b5849f4f9)
+
 
 
 ## Overview:
