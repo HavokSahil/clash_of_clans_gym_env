@@ -11,8 +11,9 @@ PADDING_SIZE = SceneBase.BASE_PADDING * TILE_SIZE  # Padding space in pixels
 SCENE_WIDTH = SceneBase.BASE_WIDTH * TILE_SIZE + 2 * PADDING_SIZE
 SCENE_HEIGHT = SceneBase.BASE_HEIGHT * TILE_SIZE + 2 * PADDING_SIZE
 SIDEBAR_WIDTH = 300  # Sidebar width for UI
+TROOP_PANEL_WIDTH = 320  # panel for troops
 
-WINDOW_WIDTH = SCENE_WIDTH + SIDEBAR_WIDTH
+WINDOW_WIDTH = SCENE_WIDTH + SIDEBAR_WIDTH + TROOP_PANEL_WIDTH 
 WINDOW_HEIGHT = SCENE_HEIGHT
 
 GRASS_GREEN = (34, 139, 34)
@@ -23,7 +24,7 @@ TEXT_COLOR = (255, 255, 255)
 class SceneRenderer:
     def __init__(self, scene: SceneBase):
         pygame.init()
-        pygame.display.set_caption("Scene Visualizer")
+        pygame.display.set_caption("Clash of Gargs")
         
         self.scene = scene
         self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -49,7 +50,26 @@ class SceneRenderer:
         
         # Initialize pygame_gui
         self.manager = pygame_gui.UIManager((WINDOW_WIDTH, WINDOW_HEIGHT))
-        self.manager.set_visual_debug_mode(True)
+
+        # Create a panel for troop cards (separate from buildings)
+        self.troop_panel = pygame_gui.elements.UIPanel(
+            relative_rect=pygame.Rect((SCENE_WIDTH + SIDEBAR_WIDTH, 0), (TROOP_PANEL_WIDTH, WINDOW_HEIGHT)),
+            manager=self.manager,
+            
+        )
+
+        self.troop_scroll_container = pygame_gui.elements.UIScrollingContainer(
+            relative_rect=pygame.Rect((0, 0), (TROOP_PANEL_WIDTH, int(WINDOW_HEIGHT * 0.40))),
+            manager=self.manager,
+            container=self.troop_panel
+        )
+
+        self.recruited_troop_scroll_container = pygame_gui.elements.UIScrollingContainer(
+            relative_rect=pygame.Rect((0, int(WINDOW_HEIGHT * 0.40)), (TROOP_PANEL_WIDTH, int(WINDOW_HEIGHT * 0.60))),
+            manager=self.manager,
+            container=self.troop_panel
+        )
+
         
         # Create scrolling container for sidebar
         self.sidebar_panel = pygame_gui.elements.UIPanel(
@@ -97,8 +117,35 @@ class SceneRenderer:
         self.card_context = {}
         self.populate_sidebar()
 
+        self.troop_cards = []
+        self.populate_troop_sidebar()
+
+
         # Adjust scrollable area based on content
         self.scroll_container.set_scrollable_area_dimensions((SIDEBAR_WIDTH, max(600, len(self.building_cards) * 60)))
+
+    def populate_troop_sidebar(self):
+        """Generate troop cards in the troop panel."""
+        y_offset = 10  # Start placing from the top
+
+        for troop in self.scene.troops.all_troops():
+            troop_card = TroopCard(
+                troop=troop,
+                max_level=self.scene.troops_max_level[troop.name],
+                position=(10, y_offset),
+                manager=self.manager,
+                container=self.troop_scroll_container,
+                recruit_callback=self.recruit_troop,
+            )
+            self.troop_cards.append(troop_card)
+            y_offset += 60  # Space out cards
+
+        # Adjust the scrollable area based on the number of troop cards
+        self.troop_scroll_container.set_scrollable_area_dimensions((TROOP_PANEL_WIDTH, max(600, len(self.troop_cards) * 60)))
+
+
+    def recruit_troop():
+        pass
 
     def populate_sidebar(self):
         y_offset = 10
@@ -229,6 +276,29 @@ class SceneRenderer:
                 img = self.load_image(building.get_image_path(), building.width, building.height)
                 self.screen.blit(img, (x, y))
 
+        # Draw the Damage percentage
+        font = pygame.font.Font(None, 36)
+        text = font.render(f"Damage: {round(self.scene.get_damage_percentage(), 2)}%", True, TEXT_COLOR)
+        self.screen.blit(text, (10, 10))
+
+        # Draw stars
+        path_star_vacant = PATH_PNG_STAR_VACANT
+        path_star_filled = PATH_PNG_STAR_FILLED
+
+        star_vacant = pygame.image.load(path_star_vacant).convert_alpha()
+        star_filled = pygame.image.load(path_star_filled).convert_alpha()
+
+        star_vacant = pygame.transform.scale(star_vacant, (30, 30))
+        star_filled = pygame.transform.scale(star_filled, (30, 30))
+
+        for i in range(3):
+            x = SCENE_WIDTH//2 + i * 40 - 60
+            y = 5
+            if i < self.scene.get_stars():
+                self.screen.blit(star_filled, (x, y))
+            else:
+                self.screen.blit(star_vacant, (x, y))
+
     def handle_select_card(self, card_index: int):
         if self.selected_card == card_index:
             self.selected_card = -1
@@ -294,6 +364,9 @@ class SceneRenderer:
             
             if self.sim_on:
                 self.scene.transition()
+                if self.scene.should_sim_stop():
+                    self.handle_press_start()
+                    self.show_message("Game has ended.")
                 
             self.current_frame = (self.current_frame + 1) % self.fps
 
@@ -314,8 +387,7 @@ class SceneRenderer:
         self.start_button.set_text("Pause Attack" if self.sim_on else "Start Attack")
 
     def handle_press_clear(self):
-        for buildingID in list(self.scene.placed_buildings.keys()):
-            self.scene.remove_building(buildingID)
+        self.scene.clear()
 
         self.building_cards.clear()
         self.card_context.clear()
@@ -386,8 +458,8 @@ class SceneRenderer:
             elif event.type == pygame.USEREVENT and event.user_type == pygame_gui.UI_SELECTION_LIST_NEW_SELECTION:
                 selected_level = event.text  # Example: "Level 3"
                 selected_buildingID = int(selected_level.split(":")[0])
-                building = self.scene.placed_buildings[selected_buildingID]
-                building.set_level(int(selected_level.split(" ")[1]))
+                level = int(selected_level.split(" ")[1])
+                self.scene.update_level(selected_buildingID, level)
                     
             elif event.type == pygame.USEREVENT and event.user_type == pygame_gui.UI_BUTTON_PRESSED:
                 if event.ui_element == self.start_button:
@@ -402,4 +474,71 @@ class SceneRenderer:
                     for idx, card in enumerate(self.building_cards):
                         if event.ui_element == card:
                             self.handle_select_card(idx)
+
+                    for idx, card in enumerate(self.troop_cards):
+                        card.handle_event(event)
+
             self.manager.process_events(event)
+
+
+class TroopCard:
+    def __init__(self, troop: TroopBase, max_level: int, position, manager, container, recruit_callback):
+        self.troop = troop
+        self.max_level = max_level
+        self.manager = manager
+        self.container = container
+        self.recruit_callback = recruit_callback
+
+        self.panel = pygame_gui.elements.UIPanel(
+            relative_rect=pygame.Rect(position, (280, 50)),
+            manager=manager,
+            container=container
+        )
+
+        # Troop name label
+        self.label = pygame_gui.elements.UILabel(
+            relative_rect=pygame.Rect((10, 10), (100, 30)),
+            text=f"{troop.name} (Lv {troop.level})",
+            manager=manager,
+            container=self.panel
+        )
+
+        # Decrease level button
+        self.decrease_button = pygame_gui.elements.UIButton(
+            relative_rect=pygame.Rect((120, 10), (30, 30)),
+            text="-",
+            manager=manager,
+            container=self.panel
+        )
+
+        # Increase level button
+        self.increase_button = pygame_gui.elements.UIButton(
+            relative_rect=pygame.Rect((160, 10), (30, 30)),
+            text="+",
+            manager=manager,
+            container=self.panel
+        )
+
+        # Recruit troop button
+        self.recruit_button = pygame_gui.elements.UIButton(
+            relative_rect=pygame.Rect((200, 10), (50, 30)),
+            text="Train",
+            manager=manager,
+            container=self.panel
+        )
+
+    def level_change_callback(self, level):
+        if 1 <= level <= self.max_level:
+            self.troop.set_level(level)
+            self.label.set_text(f"{self.troop.name} (Lv {level})")
+
+    def handle_event(self, event):
+        """ Handle button clicks. """
+        if event.ui_element == self.increase_button:
+            self.label.set_text(f"{self.troop.name} (Lv {self.troop.level})")
+            self.level_change_callback(self.troop.level + 1)
+        elif event.ui_element == self.decrease_button and self.troop.level > 1:
+            self.label.set_text(f"{self.troop.name} (Lv {self.troop.level})")
+            self.level_change_callback(self.troop.level - 1)
+        elif event.ui_element == self.recruit_button:
+                self.recruit_callback(self.troop)

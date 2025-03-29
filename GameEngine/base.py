@@ -38,6 +38,27 @@ class SceneBase:
         self.max_housing_space: int = 0
         self.current_housed_space: int = 0
 
+        self.total_building_hitpoints: int = 0
+        self.current_building_hitpoints: int = 0
+
+        self.stars = 0
+
+        self.load_scene_entity()
+
+
+    def clear(self):
+        self.placed_buildings.clear()
+        self.placed_troops.clear()
+        self.building_positions.clear()
+        self.placed_buildings_count.clear()
+        self.total_building_hitpoints = 0
+        self.current_building_hitpoints = 0
+        self.stars = 0
+
+        for y in range(SceneBase.BASE_HEIGHT):
+            for x in range(SceneBase.BASE_WIDTH):
+                self.map[y, x] = {"building": -1, "troops": set()}
+        
         self.load_scene_entity()
 
 
@@ -118,7 +139,19 @@ class SceneBase:
         building.position = (y, x)
         self.placed_buildings[_buildingID] = building
         self.placed_buildings_count[building.name] += 1
+        if building.type != BaseStructure.CLASS_WALL:
+            self.total_building_hitpoints += building.current_hitpoint
+            self.current_building_hitpoints += building.current_hitpoint
         return True
+    
+    def get_damage_percentage(self):
+        if self.total_building_hitpoints > 0:
+            return 100.0 - round(self.current_building_hitpoints * 100 / self.total_building_hitpoints, 2)
+        else:
+            return 0.0
+        
+    def should_sim_stop(self):
+        return self.stars == 3 or len(self.placed_troops.keys()) == 0
     
 
     def can_place_building(self, y, x, width, height):
@@ -132,6 +165,9 @@ class SceneBase:
                     return False
         return True
     
+    def get_stars(self):
+        return self.stars
+    
 
     def place_troop(self, troop: TroopBase, y: int, x: int):
         if not self.in_bounds(y, x):
@@ -142,7 +178,33 @@ class SceneBase:
         self.placed_troops[_troopID] = troop
         return True
     
+    def destroy_building(self, buildingID: int):
+        if buildingID not in self.placed_buildings:
+            return
+        for y, x in self.building_positions[buildingID]:
+            self.map[y, x]["building"] = -1
 
+        building = self.placed_buildings[buildingID]
+
+        if building.name == "Town Hall":
+            self.stars += 1
+
+        prev_damage_percentage = self.get_damage_percentage()
+
+        self.placed_buildings_count[building.name] -= 1
+        if building.type != BaseStructure.CLASS_WALL:
+            self.current_building_hitpoints -= building.max_hitpoints()
+
+        if self.get_damage_percentage() >= 50.0 and prev_damage_percentage < 50.0:
+            self.stars += 1
+
+        if self.get_damage_percentage() == 100.0:
+            self.stars = 3
+            
+        del building
+        del self.building_positions[buildingID]
+        del self.placed_buildings[buildingID]
+    
     def remove_building(self, buildingID: int):
         if buildingID not in self.placed_buildings:
             return
@@ -151,8 +213,28 @@ class SceneBase:
 
         building = self.placed_buildings[buildingID]
         self.placed_buildings_count[building.name] -= 1
+        if building.type != BaseStructure.CLASS_WALL:
+            self.current_building_hitpoints -= building.max_hitpoints()
+            self.total_building_hitpoints -= building.max_hitpoints()
+        
+        del building
         del self.building_positions[buildingID]
         del self.placed_buildings[buildingID]
+
+    
+    def update_level(self, buildingID: int, level: int):
+        if buildingID not in self.placed_buildings:
+            return
+        building = self.placed_buildings[buildingID]
+        prev_hitpoint  = building.max_hitpoints()
+        building.set_level(level)
+
+        if building.type != BaseStructure.CLASS_WALL:
+            self.current_building_hitpoints -= prev_hitpoint
+            self.total_building_hitpoints -= prev_hitpoint
+
+            self.current_building_hitpoints += building.max_hitpoints()
+            self.total_building_hitpoints += building.max_hitpoints()
 
 
     def generate_troop_mask(self) -> np.ndarray:
@@ -288,7 +370,6 @@ class SceneBase:
                         if building.current_hitpoint <= 0:
                             destroyed_buildings.add(_wallID)
                         
-
                     elif _buildingID != -1:
                         building = self.placed_buildings[_buildingID]
                         building.current_hitpoint -=  attack * troop.attack_damage() * troop.max_attack_timer/3000
@@ -302,7 +383,7 @@ class SceneBase:
         for buildingID in destroyed_buildings:
             for troop in targeted_buildings[buildingID]:
                 troop.revoke()
-            self.remove_building(buildingID)
+            self.destroy_building(buildingID)
 
         # Transition all the left buildings
         dead_troops = dict()
@@ -316,8 +397,8 @@ class SceneBase:
                     if targeted_troop in self.placed_troops:
                         troop = self.placed_troops[targeted_troop]
                         assert(isinstance(troop, TroopBase))
-                        troop.current_hitpoint -= building.damage() * building.max_attack_timer / 3000
-                        if (troop.current_hitpoint <= 0):
+                        troop.current_hitpoint = troop.current_hitpoint - building.damage() * building.max_attack_timer / 3000
+                        if (troop.current_hitpoint == 0):
                             if targeted_troop in dead_troops:
                                 dead_troops[targeted_troop].append(buildingID)
                             else:
