@@ -20,7 +20,7 @@ WINDOW_HEIGHT = SCENE_HEIGHT
 
 GRASS_GREEN = (34, 139, 34)
 DARK_GREEN = (0, 100, 0)
-SIDEBAR_COLOR = (50, 50, 50)
+SIDEBAR_COLOR = (0, 0, 0)
 TEXT_COLOR = (255, 255, 255)
 
 class SceneRenderer:
@@ -211,7 +211,6 @@ class SceneRenderer:
         self.populate_recruited_troop_sidebar()
 
     def disband_troop(self, troopID: int):
-        print("Disbanding troop", troopID)
         self.scene.disband_troop(troopID)
         self.camp_capacity_label.set_text(f"Camp Capacity: {self.scene.current_housed_space}/{self.scene.max_housing_space}")
         self.populate_recruited_troop_sidebar()
@@ -326,7 +325,6 @@ class SceneRenderer:
 
         # Draw hovered troop
         if self.is_deploying:
-            print(self.deployable_troopID)
             if len(self.deployable_troopID) != 0:
                 _troopID = list(self.deployable_troopID)[0]
                 if self.hover_pos[0] != -1 and self.hover_pos[1] != -1:
@@ -515,7 +513,6 @@ class SceneRenderer:
             self.is_deploying = False
         else:  
             _troopID = self.deployable_troopID.pop()
-            print("Deploying troop: ", _troopID)
             self.scene.place_troop(_troopID, self.hover_pos[0], self.hover_pos[1])
         
         self.populate_recruited_troop_sidebar()

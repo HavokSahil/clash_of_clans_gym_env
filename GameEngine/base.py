@@ -303,7 +303,6 @@ class SceneBase:
                                 troop_mask[y, x] = 1
                                 break 
         return troop_mask
-    
 
     def generate_troop_label(self, flying=False) -> np.ndarray:
         troop_label = np.zeros((SceneBase.BASE_HEIGHT, SceneBase.BASE_WIDTH), dtype=int)
@@ -325,7 +324,6 @@ class SceneBase:
                             break
         return troop_label
 
-
     def generate_wall_mask(self) -> np.ndarray:
         wall_mask = np.zeros((SceneBase.BASE_HEIGHT, SceneBase.BASE_WIDTH), dtype=bool)
         for y in range(SceneBase.BASE_HEIGHT):
@@ -337,7 +335,6 @@ class SceneBase:
                         wall_mask[y, x] = True
         return wall_mask
     
-
     def generate_resource_mask(self) -> np.ndarray:
         resource_mask = np.zeros((SceneBase.BASE_HEIGHT, SceneBase.BASE_WIDTH), dtype=bool)
         for y in range(SceneBase.BASE_HEIGHT):
