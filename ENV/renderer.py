@@ -63,8 +63,9 @@ class WarzoneRenderer:
             return
 
         # Draw the health bar
-        pygame.draw.rect(self.screen, (255, 0, 0), (draw_x + 4, draw_y - 2, TILE_SIZE * buildingObject.width - 8, 3))
-        pygame.draw.rect(self.screen, (0, 255, 0), (draw_x + 4, draw_y - 2, (TILE_SIZE * buildingObject.width - 8) * health, 3))
+        if health < 1:
+            pygame.draw.rect(self.screen, (255, 0, 0), (draw_x + 4, draw_y - 2, TILE_SIZE * buildingObject.width - 8, 3))
+            pygame.draw.rect(self.screen, (0, 255, 0), (draw_x + 4, draw_y - 2, (TILE_SIZE * buildingObject.width - 8) * health, 3))
 
         img = self.loadImage(buildingObject.getImagePath(), buildingObject.width, buildingObject.height)
         self.screen.blit(img, (draw_x, draw_y))
@@ -98,6 +99,9 @@ class WarzoneRenderer:
         pygame.draw.rect(self.screen, (0, 255, 0), (pos_x, pos_y - 2, (TILE_SIZE-2) * health, 3))
 
         self.screen.blit(img, (pos_x, pos_y))
+    
+    def clean():
+        pygame.quit()
 
     def render(self, baseSpace: np.ndarray, troopSpace: np.ndarray, deckSpace: np.ndarray, townhall_level: int):
         self.screen.fill(DARK_GREEN)
@@ -126,6 +130,5 @@ class WarzoneRenderer:
                 pygame.quit()
                 exit()
 
-        # pygame.time.delay(100)
         pygame.display.update()
                 

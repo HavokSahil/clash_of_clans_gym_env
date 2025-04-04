@@ -142,7 +142,7 @@ class Barbarian(TroopBase):
         self.hp = self.ATTR_MAP[level]["hp"]
         self.remHp = self.hp
         self.atkSpeed = int(1000/MILISECONDS_PER_FRAME)
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.atkRange = 0.4
         self.movSpeed = 2 * MILISECONDS_PER_FRAME / 1000
         self.airTarget = False
@@ -183,7 +183,7 @@ class Archer(TroopBase):
         self.preference = self.PREFER_GENERAL
         self.remHp = self.hp
         self.atkSpeed = int(1000/MILISECONDS_PER_FRAME)
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.atkRange = 3.5
         self.movSpeed = 3 * MILISECONDS_PER_FRAME / 1000
         self.airTarget = True
@@ -223,7 +223,7 @@ class Giant(TroopBase):
             self.hp = self.ATTR_MAP[level]["hp"]
             self.remHp = self.hp
             self.atkSpeed = int(2000/MILISECONDS_PER_FRAME)
-            self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+            self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
             self.atkRange = 0.1
             self.movSpeed = 1.5 * MILISECONDS_PER_FRAME / 1000
             self.airTarget = False
@@ -263,7 +263,7 @@ class Goblin(TroopBase):
         self.hp = self.ATTR_MAP[level]["hp"]
         self.remHp = self.hp
         self.atkSpeed = int(1000/MILISECONDS_PER_FRAME)
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.atkRange = 0.4
         self.movSpeed = 4 * MILISECONDS_PER_FRAME / 1000
         self.airTarget = False
@@ -303,7 +303,7 @@ class WallBreaker(TroopBase):
         self.hp = self.ATTR_MAP[level]["hp"]
         self.remHp = self.hp
         self.atkSpeed = int(1000/MILISECONDS_PER_FRAME)
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.atkRange = 0.5
         self.movSpeed = 3 * MILISECONDS_PER_FRAME / 1000
         self.airTarget = False
@@ -343,7 +343,7 @@ class Balloon(TroopBase):
         self.hp = self.ATTR_MAP[level]["hp"]
         self.remHp = self.hp
         self.atkSpeed = int(3000 / MILISECONDS_PER_FRAME)
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.atkRange = 0
         self.movSpeed = 1.3 * MILISECONDS_PER_FRAME / 1000
         self.airTarget = False
@@ -383,7 +383,7 @@ class Wizard(TroopBase):
         self.preference = self.PREFER_GENERAL
         self.remHp = self.hp
         self.atkSpeed = 1500/MILISECONDS_PER_FRAME
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.atkRange = 3
         self.movSpeed = 2 * MILISECONDS_PER_FRAME / 1000
         self.airTarget = True

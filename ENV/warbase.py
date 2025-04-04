@@ -405,11 +405,11 @@ class Base:
         locations = Base.get_building_location(baseState, buildingID)
         damage = point
         dead = False
+        y_, x_ = locations[0][0], locations[1][0]
         for y, x in zip(locations[0], locations[1]):
-            dead = point > baseState[y, x, Base.GRID_MAPPING["building_remaining_hp"]]
             damage = min(point, baseState[y, x, Base.GRID_MAPPING["building_remaining_hp"]])
-            baseState[y, x, Base.GRID_MAPPING["building_remaining_hp"]] = max(0, baseState[y, x, Base.GRID_MAPPING["building_remaining_hp"]] - point)
-        return dead, damage
+            baseState[y, x, Base.GRID_MAPPING["building_remaining_hp"]] -= damage
+        return baseState[y_, x_, Base.GRID_MAPPING["building_remaining_hp"]]==0, point
 
     @staticmethod
     def get_undestroyed_building_ids(baseState: np.ndarray) -> np.ndarray:
@@ -432,8 +432,8 @@ class Base:
     def building_attempts_attack(baseState: np.ndarray, troopSpace: np.ndarray, buildingID: int, targetId: int = None, buildingPositions = None) -> bool:
         from deck import Deck
 
-        # TODO:
-        # Write the attack speed logic attack
+        # TODO: Debug the attack speed logic
+
         if targetId is None:
             targetId = Base.get_building_target_troop_ID(baseState, buildingID)
         if targetId == -1:

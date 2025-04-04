@@ -276,7 +276,7 @@ class Cannon(DefenseBuilding):
         self.hp = self.ATTR_MAP[level]['hp']
         self.remHp = self.hp
         self.atkSpeed = int(800/MILISECONDS_PER_FRAME)
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.airTarget = False
         self.grndTarget = True
         self.height = 3
@@ -318,8 +318,8 @@ class ArcherTower(DefenseBuilding):
         super().__init__('ArcherTower', level)
         self.hp = self.ATTR_MAP[level]['hp']
         self.remHp = self.hp
-        self.atkSpeed = 500/MILISECONDS_PER_FRAME
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.atkSpeed = int(500/MILISECONDS_PER_FRAME)
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.airTarget = True
         self.grndTarget = True
         self.height = 3
@@ -361,7 +361,7 @@ class Mortar(DefenseBuilding):
         super().__init__('Mortar', level)
         self.hp = self.ATTR_MAP[level]['hp']
         self.remHp = self.hp
-        self.atkSpeed = 5000/MILISECONDS_PER_FRAME
+        self.atkSpeed = int(5000/MILISECONDS_PER_FRAME)
         self.dph = self.ATTR_MAP[level]['dps'] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.airTarget = False
         self.grndTarget = True
@@ -405,8 +405,8 @@ class AirDefense(DefenseBuilding):
         super().__init__('AirDefense', level)
         self.hp = self.ATTR_MAP[level]['hp']
         self.remHp = self.hp
-        self.atkSpeed = 1000/MILISECONDS_PER_FRAME
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.atkSpeed = int(1000/MILISECONDS_PER_FRAME)
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.airTarget = True
         self.grndTarget = False
         self.height = 3
@@ -448,8 +448,8 @@ class WizardTower(DefenseBuilding):
         super().__init__('WizardTower', level)
         self.hp = self.ATTR_MAP[level]['hp']
         self.remHp = self.hp
-        self.atkSpeed = 1700/MILISECONDS_PER_FRAME
-        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 10e+3
+        self.atkSpeed = int(1700/MILISECONDS_PER_FRAME)
+        self.dph = self.ATTR_MAP[level]["dps"] * self.atkSpeed * MILISECONDS_PER_FRAME / 1e+3
         self.airTarget = True
         self.grndTarget = True
         self.height = 3

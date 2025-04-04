@@ -10,7 +10,7 @@ from gymnasium import spaces
 import numpy as np
 
 class WarzoneEnv(gym.Env):
-    def __init__(self, townHallLevel=1, base: Base = None, deck: Deck = None):
+    def __init__(self, townHallLevel=1, base: Base = None, deck: Deck = None, is_rendering: bool = True):
         super(WarzoneEnv, self).__init__()
         
         assert base is not None
@@ -21,7 +21,8 @@ class WarzoneEnv(gym.Env):
 
         self.townHallLevel = townHallLevel
 
-        self.renderer = WarzoneRenderer()
+        self.is_rendering = is_rendering
+        self.renderer = WarzoneRenderer() if self.is_rendering else None
 
         self.warzone = Warzone(
             baseSpace=self.base.getStateSpace(),
@@ -42,6 +43,17 @@ class WarzoneEnv(gym.Env):
         self.total_reward = 0
         self.steps = 0
         self.maxSteps = 900
+
+    def switch_render(self, flag):
+        if flag:
+            self.renderer = WarzoneRenderer()
+            self.is_rendering = True
+            return
+        
+        self.renderer.clean()
+        self.renderer = None
+        self.is_rendering = False
+        
  
     def reset(self, seed=None, options=None):
         """ Resets the environment for a new episode. """
@@ -74,17 +86,14 @@ class WarzoneEnv(gym.Env):
         `action` is a tuple (y, x, troop_category)
         """
         y, x, deckID = action
-        if deckID < len(self.deck.get_deck_member_ids(self.warzone.deckSpace)):
-            self.warzone.deploy_troop(deckID, position=(y, x))
-        
+        self.warzone.deploy_troop(deckID, position=(y, x))
         self.warzone.update()
+
         reward = self.compute_reward()
         done = self.is_done()
-        
+
         self.steps += 1
-        # if self.steps >= self.maxSteps:
-        #     done = True
-        
+
         return {
             "base": self.warzone.baseSpace,
             "troops": self.warzone.troopSpace,
@@ -93,14 +102,7 @@ class WarzoneEnv(gym.Env):
     
     def compute_reward(self):
         """ Computes reward based on damage dealt and buildings destroyed. """
-        # damage_dealt = self.warzone.get_damage_dealt()
-        # buildings_destroyed = self.warzone.get_buildings_destroyed()
-        
-        # reward = damage_dealt * 0.1 + buildings_destroyed * 10
-        reward = 0
-        self.total_reward += reward
-        
-        return reward
+        return self.warzone.get_reward()
 
     def is_done(self):
         """ Checks if the episode is over (all troops deployed or all buildings destroyed). """
@@ -122,15 +124,8 @@ class WarzoneEnv(gym.Env):
     
     def render(self, mode='human'):
         """ Renders the environment. """
-        # for y in range(self.warzone.troopSpace.shape[0]):
-        #     if self.warzone.troopSpace[y, 0] == -1: continue
-        #     for x in range(self.warzone.troopSpace.shape[1]):
-        #         print(self.warzone.troopSpace[y, x], end=' ')
-        #     print()
-
-        # print()
-
-        self.renderer.render(self.warzone.baseSpace, self.warzone.troopSpace, self.warzone.deckSpace, self.townHallLevel)
+        if self.is_rendering:
+            self.renderer.render(self.warzone.baseSpace, self.warzone.troopSpace, self.warzone.deckSpace, self.townHallLevel)
 
 
 if __name__ == "__main__":

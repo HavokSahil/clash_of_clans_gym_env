@@ -160,55 +160,55 @@ class Deck:
 
     def getCountVector(self) -> np.ndarray:
         countVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             countVector[self.getTroopCategoryIndex(name)] = count
         return countVector
     
     def getHpVector(self) -> np.ndarray:
         hpVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             hpVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getHP() * SCALE_FACTOR
         return hpVector
     
     def getDphVector(self) -> np.ndarray:
         dphVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             dphVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getDph() * SCALE_FACTOR
         return dphVector
     
     def getRemHpVector(self) -> np.ndarray:
         remHpVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             remHpVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getRemHP() * SCALE_FACTOR
         return remHpVector
     
     def getMovSpeedVector(self) -> np.ndarray:
         movSpeedVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             movSpeedVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getMovSpeed() * SCALE_FACTOR
         return movSpeedVector
     
     def getAtkSpeedVector(self) -> np.ndarray:
         atkSpeedVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             atkSpeedVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getAtkSpeed() * SCALE_FACTOR 
         return atkSpeedVector
     
     def getAtkRangeVector(self) -> np.ndarray:
         atkRangeVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             atkRangeVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getAtkRange() * SCALE_FACTOR
         return atkRangeVector
 
     def getFlyingVector(self) -> np.ndarray:
         flyingVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             flyingVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).canFly()
         return flyingVector
     
     def getTargetPreferenceVector(self) -> np.ndarray:
         targetPreferenceVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             targetPreferenceVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getPreference()
         return targetPreferenceVector
     
@@ -217,7 +217,7 @@ class Deck:
         Target Domain: (01): Ground | (10): Air | (11): Both
         """
         targetDomainVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
-        for name, count in self.deck.items():
+        for name, count in sorted(self.deck.items()):
             targetDomainVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getTargetDomain()
         return targetDomainVector
     
@@ -411,11 +411,8 @@ class Deck:
         """ Reduce the hitpoint of the troop and returns True if it is dead """
         damage = 0
         damage = min(point, troopSpace[troopID, Deck.TROOP_MAPPING["hp"]])
-        troopSpace[troopID, Deck.TROOP_MAPPING["hp"]] -= point
-        if (troopSpace[troopID, Deck.TROOP_MAPPING["hp"]] <= 0):
-            troopSpace[troopID, Deck.TROOP_MAPPING["hp"]] = 0
-            return True, damage
-        return False, damage
+        troopSpace[troopID, Deck.TROOP_MAPPING["hp"]] -= damage
+        return troopSpace[troopID, Deck.TROOP_MAPPING["hp"]] == 0, damage
     
     @staticmethod
     def troop_attempts_attack(troopSpace: np.ndarray, baseSpace: np.ndarray, troopID: int, targetID: int = None) -> bool:
@@ -424,14 +421,24 @@ class Deck:
             targetID = Deck.get_troop_target_building(troopSpace, troopID)
         if targetID == -1:
             return False, 0
-            
+        
+        targetType = Base.get_building_property(baseSpace, targetID, "building_type")
+        troopPreference = Deck.get_troop_target_preference(troopSpace, troopID)
+
         dph = Deck.get_troop_dph(troopSpace, troopID)
+
+        if troopPreference == TroopBase.PREFER_WALL and targetType == BaseBuilding.TYPE_WALL:
+            dph *= 100
+
+        if troopPreference == TroopBase.PREFER_RESOURCE and targetType == BaseBuilding.TYPE_RESOURCE:
+            dph  *= 2
+            
         time_since_last_attack = Deck.get_troop_steps_since_last_hit(troopSpace, troopID)
 
         if time_since_last_attack == 0:
             troopSpace[troopID, Deck.TROOP_MAPPING["steps_since_last_hit"]] = (time_since_last_attack + MILISECONDS_PER_FRAME) \
             %Deck.get_troop_atk_speed(troopSpace, troopID)
-            return Base.building_get_hit(baseSpace, targetID, dph*10)
+            return Base.building_get_hit(baseSpace, targetID, dph)
         
         troopSpace[troopID, Deck.TROOP_MAPPING["steps_since_last_hit"]] = (time_since_last_attack + MILISECONDS_PER_FRAME) \
             %Deck.get_troop_atk_speed(troopSpace, troopID)

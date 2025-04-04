@@ -25,29 +25,102 @@ class Warzone:
         for troopID in range(self.troopSpace.shape[0]):
             self.paths[troopID] = []
 
-        self.destruction_hp = 0
+        self.destroyed_building_hp = 0
+        self.destroyed_buildings_count = 0
 
-        self.total_hp = np.sum(self.baseSpace[:, :, Base.GRID_MAPPING["building_remaining_hp"]][
-            np.bitwise_and(self.baseSpace[:, :, Base.GRID_MAPPING["building_remaining_hp"]] > 0, self.baseSpace[:, :, Base.GRID_MAPPING["building_type"]]!=BaseBuilding.TYPE_WALL)
-        ])
+        self.elixir_collected = 0
+        self.gold_collected = 0
 
-        self.destroyed_buildings = 0
+        self.total_hp_map = {}
 
-        self.damage_incurred = 0
+        self.populate_total_hp_buildings()
+
+        self.total_hp = sum(list(self.total_hp_map.values()))
+
+        self.damage_buildings = 0
+        self.damage_troops = 0
         self.troops_lost = 0
         self.troops_deployed = 0
 
+        self.building_damage_map = {}
+
+        self.townhall_building_id = -1
+        self.townhall_destroyed = False
+
+        self.destruction_percentage = 0.0
+
+        self.get_town_hall_buildingID()
+
         self.stars = 0
 
+        # Reward factors
+        self.stars_earned_in_move = 0
+        self.cumulative_damage_in_move = 0
+        self.destruction_percentage_earned_in_move = 0
+        self.destroyed_building_count_increment_in_move = 0
+        self.troops_lost_in_move = 0
+        self.troops_damage_in_move = 0
+        self.made_invalid_action_in_move = False
+
+
+    def populate_total_hp_buildings(self) -> None:
+        wall_mask = self.baseSpace[:, :, Base.GRID_MAPPING["building_type"]] != BaseBuilding.TYPE_WALL
+        destructable_mask = self.baseSpace[:, :, Base.GRID_MAPPING["building_remaining_hp"]] > 0
+        buildingID_grid = self.baseSpace[:, :, Base.GRID_MAPPING["buildingID"]]
+        final_mask = np.bitwise_and(wall_mask, destructable_mask)
+
+        rem_hp_grid = self.baseSpace[:, :, Base.GRID_MAPPING["building_remaining_hp"]]
+        for i in range(rem_hp_grid.shape[0]):
+            for j in range(rem_hp_grid.shape[1]):
+                buildingID = buildingID_grid[i][j]
+                if final_mask[i][j]:
+                    self.total_hp_map[buildingID] = rem_hp_grid[i][j]
+
+    def get_reward(self) -> float:
+        reward = self.stars_earned_in_move * 1000000 \
+            + self.destruction_percentage_earned_in_move * 10 \
+            + self.destroyed_buildings_count + 10 \
+            + self.troops_damage_in_move * (-10) \
+            + self.troops_lost_in_move * (-100) \
+            + self.made_invalid_action_in_move * (-100000000)
+        
+        return reward
+
+    def get_town_hall_buildingID(self):
+        for y in range(self.baseSpace.shape[0]):
+            for x in range(self.baseSpace.shape[1]):
+                if self.baseSpace[y, x, Base.GRID_MAPPING["building_type"]] == BaseBuilding.TYPE_TOWNHALL:
+                    self.townhall_building_id = self.baseSpace[y, x, Base.GRID_MAPPING["buildingID"]]
+                    return
+
     def update(self):
+
+        prev_stars = self.stars
+        prev_cum_damage = self.damage_buildings
+        prev_destruction_percentage = self.destruction_percentage
+        prev_destroyed_building_count = self.destroyed_buildings_count
+        prev_troop_lost_count = self.troops_lost
+        prev_troop_damage = self.damage_troops
+        
         self.update_troop()
         self.update_buildings()
 
+        self.destruction_percentage = self.destroyed_building_hp * 100 / self.total_hp
 
-        destruction_percentage = self.damage_incurred * 100 / self.total_hp
+        self.stars = 0
+        if self.destruction_percentage >= 50:
+            self.stars += 1
+        if self.townhall_destroyed:
+            self.stars += 1
+        if self.destruction_percentage >= 100:
+            self.stars += 1
 
-        print(f"#{self.timestep} -> Destruction Percentage: {destruction_percentage}, Destroyed Buildings: {self.destroyed_buildings}, Troops Lost: {self.troops_lost},, Damage Incurred: {self.damage_incurred}")
-        self.timestep += 1
+        self.stars_earned_in_move = self.stars - prev_stars
+        self.cumulative_damage_in_move = self.damage_buildings - prev_cum_damage
+        self.destruction_percentage_earned_in_move = self.destruction_percentage - prev_destruction_percentage
+        self.destroyed_building_count_increment_in_move = self.destroyed_buildings_count - prev_destroyed_building_count
+        self.troops_lost_in_move = self.troops_lost - prev_troop_lost_count
+        self.troops_damage_in_move = self.damage_troops - prev_troop_damage
 
     def did_end(self) -> bool:
         #   - Check if the game ends based on following conditions
@@ -213,10 +286,12 @@ class Warzone:
 
     def deploy_troop(self, deckID: int, position: Tuple[int, int]) -> bool:
         # Perform the deploy action given by the gym environment update
+        self.made_invalid_action_in_move = False
         if 0 <= deckID < len(self.deckSpace[:, 0]):
             troopID = Deck.get_available_troopID(self.troopSpace)
-            return Deck.deploy_troop_from_deck(self.deckSpace, self.troopSpace, deckID, troopID, position)
-        return False
+            deployed =  Deck.deploy_troop_from_deck(self.deckSpace, self.troopSpace, deckID, troopID, position)
+            self.troops_deployed += deployed
+            if not deployed: self.made_invalid_action_in_move = True
     
     def _helper_troop_target_in_range(self, troopID):
 
@@ -251,15 +326,33 @@ class Warzone:
                     return
 
             if self._helper_troop_target_in_range(troopID):
+                buildingID = Deck.get_troop_target_building(self.troopSpace, troopID)
+                sacrificial_troop = False
                 building_destroyed, damage = Deck.troop_attempts_attack(self.troopSpace, self.baseSpace, troopID)
-                # print("Troops attempting attack....")
                 isWall = Base.get_building_property(self.baseSpace, Deck.get_troop_target_building(self.troopSpace, troopID), "building_type") == BaseBuilding.TYPE_WALL
-                if not isWall: self.destruction_hp += damage
+
+                # Handle wall breaker
+                if Deck.get_troop_target_preference(self.troopSpace, troopID) == TroopBase.PREFER_WALL and damage > 0:
+                    # Kill the wall breaker
+                    self.troops_lost += 1
+                    remHp = Deck.get_troop_hp(self.troopSpace, troopID)
+                    dead, point = Deck.troop_get_hit(self.troopSpace, troopID, remHp * 1000)
+                    self.damage_troops += point
+
+                if not isWall:
+                    self.damage_buildings += damage
+                    if buildingID not in self.building_damage_map:
+                        self.building_damage_map[buildingID] = damage
+                    else:
+                        self.building_damage_map[buildingID] += damage
 
                 if building_destroyed:
-                    # print("yeah building destroyed")
+                    if buildingID == self.townhall_building_id:
+                        self.townhall_destroyed = True
                     Deck.troops_forget_target_all(self.troopSpace)
-                    self.destroyed_buildings += 1
+                    if not isWall:
+                        self.destroyed_building_hp += self.total_hp_map[buildingID]
+                        self.destroyed_buildings_count += 1
                     return
                 
  
@@ -328,7 +421,7 @@ class Warzone:
             if target_dead:
                 Base.building_forget_target(self.baseSpace, positions)
                 self.troops_lost += 1
-            self.damage_incurred += damage
+            self.damage_troops += damage
             return
 
         self.find_troop_in_range(positions)
@@ -338,7 +431,10 @@ class Warzone:
             self.baseSpace[:, :, Base.GRID_MAPPING["building_type"]],
             self.baseSpace[:, :, Base.GRID_MAPPING["building_remaining_hp"]] > 0
         )
+        done_building = set()
         for y, x in np.argwhere(buildingTypeMask):
             if buildingTypeMask[y, x] == BaseBuilding.TYPE_DEFENSE:
                 buildingID = self.baseSpace[y, x, Base.GRID_MAPPING["buildingID"]]
-                self.update_defense_buildings(buildingID)
+                if buildingID not in done_building:
+                    self.update_defense_buildings(buildingID)
+                    done_building.add(buildingID)
