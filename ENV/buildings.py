@@ -269,6 +269,10 @@ class Cannon(DefenseBuilding):
             'hp': 620,
             'dps': 25,
         },
+        6: {
+            'hp': 670,
+            'dps': 31,
+        }
     }
 
     def __init__(self, level=1):
@@ -312,6 +316,11 @@ class ArcherTower(DefenseBuilding):
             'hp': 540,
             'dps': 30,
         },
+        6: {
+            'hp': 580,
+            'dps': 35,
+
+        }
     }
 
     def __init__(self, level=1):
@@ -465,31 +474,56 @@ class GoldMine(ResourceBuilding):
         1: {
             'hp': 400,
             'capacity': 1000,
-            'gold': 400,
+            'gold': 200,
         },
         # Level 2
         2: {
             'hp': 440,
             'capacity': 2000,
-            'gold': 600,
+            'gold': 400,
         },
         # Level 3
         3: {
             'hp': 480,
             'capacity': 3000,
-            'gold': 800,
+            'gold': 600,
         },
         # Level 4
         4: {
             'hp': 520,
             'capacity': 5000,
-            'gold': 1000,
+            'gold': 800,
         },
         # Level 5
         5: {
             'hp': 560,
             'capacity': 10000,
-            'gold': 1200,
+            'gold': 1000,
+        },
+        6: {
+            'hp': 600,
+            'capacity': 20000,
+            'gold': 1300,
+        },
+        7: {
+            'hp': 640,
+            'capacity': 30000,
+            'gold': 1600,
+        },
+        8: {
+            'hp': 680,
+            'capacity': 50000,
+            'gold': 1900,
+        },
+        9: {
+            'hp': 720,
+            'capacity': 75000,
+            'gold': 2200,
+        },
+        10: {
+            'hp': 780,
+            'capacity': 100000,
+            'gold': 2800,
         },
     }
 
@@ -510,31 +544,56 @@ class ElixirPump(ResourceBuilding):
         1: {
             'hp': 400,
             'capacity': 1000,
-            'elixir': 400,
+            'elixir': 200,
         },
         # Level 2
         2: {
             'hp': 440,
             'capacity': 2000,
-            'elixir': 600,
+            'elixir': 400,
         },
         # Level 3
         3: {
             'hp': 480,
             'capacity': 3000,
-            'elixir': 800,
+            'elixir': 600,
         },
         # Level 4
         4: {
             'hp': 520,
             'capacity': 5000,
-            'elixir': 1000,
+            'elixir': 800,
         },
         # Level 5
         5: {
             'hp': 560,
             'capacity': 10000,
-            'elixir': 1200,
+            'elixir': 1000,
+        },
+        6: {
+            'hp': 600,
+            'capacity': 20000,
+            'elixir': 1300,
+        },
+        7: {
+            'hp': 640,
+            'capacity': 30000,
+            'elixir': 1600,
+        },
+        8: {
+            'hp': 680,
+            'capacity': 50000,
+            'elixir': 1900,
+        },
+        9: {
+            'hp': 720,
+            'capacity': 75000,
+            'elixir': 2200,
+        },
+        10: {
+            'hp': 780,
+            'capacity': 100000,
+            'elixir': 2800,
         },
     }
 
@@ -576,6 +635,26 @@ class GoldStorage(ResourceBuilding):
             'hp': 1200,
             'capacity': 25000,
         },
+        6: {
+            'hp': 1400,
+            'capacity': 45000,
+        },
+        7: {
+            'hp': 1600,
+            'capacity': 100000,
+        },
+        8: {
+            'hp': 1700,
+            'capacity': 225000,
+        },
+        9: {
+            'hp': 1800,
+            'capacity': 450000,
+        },
+        10: {
+            'hp': 1900,
+            'capacity': 850000,
+        },
     }
 
     def __init__(self, level=1):
@@ -614,6 +693,26 @@ class ElixirStorage(ResourceBuilding):
         5: {
             'hp': 1200,
             'capacity': 25000,
+        },
+        6: {
+            'hp': 1400,
+            'capacity': 45000,
+        },
+        7: {
+            'hp': 1600,
+            'capacity': 100000,
+        },
+        8: {
+            'hp': 1700,
+            'capacity': 225000,
+        },
+        9: {
+            'hp': 1800,
+            'capacity': 450000,
+        },
+        10: {
+            'hp': 1900,
+            'capacity': 850000,
         },
     }
 
@@ -679,6 +778,12 @@ class Barrack(BaseBuilding):
         # Level 5
         5: {
             'hp': 420,
+        },
+        6: {
+            'hp': 470,
+        },
+        7: {
+            'hp': 520,
         },
     }
 
@@ -811,128 +916,192 @@ class BuildingDirectory:
         'AirDefense':   AirDefense,
         'WizardTower':  WizardTower,
     }
+    
     BUILDING_LEVEL_MAP = {
         # Townhall 1
         1: {
             'TownHall': 1,
-            'ClanCastle': 1,
-            'Wall': 1,
+            'ClanCastle': 0,
+            'Wall': 0,
             'ArmyCamp': 1,
             'Barrack': 1,
-            'BuilderHut': 1,
-            'ElixirPump': 1,
-            'GoldMine': 1,
-            'ElixirStorage': 1,
-            'GoldStorage': 1,
-        },
-        # Townhall 2
-        2: {
-            'TownHall': 2,
-            'ClanCastle': 1,
-            'Wall': 2,
-            'ArmyCamp': 2,
-            'Barrack': 1,
-            'Laboratory': 1,
-            'SpellForge': 1,
+            'Laboratory': 0,
+            'SpellForge': 0,
             'BuilderHut': 1,
             'ElixirPump': 1,
             'GoldMine': 1,
             'ElixirStorage': 1,
             'GoldStorage': 1,
             'Cannon': 1,
-            'ArcherTower': 1,
+            'ArcherTower': 0,
+            'Mortar': 0,
+            'AirDefense': 0,
+            'WizardTower': 0,
+        },
+        # Townhall 2
+        2: {
+            'TownHall': 2,
+            'ClanCastle': 0,
+            'Wall': 2,
+            'ArmyCamp': 2,
+            'Barrack': 4,
+            'Laboratory': 0,
+            'SpellForge': 0,
+            'BuilderHut': 1,
+            'ElixirPump': 4,
+            'GoldMine': 4,
+            'ElixirStorage': 3,
+            'GoldStorage': 3,
+            'Cannon': 3,
+            'ArcherTower': 2,
+            'Mortar': 0,
+            'AirDefense': 0,
+            'WizardTower': 0,
         },
         # Townhall 3
         3: {
             'TownHall': 3,
             'ClanCastle': 1,
-            'Wall': 1,
-            'ArmyCamp': 1,
-            'Barrack': 1,
+            'Wall': 3,
+            'ArmyCamp': 3,
+            'Barrack': 5,
             'Laboratory': 1,
-            'SpellForge': 1,
+            'SpellForge': 0,
             'BuilderHut': 1,
-            'ElixirPump': 1,
-            'GoldMine': 1,
-            'ElixirStorage': 1,
-            'GoldStorage': 1,
-            'Cannon': 1,
-            'ArcherTower': 1,
+            'ElixirPump': 6,
+            'GoldMine': 6,
+            'ElixirStorage': 6,
+            'GoldStorage': 6,
+            'Cannon': 4,
+            'ArcherTower': 3,
             'Mortar': 1,
+            'AirDefense': 0,
+            'WizardTower': 0,
         },
         # Townhall 4
         4: {
             'TownHall': 4,
-            'ClanCastle': 1,
-            'Wall': 1,
-            'ArmyCamp': 1,
-            'Barrack': 1,
-            'Laboratory': 1,
-            'SpellForge': 1,
+            'ClanCastle': 2,
+            'Wall': 4,
+            'ArmyCamp': 4,
+            'Barrack': 6,
+            'Laboratory': 2,
+            'SpellForge': 0,
             'BuilderHut': 1,
-            'ElixirPump': 1,
-            'GoldMine': 1,
-            'ElixirStorage': 1,
-            'GoldStorage': 1,
-            'Cannon': 1,
-            'ArcherTower': 1,
-            'Mortar': 1,
-            'AirDefense': 1,
+            'ElixirPump': 8,
+            'GoldMine': 8,
+            'ElixirStorage': 8,
+            'GoldStorage': 8,
+            'Cannon': 5,
+            'ArcherTower': 4,
+            'Mortar': 2,
+            'AirDefense': 2,
+            'WizardTower': 0,
         },
         # Townhall 5
         5: {
             'TownHall': 5,
-            'ClanCastle': 1,
-            'Wall': 1,
-            'ArmyCamp': 1,
-            'Barrack': 1,
-            'Laboratory': 1,
+            'ClanCastle': 2,
+            'Wall': 5,
+            'ArmyCamp': 5,
+            'Barrack': 7,
+            'Laboratory': 3,
             'SpellForge': 1,
             'BuilderHut': 1,
-            'ElixirPump': 1,
-            'GoldMine': 1,
-            'ElixirStorage': 1,
-            'GoldStorage': 1,
-            'Cannon': 1,
-            'ArcherTower': 1,
-            'Mortar': 1,
-            'AirDefense': 1,
-            'WizardTower': 1,
+            'ElixirPump': 10,
+            'GoldMine': 10,
+            'ElixirStorage': 9,
+            'GoldStorage': 9,
+            'Cannon': 6,
+            'ArcherTower': 6,
+            'Mortar': 3,
+            'AirDefense': 3,
+            'WizardTower': 2,
         },
     }
     BUILDING_MAX_COUNT_MAP = {
         # Townhall 1
         1: {
             'TownHall': 1,
-            'ClanCastle': 1,
-            'Wall': 50,
+            'ClanCastle': 0,
+            'Wall': 0,
             'ArmyCamp': 1,
             'Barrack': 1,
-            'BuilderHut': 0,
-            'ElixirPump': 2,
-            'GoldMine': 2,
+            'Laboratory': 0,
+            'SpellForge': 0,
+            'BuilderHut': 5,
+            'ElixirPump': 1,
+            'GoldMine': 1,
             'ElixirStorage': 1,
             'GoldStorage': 1,
+            'Cannon': 1,
+            'ArcherTower': 0,
+            'Mortar': 0,
+            'AirDefense': 0,
+            'WizardTower': 0,
         },
         # Townhall 2
         2: {
             'TownHall': 1,
-            'ClanCastle': 1,
-            'Wall': 75,
+            'ClanCastle': 0,
+            'Wall': 25,
             'ArmyCamp': 1,
             'Barrack': 1,
-            'Laboratory': 1,
-            'SpellForge': 1,
-            'BuilderHut': 0,
-            'ElixirPump': 3,
-            'GoldMine': 3,
+            'Laboratory': 0,
+            'SpellForge': 0,
+            'BuilderHut': 5,
+            'ElixirPump': 2,
+            'GoldMine': 2,
             'ElixirStorage': 1,
             'GoldStorage': 1,
-            'Cannon': 1,
+            'Cannon': 2,
             'ArcherTower': 1,
+            'Mortar': 0,
+            'AirDefense': 0,
+            'WizardTower': 0
         },
         # Townhall 3
         3: {
+            'TownHall': 1,
+            'ClanCastle': 1,
+            'Wall': 50,
+            'ArmyCamp': 1,
+            'Barrack': 2,
+            'Laboratory': 1,
+            'SpellForge': 0,
+            'BuilderHut': 5,
+            'ElixirPump': 3,
+            'GoldMine': 3,
+            'ElixirStorage': 2,
+            'GoldStorage': 2,
+            'Cannon': 2,
+            'ArcherTower': 1,
+            'Mortar': 1,
+            'AirDefense': 0,
+            'WizardTower': 0
+        },
+        # Townhall 4
+        4: {
+            'TownHall': 1,
+            'ClanCastle': 1,
+            'Wall': 75,
+            'ArmyCamp': 1,
+            'Barrack': 2,
+            'Laboratory': 1,
+            'SpellForge': 0,
+            'BuilderHut': 5,
+            'ElixirPump': 4,
+            'GoldMine': 4,
+            'ElixirStorage': 2,
+            'GoldStorage': 2,
+            'Cannon': 2,
+            'ArcherTower': 2,
+            'Mortar': 1,
+            'AirDefense': 1,
+            'WizardTower': 0
+        },
+        # Townhall 5
+        5: {
             'TownHall': 1,
             'ClanCastle': 1,
             'Wall': 100,
@@ -940,53 +1109,16 @@ class BuildingDirectory:
             'Barrack': 1,
             'Laboratory': 1,
             'SpellForge': 1,
-            'BuilderHut': 0,
-            'ElixirPump': 4,
-            'GoldMine': 4,
-            'ElixirStorage': 1,
-            'GoldStorage': 1,
-            'Cannon': 1,
-            'ArcherTower': 1,
-            'Mortar': 1,
-        },
-        # Townhall 4
-        4: {
-            'TownHall': 1,
-            'ClanCastle': 1,
-            'Wall': 125,
-            'ArmyCamp': 1,
-            'Barrack': 1,
-            'Laboratory': 1,
-            'SpellForge': 1,
-            'BuilderHut': 0,
+            'BuilderHut': 5,
             'ElixirPump': 5,
             'GoldMine': 5,
-            'ElixirStorage': 1,
-            'GoldStorage': 1,
-            'Cannon': 1,
-            'ArcherTower': 1,
+            'ElixirStorage': 2,
+            'GoldStorage': 2,
+            'Cannon': 3,
+            'ArcherTower': 3,
             'Mortar': 1,
             'AirDefense': 1,
-        },
-        # Townhall 5
-        5: {
-            'TownHall': 1,
-            'ClanCastle': 1,
-            'Wall': 150,
-            'ArmyCamp': 1,
-            'Barrack': 1,
-            'Laboratory': 1,
-            'SpellForge': 1,
-            'BuilderHut': 0,
-            'ElixirPump': 6,
-            'GoldMine': 6,
-            'ElixirStorage': 1,
-            'GoldStorage': 1,
-            'Cannon': 1,
-            'ArcherTower': 1,
-            'Mortar': 1,
-            'AirDefense': 1,
-            'WizardTower': 1,
+            'WizardTower': 1
         },
     }
 

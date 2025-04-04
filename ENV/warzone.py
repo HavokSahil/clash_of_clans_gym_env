@@ -3,10 +3,7 @@ from deck import *
 from troops import *
 import heapq
 import numpy as np
-
-BASE_WIDTH = 45
-BASE_HEIGHT = 45
-BASE_PADDING = 2
+from config import *
 
 class Warzone:
     def __init__(
@@ -28,19 +25,23 @@ class Warzone:
         self.destroyed_building_hp = 0
         self.destroyed_buildings_count = 0
 
-        self.elixir_collected = 0
-        self.gold_collected = 0
-
         self.total_hp_map = {}
+        self.total_gold_map = {}
+        self.total_elixir_map = {}
 
-        self.populate_total_hp_buildings()
+        self.populate_total_hp_n_resources_of_base()
 
         self.total_hp = sum(list(self.total_hp_map.values()))
+        self.total_gold = sum(list(self.total_gold_map.values()))
+        self.total_elixir = sum(list(self.total_elixir_map.values()))
 
         self.damage_buildings = 0
         self.damage_troops = 0
         self.troops_lost = 0
         self.troops_deployed = 0
+
+        self.loot_gold = 0
+        self.loot_elixir = 0
 
         self.building_damage_map = {}
 
@@ -58,12 +59,17 @@ class Warzone:
         self.cumulative_damage_in_move = 0
         self.destruction_percentage_earned_in_move = 0
         self.destroyed_building_count_increment_in_move = 0
+        self.loot_gold_in_move = 0
+        self.loot_elixir_in_move = 0
         self.troops_lost_in_move = 0
         self.troops_damage_in_move = 0
         self.made_invalid_action_in_move = False
+        self.broke_defense_building = False
+        self.broke_townhall_in_move = False
+        self.troops_deployed_in_move = False
 
 
-    def populate_total_hp_buildings(self) -> None:
+    def populate_total_hp_n_resources_of_base(self) -> None:
         wall_mask = self.baseSpace[:, :, Base.GRID_MAPPING["building_type"]] != BaseBuilding.TYPE_WALL
         destructable_mask = self.baseSpace[:, :, Base.GRID_MAPPING["building_remaining_hp"]] > 0
         buildingID_grid = self.baseSpace[:, :, Base.GRID_MAPPING["buildingID"]]
@@ -75,15 +81,45 @@ class Warzone:
                 buildingID = buildingID_grid[i][j]
                 if final_mask[i][j]:
                     self.total_hp_map[buildingID] = rem_hp_grid[i][j]
+    
+        rem_gold_grid = self.baseSpace[:, :, Base.GRID_MAPPING["gold"]]
+        for i in range(rem_gold_grid.shape[0]):
+            for j in range(rem_gold_grid.shape[1]):
+                buildingID = buildingID_grid[i][j]
+                if final_mask[i][j]:
+                    self.total_gold_map[buildingID] = rem_gold_grid[i][j]
+
+        rem_elixir_grid = rem_hp_grid = self.baseSpace[:, :, Base.GRID_MAPPING["elixir"]]
+        for i in range(rem_elixir_grid.shape[0]):
+            for j in range(rem_elixir_grid.shape[1]):
+                buildingID = buildingID_grid[i][j]
+                if final_mask[i][j]:
+                    self.total_elixir_map[buildingID] = rem_elixir_grid[i][j]
+
 
     def get_reward(self) -> float:
-        reward = self.stars_earned_in_move * 1000000 \
-            + self.destruction_percentage_earned_in_move * 10 \
-            + self.destroyed_buildings_count + 10 \
-            + self.troops_damage_in_move * (-10) \
-            + self.troops_lost_in_move * (-100) \
-            + self.made_invalid_action_in_move * (-100000000)
-        
+        gold_loot_fraction = self.loot_gold_in_move / self.total_gold
+        elixir_loot_fraction = self.loot_elixir_in_move / self.total_elixir
+
+        reward = (
+            self.stars_earned_in_move * 100                    
+            + self.destruction_percentage_earned_in_move * 1.5 
+            + self.destroyed_buildings_count * 5               
+            + self.broke_defense_building * 75                 
+            + self.broke_townhall_in_move * 150                
+            + gold_loot_fraction * 50                          
+            + elixir_loot_fraction * 50                        
+            - self.troops_lost_in_move * 3
+            - self.troops_deployed_in_move * 5
+            - self.made_invalid_action_in_move * 100           
+        )
+
+
+        # Optional: log raw reward for analysis/debug
+        # print(f"Raw reward: {reward}")
+
+        # Clip the reward to prevent extreme values (e.g., due to invalid actions)
+        reward = max(min(reward, 1000), -1000)
         return reward
 
     def get_town_hall_buildingID(self):
@@ -101,6 +137,13 @@ class Warzone:
         prev_destroyed_building_count = self.destroyed_buildings_count
         prev_troop_lost_count = self.troops_lost
         prev_troop_damage = self.damage_troops
+        prev_loot_gold = self.loot_gold
+        prev_loot_elixir = self.loot_elixir
+        
+        self.made_invalid_action_in_move = False
+        self.broke_defense_building = False
+        self.broke_townhall_in_move = False
+        self.troops_deployed_in_move = False
         
         self.update_troop()
         self.update_buildings()
@@ -121,15 +164,14 @@ class Warzone:
         self.destroyed_building_count_increment_in_move = self.destroyed_buildings_count - prev_destroyed_building_count
         self.troops_lost_in_move = self.troops_lost - prev_troop_lost_count
         self.troops_damage_in_move = self.damage_troops - prev_troop_damage
+        self.loot_gold_in_move = self.loot_gold - prev_loot_gold
+        self.loot_elixir_in_move = self.loot_gold - prev_loot_elixir
+
+        self.timestep += 1
 
     def did_end(self) -> bool:
-        #   - Check if the game ends based on following conditions
-        #       + If the timestep >= maxtimestep
         flag1 = self.timestep >= self.maxtimestep
-        #       + If deck is empty and there is no troop alive
         flag2 = len(Deck.get_deck_available_deploy_options(self.deckSpace)) + len(Deck.get_troops_alive_ids(self.deckSpace)) == 0
-        #       + If abort early(hit surrender)
-        #       + All non-wall buildings are destroyed
         flag3 = len(Base.get_undestroyed_building_ids(self.baseSpace)) == 0
         
         return flag1 or flag2 or flag3
@@ -184,7 +226,7 @@ class Warzone:
         ]
 
         return [(tile[0] + dely, tile[1] + delx) for dely, delx in poss_dels if 
-                (0 <= tile[0] + dely < BASE_HEIGHT) and
+                (0 <= tile[0] + dely < BASE_WIDTH) and
                 (0 <= tile[1] + delx < BASE_WIDTH)
         ]
 
@@ -274,24 +316,17 @@ class Warzone:
             self.paths[troopID].append(current)
             current = came_from[current]
         return True
-
-        #   - Performed a ranged A* search on the mask
-        #   - If the path is found: store the path, return True
-        #   - If the path is not found, then return false,
-        #   - Perform a ranged A* and store the closest approach
-        #       to the target, store the barrier that could have
-        #       improved the heuristic function as new target,
-        #   - Update the path based on the new target
-
+    
 
     def deploy_troop(self, deckID: int, position: Tuple[int, int]) -> bool:
         # Perform the deploy action given by the gym environment update
-        self.made_invalid_action_in_move = False
         if 0 <= deckID < len(self.deckSpace[:, 0]):
             troopID = Deck.get_available_troopID(self.troopSpace)
             deployed =  Deck.deploy_troop_from_deck(self.deckSpace, self.troopSpace, deckID, troopID, position)
             self.troops_deployed += deployed
-            if not deployed: self.made_invalid_action_in_move = True
+            self.troops_deployed_in_move = deployed
+        else:
+            self.made_invalid_action_in_move = True
     
     def _helper_troop_target_in_range(self, troopID):
 
@@ -329,7 +364,21 @@ class Warzone:
                 buildingID = Deck.get_troop_target_building(self.troopSpace, troopID)
                 sacrificial_troop = False
                 building_destroyed, damage = Deck.troop_attempts_attack(self.troopSpace, self.baseSpace, troopID)
-                isWall = Base.get_building_property(self.baseSpace, Deck.get_troop_target_building(self.troopSpace, troopID), "building_type") == BaseBuilding.TYPE_WALL
+                buildingType = Base.get_building_property(self.baseSpace, Deck.get_troop_target_building(self.troopSpace, troopID), "building_type")
+                isWall = buildingType == BaseBuilding.TYPE_WALL
+
+                if buildingType == BaseBuilding.TYPE_RESOURCE:
+                    # Loot Resource based on damage inflicted on it
+                    loot_gold_amount = damage * self.total_gold_map[buildingID] / self.total_hp_map[buildingID]
+                    loot_elixir_amount = damage * self.total_elixir_map[buildingID] / self.total_hp_map[buildingID]
+                    Base.loot_building(self.baseSpace, buildingID, loot_gold_amount, gold=True)
+                    Base.loot_building(self.baseSpace, buildingID, loot_elixir_amount, elixir=True)
+                    self.loot_gold += loot_gold_amount
+                    self.loot_elixir += loot_elixir_amount
+                    #TODO: Fix the loot overflow from the max limit
+                    # Here is the temporary fix
+                    self.loot_gold = min(self.loot_gold, self.total_gold)
+                    self.loot_elixir = min(self.loot_elixir, self.total_elixir)
 
                 # Handle wall breaker
                 if Deck.get_troop_target_preference(self.troopSpace, troopID) == TroopBase.PREFER_WALL and damage > 0:
@@ -339,6 +388,7 @@ class Warzone:
                     dead, point = Deck.troop_get_hit(self.troopSpace, troopID, remHp * 1000)
                     self.damage_troops += point
 
+                # If the destroyed building is not wall, update the records of damage and destruction percentage
                 if not isWall:
                     self.damage_buildings += damage
                     if buildingID not in self.building_damage_map:
@@ -346,9 +396,14 @@ class Warzone:
                     else:
                         self.building_damage_map[buildingID] += damage
 
+                # Update the reward parameters on building destruction and every troops forget target and 
+                # starts afresh
                 if building_destroyed:
+                    if buildingType == BaseBuilding.TYPE_DEFENSE:
+                        self.broke_defense_building = True
                     if buildingID == self.townhall_building_id:
                         self.townhall_destroyed = True
+                        self.broke_townhall_in_move = True
                     Deck.troops_forget_target_all(self.troopSpace)
                     if not isWall:
                         self.destroyed_building_hp += self.total_hp_map[buildingID]
@@ -399,15 +454,7 @@ class Warzone:
 
 
     def building_attack_troop_target(self, buildingID: int, targetID: int, positions) -> bool:
-        # TODO: Test this method
         return Base.building_attempts_attack(self.baseSpace, self.troopSpace, buildingID, targetID, positions)
-        #   - If the target is in range
-        #       if the steps since last attack is 0
-        #           then hit the target
-        #       If the target dies, reset the target of all those buildings,
-        #           that were hitting the destroyed troop
-        #       else
-        #           make modular increment to the steps,
 
     def update_defense_buildings(self, buildingID: int):
         # TODO: To test this method

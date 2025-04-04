@@ -7,8 +7,8 @@ from buildings import BaseBuilding, BuildingDirectory
 from warbase import Base
 
 TILE_SIZE = 20
-GRID_SIZE = 45
-PADDING = 2
+GRID_SIZE = BASE_WIDTH
+PADDING = BASE_PADDING
 
 SCENE_PADDING = PADDING * TILE_SIZE
 SCENE_WIDTH = GRID_SIZE * TILE_SIZE + SCENE_PADDING
@@ -24,6 +24,8 @@ class WarzoneRenderer:
         pygame.init()
         pygame.display.set_caption('Clash of Clans Warzone')
         self.screen = pygame.display.set_mode((SCENE_WIDTH, SCENE_HEIGHT))
+
+        self.clock = pygame.time.Clock()
 
         self.image_cache = {}
 
@@ -103,7 +105,20 @@ class WarzoneRenderer:
     def clean():
         pygame.quit()
 
-    def render(self, baseSpace: np.ndarray, troopSpace: np.ndarray, deckSpace: np.ndarray, townhall_level: int):
+    def render(self,
+               baseSpace: np.ndarray,
+               troopSpace: np.ndarray,
+               deckSpace: np.ndarray, 
+               townhall_level: int,
+               destruction_percentage: int,
+               stars: int,
+               loot_gold: int,
+               loot_elixir: int,
+               total_gold: int,
+               total_elixir: int,
+               steps: int,
+               total_steps: int,
+        ):
         self.screen.fill(DARK_GREEN)
         pygame.draw.rect(self.screen, GRASS_GREEN, (SCENE_PADDING, SCENE_PADDING, SCENE_WIDTH - 2 * SCENE_PADDING, SCENE_HEIGHT - 2 * SCENE_PADDING))
 
@@ -125,10 +140,19 @@ class WarzoneRenderer:
         for troopID in Deck.get_troops_alive_ids(troopSpace):
             self.drawTroops(troopSpace, baseSpace, troopID, townhall_level)
 
+        print(f"""
+Destruction: {int(destruction_percentage)},
+Starts: {stars}
+Gold: ({int(loot_gold)}/{total_gold})
+Elixir: ({int(loot_elixir)}/{total_elixir})
+Time: ({steps}/{total_steps})
+""")
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
 
+        self.clock.tick(1000/MILISECONDS_PER_FRAME)
         pygame.display.update()
                 

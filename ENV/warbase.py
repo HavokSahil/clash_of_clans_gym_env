@@ -3,6 +3,7 @@ import numpy as np
 from buildings import *
 from typing import List, Tuple
 import matplotlib.pyplot as plt
+from config import *
 
 class Position:
     def __init__(self, y: int, x: int):
@@ -17,12 +18,9 @@ class Position:
 
 class Base:
     
-    HEIGHT_WORLD = 45
-    WIDTH_WORLD = 45
-    PADDING_WORLD = 2
-    ORIGIN_WORLD = (0, 0)
-    CENTER_WORLD = (22, 22)
-    CORNER_WORLD = (44, 44)
+    HEIGHT_WORLD = BASE_WIDTH
+    WIDTH_WORLD = BASE_WIDTH
+    PADDING_WORLD = BASE_PADDING
 
     GRID_MAPPING = {
         "buildingID": 0,
@@ -369,6 +367,7 @@ class Base:
     
     def fillRandomly(self):
         for name, level in self.getAvailableBuidlings():
+            if name == "Wall": continue
             for i in range(self.getBuildingMaxCount(name)):
                 building = self.getBuildingObject(name)
                 for i in range(10):
@@ -480,6 +479,15 @@ class Base:
         if not isFlying:
             mask = np.bitwise_and(mask, baseState[:, :, Base.GRID_MAPPING["building_type"]] != BaseBuilding.TYPE_WALL)
         return mask
+    
+    @staticmethod
+    def loot_building(baseState: np.ndarray,
+                      buildingID: int,
+                      loot_amount: int,
+                      elixir: bool = False,
+                      gold: bool = False
+        ) -> bool:
+        pass
 
     def __str__(self):
         return str(self.world)

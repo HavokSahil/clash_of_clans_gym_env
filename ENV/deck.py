@@ -69,6 +69,7 @@ class Deck:
         4: "Wall Breaker",
         5: "Balloon",
         6: "Wizard",
+        7: "SkipMove"
     }
 
     def __init__(self, townHallLevel: int = 1):
@@ -80,6 +81,7 @@ class Deck:
             "Wall Breaker": 0,
             "Balloon": 0,
             "Wizard": 0,
+            "SkipMove": 0,
         }
 
         self.townHallLevel = townHallLevel
@@ -145,7 +147,8 @@ class Deck:
             return False
 
     def resetDeck(self):
-        self.deck.clear()
+        for key in self.deck.keys():
+            self.deck[key] = 0
         self.occupancy = 0
 
     def fillRandomly(self):
@@ -159,70 +162,88 @@ class Deck:
             availableTroops = self.getAvailableTroops()
 
     def getCountVector(self) -> np.ndarray:
-        countVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        countVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
             countVector[self.getTroopCategoryIndex(name)] = count
         return countVector
     
     def getHpVector(self) -> np.ndarray:
-        hpVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        hpVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
-            hpVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getHP() * SCALE_FACTOR
+            troopObject = self.troopDirectory.getTroopObject(name)
+            if troopObject:
+                hpVector[self.getTroopCategoryIndex(name)] = troopObject.getHP() * SCALE_FACTOR
         return hpVector
     
     def getDphVector(self) -> np.ndarray:
-        dphVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        dphVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
-            dphVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getDph() * SCALE_FACTOR
+            troopObject = self.troopDirectory.getTroopObject(name)
+            if troopObject:
+                dphVector[self.getTroopCategoryIndex(name)] = troopObject.getDph() * SCALE_FACTOR
         return dphVector
     
     def getRemHpVector(self) -> np.ndarray:
-        remHpVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        remHpVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
-            remHpVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getRemHP() * SCALE_FACTOR
+            troopObject = self.troopDirectory.getTroopObject(name)
+            if troopObject:
+                remHpVector[self.getTroopCategoryIndex(name)] = troopObject.getRemHP() * SCALE_FACTOR
         return remHpVector
     
     def getMovSpeedVector(self) -> np.ndarray:
-        movSpeedVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        movSpeedVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
-            movSpeedVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getMovSpeed() * SCALE_FACTOR
+            troopObject = self.troopDirectory.getTroopObject(name)
+            if troopObject:
+                movSpeedVector[self.getTroopCategoryIndex(name)] = troopObject.getMovSpeed() * SCALE_FACTOR
         return movSpeedVector
     
     def getAtkSpeedVector(self) -> np.ndarray:
-        atkSpeedVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        atkSpeedVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
-            atkSpeedVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getAtkSpeed() * SCALE_FACTOR 
+            troopObject = self.troopDirectory.getTroopObject(name)
+            if troopObject:
+                atkSpeedVector[self.getTroopCategoryIndex(name)] = troopObject.getAtkSpeed() * SCALE_FACTOR
         return atkSpeedVector
     
     def getAtkRangeVector(self) -> np.ndarray:
-        atkRangeVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        atkRangeVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
-            atkRangeVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getAtkRange() * SCALE_FACTOR
+            troopObject = self.troopDirectory.getTroopObject(name)
+            if troopObject:
+                atkRangeVector[self.getTroopCategoryIndex(name)] = troopObject.getAtkRange() * SCALE_FACTOR
         return atkRangeVector
 
     def getFlyingVector(self) -> np.ndarray:
-        flyingVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        flyingVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
-            flyingVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).canFly()
+            troopObject = self.troopDirectory.getTroopObject(name)
+            if troopObject:
+                flyingVector[self.getTroopCategoryIndex(name)] = troopObject.canFly()
         return flyingVector
     
     def getTargetPreferenceVector(self) -> np.ndarray:
-        targetPreferenceVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        targetPreferenceVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
-            targetPreferenceVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getPreference()
+            troopObject = self.troopDirectory.getTroopObject(name)
+            if troopObject:
+                targetPreferenceVector[self.getTroopCategoryIndex(name)] = troopObject.getPreference()
         return targetPreferenceVector
     
     def getTargetDomainVector(self) -> np.ndarray:
         """
         Target Domain: (01): Ground | (10): Air | (11): Both
         """
-        targetDomainVector = np.zeros(len(self.troopDirectory.getAllTroopNames()), dtype=int)
+        targetDomainVector = np.zeros(len(self.deck.keys()), dtype=int)
         for name, count in sorted(self.deck.items()):
-            targetDomainVector[self.getTroopCategoryIndex(name)] = self.troopDirectory.getTroopObject(name).getTargetDomain()
+            troopObject = self.troopDirectory.getTroopObject(name)
+            if troopObject:
+                targetDomainVector[self.getTroopCategoryIndex(name)] = troopObject.getTargetDomain()
         return targetDomainVector
     
     def getUnplacedTroopSpace(self) -> np.ndarray:
-        troopSpace = np.ones(shape=(self.capacity, len(self.TROOP_MAPPING.keys())), dtype=int) * -1
+        troopSpace = np.ones(shape=(135, len(self.TROOP_MAPPING.keys())), dtype=int) * -1
         return troopSpace
     
     def getStateSpace(self) -> np.ndarray:

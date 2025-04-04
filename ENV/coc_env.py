@@ -38,7 +38,8 @@ class WarzoneEnv(gym.Env):
         })
 
         # Define action space (Deploy troops at (y, x) from a category)
-        self.action_space = spaces.MultiDiscrete([45, 45, len(self.deck.get_deck_member_ids(self.warzone.deckSpace)) + 1])
+        _height, _width, _ = self.warzone.baseSpace.shape
+        self.action_space = spaces.MultiDiscrete([_height, _width, len(self.deck.get_deck_member_ids(self.warzone.deckSpace)) + 1])
         
         self.total_reward = 0
         self.steps = 0
@@ -125,18 +126,31 @@ class WarzoneEnv(gym.Env):
     def render(self, mode='human'):
         """ Renders the environment. """
         if self.is_rendering:
-            self.renderer.render(self.warzone.baseSpace, self.warzone.troopSpace, self.warzone.deckSpace, self.townHallLevel)
+            self.renderer.render(
+                self.warzone.baseSpace,
+                self.warzone.troopSpace,
+                self.warzone.deckSpace, 
+                self.townHallLevel,
+                destruction_percentage=self.warzone.destruction_percentage,
+                stars=self.warzone.stars,
+                loot_gold=self.warzone.loot_gold,
+                loot_elixir=self.warzone.loot_elixir,
+                total_gold=self.warzone.total_gold,
+                total_elixir=self.warzone.total_elixir,
+                steps=self.warzone.timestep,
+                total_steps=self.warzone.maxtimestep
+            )
 
 
 if __name__ == "__main__":
 
-    base = Base(5)
-    deck = Deck(5)
+    base = Base(3)
+    deck = Deck(3)
 
     base.fillRandomly()
     deck.fillRandomly()
 
-    env = WarzoneEnv(townHallLevel=5, base=base, deck=deck)
+    env = WarzoneEnv(townHallLevel=3, base=base, deck=deck)
     # Reset the environment
     obs, info = env.reset()
     # Run a simple loop
