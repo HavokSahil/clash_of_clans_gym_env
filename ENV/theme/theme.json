@@ -1,0 +1,240 @@
+{
+    "button": {
+        "default": {
+            "border_width": "0",
+            "padding": "0"
+        }
+    },
+    "panel": {
+        "colours": {
+            "normal_bg"     : "rgba(0, 0, 0, 0)",
+            "hovered_bg"    : "rgba(0, 0, 0, 0)",
+            "disabled_bg"   : "rgba(0, 0, 0, 0)",
+            "selected_bg"   : "rgba(0, 0, 0, 0)",
+            "dark_bg"       : "rgba(0, 0, 0, 0)",
+            "normal_border"     : "rgba(0, 0, 0, 0)",
+            "hovered_border"    : "rgba(0, 0, 0, 0)",
+            "disabled_border"   : "rgba(0, 0, 0, 0)",
+            "selected_border"   : "rgba(0, 0, 0, 0)",
+            "dark_border"       : "rgba(0, 0, 0, 0)"
+        },
+        "default": {
+            "border_width": "0",
+            "padding": "0"
+        }
+    },
+    "@btn_level_cls": {
+        "colours": {
+            "normal_border"     : "rgba(0, 0, 0, 0)",
+            "hovered_border"    : "rgba(0, 0, 0, 0)",
+            "disabled_border"   : "rgba(0, 0, 0, 0)",
+            "selected_border"   : "rgba(0, 0, 0, 0)",
+            "dark_border"       : "rgba(0, 0, 0, 0)",
+            "active_border"     : "rgba(0, 0, 0, 0)",
+            "normal_text"       : "#000000",
+            "hovered_text"      : "#000000",
+            "active_text"       : "#000000"
+        },
+        "font": {
+            "name": "fira code",
+            "size": "28",
+            "bold": 1
+        }
+    },
+    "#btn_level1": {
+        "colours": {
+            "normal_bg"     : "rgba(215, 241, 202, 255)",
+            "hovered_bg"    : "rgba(215, 241, 202, 255)",
+            "disabled_bg"   : "rgba(215, 241, 202, 255)",
+            "selected_bg"   : "rgba(215, 241, 202, 255)",
+            "dark_bg"       : "rgba(215, 241, 202, 255)",
+            "active_bg"     : "rgba(215, 241, 202, 220)"
+        }
+    },
+    "#btn_level2": {
+        "colours": {
+            "normal_bg"     : "rgba(138, 241, 172, 255)",
+            "hovered_bg"    : "rgba(138, 241, 172, 255)",
+            "disabled_bg"   : "rgba(138, 241, 172, 255)",
+            "selected_bg"   : "rgba(138, 241, 172, 255)",
+            "dark_bg"       : "rgba(138, 241, 172, 255)",
+            "active_bg"     : "rgba(138, 241, 172, 220)"
+        }
+    },
+    "#btn_level3": {
+        "colours": {
+            "normal_bg"     : "rgba(109, 229, 100, 255)",
+            "hovered_bg"    : "rgba(109, 229, 100, 255)",
+            "disabled_bg"   : "rgba(109, 229, 100, 255)",
+            "selected_bg"   : "rgba(109, 229, 100, 255)",
+            "dark_bg"       : "rgba(109, 229, 100, 255)",
+            "active_bg"     : "rgba(109, 229, 100, 220)"
+        }
+    },
+    "#btn_level4": {
+        "colours": {
+            "normal_bg"     : "rgba(180, 219, 28, 255)",
+            "hovered_bg"    : "rgba(180, 219, 28, 255)",
+            "disabled_bg"   : "rgba(180, 219, 28, 255)",
+            "selected_bg"   : "rgba(180, 219, 28, 255)",
+            "dark_bg"       : "rgba(180, 219, 28, 255)",
+            "active_bg"     : "rgba(180, 219, 28, 220)"
+        }
+    },
+    "#btn_level5": {
+        "colours": {
+            "normal_bg"     : "rgba(30, 112, 46, 255)",
+            "hovered_bg"    : "rgba(30, 112, 46, 255)",
+            "disabled_bg"   : "rgba(30, 112, 46, 255)",
+            "selected_bg"   : "rgba(30, 112, 46, 255)",
+            "dark_bg"       : "rgba(30, 112, 46, 255)",
+            "active_bg"     : "rgba(30, 112, 46, 220)"
+        }
+    },
+    "#main_screen_label": {
+        "colours": {
+            "normal_text": "#FFFFFF"
+        },
+        "font": {
+            "name": "pixelify",
+            "size": "32",
+            "bold": 1
+        }
+    },
+    "#test": {
+        "colours": {
+            "normal_bg"     : "rgba(255, 0, 0, 255)",
+            "hovered_bg"    : "rgba(255, 0, 0, 255)",
+            "disabled_bg"   : "rgba(255, 0, 0, 255)",
+            "selected_bg"   : "rgba(255, 0, 0, 255)",
+            "dark_bg"       : "rgba(255, 0, 0, 255)"
+        }
+    },
+    "#btn_base_design": {
+        "colours": {
+            "normal_bg"     : "#8AF1AC",
+            "hovered_bg"    : "#57F58B",
+            "disabled_bg"   : "#8AF1AC",
+            "selected_bg"   : "#8AF1AC",
+            "dark_bg"       : "#8AF1AC",
+            "active_bg"     : "#8AF1AC",
+            "normal_text"       : "#000000",
+            "hovered_text"      : "#000000",
+            "active_text"       : "#000000"
+        },
+        "font": {
+            "name": "fira code",
+            "size": "16",
+            "bold": 1
+        },
+        "misc": {
+            "border_width": 0
+        }
+    },
+    "vertical_scroll_bar":
+    {
+        "colours":
+        {
+            "normal_bg": "#1E702E",
+            "hovered_bg": "#1E702E",
+            "disabled_bg": "#1E702E",
+            "selected_bg": "#1E702E",
+            "active_bg": "#1E702E",
+            "dark_bg": "#1E702E",
+            "normal_text": "#FFFFFF",
+            "hovered_text": "#FFFFFF",
+            "selected_text": "#FFFFFF",
+            "disabled_text": "#000000"
+        },
+        "misc":
+        {
+            "shape": "rounded_rectangle",
+            "shape_corner_radius": "7",
+            "border_width": "0",
+            "enable_arrow_buttons": "0"
+        }
+    },
+    "vertical_scroll_bar.button":
+    {
+        "misc":
+        {
+            "shape": "rounded_rectangle",
+            "shape_corner_radius": "7",
+            "border_width": "0"
+        }
+    },
+    "vertical_scroll_bar.#sliding_button":
+    {
+        "colours":
+        {
+            "normal_bg":    "rgba(0, 0, 0, 220)",
+            "active_bg":    "rgba(0, 0, 0, 255)",
+            "hovered_bg":   "rgba(0, 0, 0, 255)"
+        },
+        "misc": {
+            "shape": "rounded_rectangle",
+            "shape_corner_radius": "7",
+            "border_width": "0"
+        }
+    },
+    "horizontal_scroll_bar": {
+        "default": {
+            "visible": 0,
+            "width": 0
+        }
+    },
+    "#building_card": {
+        "colours": {
+            "normal_bg": "#1E702E",
+            "hovered_bg": "#1E702E",
+            "disabled_bg": "#1E702E",
+            "selected_bg": "#1E702E",
+            "active_bg": "#1E702E",
+            "dark_bg": "#1E702E"
+        }
+    },
+    "#building_card_text_head": {
+        "colours": {
+            "normal_text": "#FFFFFF",
+            "dark_text": "#FFFFFF"
+        },
+        "font": {
+            "name": "fira code",
+            "size": "14",
+            "bold": 1
+        }
+    },
+    "#building_card_text": {
+        "colours": {
+            "normal_text": "#FFFFFF",
+            "dark_text": "#FFFFFF"
+        },
+        "font": {
+            "name": "fira code",
+            "size": "14",
+            "bold": 0
+        }
+    },
+    "#btn_building_card_place": {
+        "colours": {
+            "normal_bg": "#003C0C",
+            "hovered_bg": "#002B08",
+            "disabled_bg": "#003C0C",
+            "selected_bg": "#002B08",
+            "active_bg": "#003C0C",
+            "dark_bg": "#003C0C"
+        },
+        "misc": {
+            "border_width": "0"
+        }
+    },
+    "#scenePanel": {
+        "colours": {
+            "normal_bg": "#286320",
+            "dark_bg": "#286320"
+        },
+        "misc": {
+            "border_width": 0
+        }
+    }
+}
