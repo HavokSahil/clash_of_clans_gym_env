@@ -90,7 +90,7 @@ class BaseDesignScreen:
             container=self.panel_menu,
         )
 
-        availableBuildings = self.base.getAvailableBuidlings()
+        availableBuildings = self.base.getAllBuildings()
 
         import math
         card_count = len(availableBuildings)
@@ -359,6 +359,7 @@ class BaseDesignScreen:
     def handlePressRandom(self):
         self.handleClickReset()
         self.base.fillRandomly()
+        self.turnOffAllAnnotations()
 
     def saveBase(self, filename: str):
         with open(filename, "wb") as f:
@@ -468,8 +469,8 @@ class BaseDesignScreen:
 
     def draw(self, surface: pygame.Surface):
 
-        if self.currently_placing_building is not None:
-            self.draw_grid(surface)
+        # if self.currently_placing_building is not None:
+        #     self.draw_grid(surface)
         
         self.looperClear(surface)
 

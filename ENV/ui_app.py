@@ -1,8 +1,5 @@
 import pygame
 import pygame_gui
-import pygame_gui.core.ui_appearance_theme
-import pygame_gui.core.ui_font_dictionary
-import pygame_gui.ui_manager
 
 from GameObject.warbase import Base
 from GameObject.deck import Deck
@@ -47,7 +44,8 @@ class App:
         {'name': 'pixelify', 'point_size': 28, 'style': 'bold'},
         {'name': 'fira code', 'point_size': 28, 'style': 'bold'},
         {'name': 'fira code', 'point_size': 16, 'style': 'bold'},
-        {'name': 'fira code', 'point_size': 14, 'style': 'bold'}
+        {'name': 'fira code', 'point_size': 14, 'style': 'bold'},
+        {'name': 'fira code', 'point_size': 36, 'style': 'bold'}
     ])
     
         self.manager.get_theme().load_theme('theme/theme.json')
@@ -55,10 +53,13 @@ class App:
         
         self.launch_townhall_selection()
 
-    def launch_base_draw(self, townHallLevel: int):
-        if self.townHallLevel != townHallLevel or not self.base:
-            self.townHallLevel = townHallLevel
+    def launch_base_draw(self, _townHallLevel: int):
+        if self.townHallLevel == -1: self.townHallLevel = _townHallLevel
+        if not self.base:
             self.base = Base(self.townHallLevel)
+        if self.townHallLevel != _townHallLevel:
+            self.base = Base(_townHallLevel)
+        self.townHallLevel = _townHallLevel
 
         self.state_manager.set_state(
             BaseDesignScreen(
@@ -69,24 +70,25 @@ class App:
             )
         )
 
-    def launch_troop_selection(self, towhHallLevel: int):
-        if self.townHallLevel != towhHallLevel or not self.deck:
-            self.townHallLevel = towhHallLevel
+    def launch_troop_selection(self, _townHallLevel: int):
+        if self.townHallLevel == -1: self.townHallLevel = _townHallLevel
+        if not self.deck:
             self.deck = Deck(self.townHallLevel)
+        if self.deck.townHallLevel != _townHallLevel:
+            self.deck = Deck(_townHallLevel)
+        self.townHallLevel = _townHallLevel
 
         self.state_manager.set_state(
             TroopSelectionScreen(
                 self.deck,
                 self.manager,
                 # TODO: Add and implement the `back` and `next` call back function
-                None,
+                self.launch_base_draw,
                 None,
             ))
 
     def launch_townhall_selection(self):
         self.state_manager.set_state(MainScreen(self.manager, self.launch_base_draw))
-        self.base = None
-        self.deck = None
     
     def run(self):
         running = True

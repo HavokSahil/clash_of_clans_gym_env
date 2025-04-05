@@ -112,15 +112,14 @@
     },
     "#btn_base_design": {
         "colours": {
-            "normal_bg"     : "#8AF1AC",
-            "hovered_bg"    : "#57F58B",
-            "disabled_bg"   : "#8AF1AC",
-            "selected_bg"   : "#8AF1AC",
-            "dark_bg"       : "#8AF1AC",
-            "active_bg"     : "#8AF1AC",
-            "normal_text"       : "#000000",
-            "hovered_text"      : "#000000",
-            "active_text"       : "#000000"
+            "normal_bg": "rgba(57, 214, 88, 255)",
+            "dark_bg": "rgba(57, 214, 88, 255)",
+            "hovered_bg": "rgba(108, 255, 136, 255)",
+            "active_bg": "rgba(57, 214, 88, 255)",
+            "normal_text": "#000000",
+            "dark_text": "#000000",
+            "active_text": "#000000",
+            "hovered_text": "#000000"
         },
         "font": {
             "name": "fira code",
@@ -235,6 +234,103 @@
         },
         "misc": {
             "border_width": 0
+        }
+    },
+    "#troop_recruit_title": {
+        "colours": {
+            "normal_bg": "#000000",
+            "dark_bg": "#000000",
+            "normal_text": "#FFFFFF",
+            "dark_text": "#FFFFFF"
+        },
+        "font": {
+            "name":"fira code",
+            "size": "36",
+            "bold": 1
+        }
+    },
+    "#btn_panel_troop_recruit": {
+
+    },
+    "#btn_troops_recruit_action": {
+        "colours": {
+            "normal_bg": "rgba(57, 214, 88, 255)",
+            "dark_bg": "rgba(57, 214, 88, 255)",
+            "hovered_bg": "rgba(108, 255, 136, 255)",
+            "active_bg": "rgba(57, 214, 88, 255)",
+            "normal_text": "#000000",
+            "dark_text": "#000000",
+            "active_text": "#000000",
+            "hovered_text": "#000000"
+        },
+        "font": {
+            "name":"fira code",
+            "size": 14,
+            "bold": 1
+        },
+        "misc": {
+            "border_width": "0"
+        }
+    },
+    "#troop_space_label": {
+        "text_horiz_alignment": "center",
+        "text_vert_alignment": "center",
+        "font": {
+            "name":"fira code",
+            "size": "16",
+            "bold": 1
+        }
+    },
+    "#panel_troop_card": {
+        "colours": {
+            "normal_bg": "#003C0C",
+            "dark_bg": "#003C0C"
+        }
+    },
+    "#troop_locked_label": {
+        "font": {
+            "name":"fira code",
+            "size":"14",
+            "bold": 1
+        }
+    },
+    "#troop_recruit_bottom_panel": {
+        "colours": {
+            "normal_bg": "#002A08",
+            "dark_bg": "#002A08"
+        }
+    },
+    "@card_bold": {
+        "font": {
+            "name":"fira code",
+            "bold": 1,
+            "size": "16"
+        }
+    },
+    "@card_normal": {
+        "font": {
+            "name": "fira code",
+            "bold": 0,
+            "size": "12"
+        }
+    },  
+    "@btn_troop_recruit": {
+        "colours": {
+            "normal_bg": "rgba(0, 0, 0, 255)",
+            "dark_bg": "rgba(0, 0, 0, 255)",
+            "active_bg": "rgba(0, 0, 0, 255)",
+            "hovered_bg":"rgba(0, 0, 0, 150)",
+            "normal_text": "#FFFFFF",
+            "dark_text": "#FFFFFF",
+            "hovered_text": "#FFFFFF",
+            "active_text": "#FFFFFF"
+        },
+        "font": {
+            "name":"fira code",
+            "size": 12
+        },
+        "misc": {
+            "border_width": "0"
         }
     }
 }

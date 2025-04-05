@@ -69,6 +69,12 @@ class Base:
                 availableBuildings.append((name, self.buildingDirectory.getBuildingLevel(name)))
             
         return availableBuildings
+    
+    def getAllBuildings(self):
+        allBuildings = []
+        for name in self.buildingDirectory.getAllBuildingNames():
+            allBuildings.append((name, self.buildingDirectory.getBuildingLevel(name)))
+        return [(name, level) for name, level in allBuildings if level > 0]
 
     def isTileEmpty(self, y: int, x: int):
         return self.world[y, x] == -1

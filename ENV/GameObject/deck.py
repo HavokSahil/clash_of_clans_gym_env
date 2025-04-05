@@ -103,6 +103,9 @@ class Deck:
 
     def getAllTroops(self) -> List[str]:
         return list(self.deck.keys())
+    
+    def getAllowedTroopsForTownhall(self) -> List[str]:
+        return self.troopDirectory.getAllowedTroopForTownhall(self.townHallLevel)
 
     def getTroopCategoryIndex(self, name: str) -> int:
         return self.troopDirectory.getTroopCategoryIndex(name)
@@ -120,6 +123,9 @@ class Deck:
     
     def getTroopCount(self, name) -> int:
         return self.deck.get(name, 0)
+    
+    def getTroopObject(self, name) -> TroopBase:
+        return self.troopDirectory.getTroopObjectStatic(name, self.townHallLevel)
     
     def totalTroopCount(self) -> int:
         return sum(self.deck.values())

@@ -465,6 +465,9 @@ class TroopDirectory:
         if troopName not in self.troopMap:
             return -1
         return list(TroopDirectory.ALLOWED_TROOPS_MAP[self.townHallLevel].keys()).index(troopName)
+    
+    def getAllowedTroopForTownhall(self, townhall: int) -> List[str]:
+        return [name for name, level in self.ALLOWED_TROOPS_MAP[townhall].items() if level > 0]
 
     def populateTroops(self):
         for troopName, level in TroopDirectory.ALLOWED_TROOPS_MAP[self.townHallLevel].items():
