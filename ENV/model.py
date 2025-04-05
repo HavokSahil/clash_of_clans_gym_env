@@ -1,12 +1,12 @@
 from gymnasium.wrappers import FlattenObservation
 from stable_baselines3 import PPO
 from coc_env import WarzoneEnv
-from warbase import Base
-from deck import Deck
+from GameObject.warbase import Base
+from GameObject.deck import Deck
 from stable_baselines3.common.vec_env import DummyVecEnv
 
 # Create and initialize environment
-townhall_level = 2
+townhall_level = 3
 
 base = Base(townhall_level)
 deck = Deck(townhall_level)
@@ -26,8 +26,8 @@ vec_env = DummyVecEnv([lambda: env])
 # )
 
 model = PPO.load("ppo_warzone", env=vec_env)
-model.learn(total_timesteps=100_000)
-model.save("ppo_warzone")
+# model.learn(total_timesteps=100_000)
+# model.save("ppo_warzone")
 
 
 raw_env = vec_env.envs[0]

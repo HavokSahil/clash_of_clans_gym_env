@@ -1,8 +1,8 @@
-from buildings import BaseBuilding
+from GameObject.buildings import BaseBuilding
 from typing import List, Tuple
-from warbase import Base
-from deck import Deck
-from warzone import Warzone
+from GameObject.warbase import Base
+from GameObject.deck import Deck
+from GameObject.warzone import Warzone
 from renderer import WarzoneRenderer
 
 import gymnasium as gym
@@ -42,8 +42,6 @@ class WarzoneEnv(gym.Env):
         self.action_space = spaces.MultiDiscrete([_height, _width, len(self.deck.get_deck_member_ids(self.warzone.deckSpace)) + 1])
         
         self.total_reward = 0
-        self.steps = 0
-        self.maxSteps = 900
 
     def switch_render(self, flag):
         if flag:
@@ -92,8 +90,6 @@ class WarzoneEnv(gym.Env):
 
         reward = self.compute_reward()
         done = self.is_done()
-
-        self.steps += 1
 
         return {
             "base": self.warzone.baseSpace,
@@ -144,13 +140,15 @@ class WarzoneEnv(gym.Env):
 
 if __name__ == "__main__":
 
-    base = Base(3)
-    deck = Deck(3)
+    th = 5
+
+    base = Base(th)
+    deck = Deck(th)
 
     base.fillRandomly()
     deck.fillRandomly()
 
-    env = WarzoneEnv(townHallLevel=3, base=base, deck=deck)
+    env = WarzoneEnv(townHallLevel=th, base=base, deck=deck)
     # Reset the environment
     obs, info = env.reset()
     # Run a simple loop

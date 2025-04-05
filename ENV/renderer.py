@@ -1,10 +1,10 @@
 import numpy as np
 import pygame
-import pygame_gui
-from troops import *
-from deck import Deck
-from buildings import BaseBuilding, BuildingDirectory
-from warbase import Base
+from GameObject.troops import *
+from GameObject.deck import *
+from GameObject.deck import *
+from GameObject.buildings import *
+from GameObject.warbase import *
 
 TILE_SIZE = 20
 GRID_SIZE = BASE_WIDTH
