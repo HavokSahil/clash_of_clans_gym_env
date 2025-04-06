@@ -2,6 +2,7 @@ import threading
 from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import BaseCallback
 import os
+from utils import resource_path
 
 class TrainingProgressCallback(BaseCallback):
     def __init__(self, ui_callback, total_timesteps, should_stop_fn, verbose=0):
@@ -21,7 +22,7 @@ class TrainingProgressCallback(BaseCallback):
 
 def train_ppo_model(env, total_timesteps, progress_callback, finish_callback, stop_event: threading.Event):
     def run():
-        model_path = "ppo_model.zip"
+        model_path = resource_path("models/ppo_model.zip")
 
         if os.path.exists(model_path):
             print("Loading existing PPO model...")
