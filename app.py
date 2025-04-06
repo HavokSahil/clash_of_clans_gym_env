@@ -10,6 +10,8 @@ from ui_base_design_screen import BaseDesignScreen
 from ui_troop_screen import TroopSelectionScreen
 from ui_attack_screen import AttackScreen
 
+from utils import resource_path
+
 class App:
 
     SCREEN_WIDTH = 1280
@@ -31,13 +33,13 @@ class App:
         self.manager = pygame_gui.UIManager((App.SCREEN_WIDTH, App.SCREEN_HEIGHT))
         self.manager.add_font_paths(
             font_name="pixelify",
-            regular_path="fonts/PixelifySans-Regular.ttf",
-            bold_path="fonts/PixelifySans-Bold.ttf",
+            regular_path=resource_path("fonts/PixelifySans-Regular.ttf"),
+            bold_path=resource_path("fonts/PixelifySans-Bold.ttf"),
         )
         self.manager.add_font_paths(
             font_name="fira code",
-            regular_path="fonts/FiraCode-Regular.ttf",
-            bold_path="fonts/FiraCode-Bold.ttf"
+            regular_path=resource_path("fonts/FiraCode-Regular.ttf"),
+            bold_path=resource_path("fonts/FiraCode-Bold.ttf")
         )
     
         self.manager.preload_fonts([
@@ -49,7 +51,7 @@ class App:
         {'name': 'fira code', 'point_size': 36, 'style': 'bold'}
     ])
     
-        self.manager.get_theme().load_theme('theme/theme.json')
+        self.manager.get_theme().load_theme(resource_path('theme/theme.json'))
         self.state_manager = StateManager(self.manager)
         
         self.launch_townhall_selection()
