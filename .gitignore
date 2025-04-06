@@ -1,7 +1,6 @@
 tower_defence/
 ENV/ppo_warzone_tensorboard/
 *.pkl
-*.zip
 dist/
 build/
 AppDir/
