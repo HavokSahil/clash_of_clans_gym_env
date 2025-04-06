@@ -8,6 +8,7 @@ from ui_state_manager import StateManager
 from ui_main_screen import MainScreen
 from ui_base_design_screen import BaseDesignScreen
 from ui_troop_screen import TroopSelectionScreen
+from ui_attack_screen import AttackScreen
 
 class App:
 
@@ -66,7 +67,8 @@ class App:
                 self.manager,
                 self.base,
                 back_callback=self.launch_townhall_selection,
-                next_callback=self.launch_troop_selection
+                next_callback=self.launch_troop_selection,
+                load_callback=self.update_base_callback
             )
         )
 
@@ -84,12 +86,36 @@ class App:
                 self.manager,
                 # TODO: Add and implement the `back` and `next` call back function
                 self.launch_base_draw,
-                None,
+                self.launch_attack_screen,
+                self.update_deck_callback
             ))
 
     def launch_townhall_selection(self):
-        self.state_manager.set_state(MainScreen(self.manager, self.launch_base_draw))
-    
+        self.state_manager.set_state(
+            MainScreen(
+                self.manager,
+                self.launch_base_draw
+            )
+        )
+
+    def launch_attack_screen(self):
+        self.state_manager.set_state(
+            AttackScreen(
+                self.manager,
+                self.base,
+                self.deck,
+                self.launch_troop_selection
+            )
+        )
+
+    def update_base_callback(self, base: Base):
+        self.base = base
+        self.townHallLevel = self.base.townHallLevel
+
+    def update_deck_callback(self, deck: Deck):
+        self.deck = deck
+        self.townHallLevel = self.deck.townHallLevel
+
     def run(self):
         running = True
         while running:

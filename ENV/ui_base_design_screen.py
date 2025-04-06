@@ -13,7 +13,8 @@ class BaseDesignScreen:
     def __init__(self, manager,
                  base: Base,
                  back_callback,
-                 next_callback
+                 next_callback,
+                 load_callback,
         ):
 
         self.base = base
@@ -22,6 +23,7 @@ class BaseDesignScreen:
 
         self.back_callback = back_callback
         self.next_callback = next_callback
+        self.load_callback = load_callback
 
         self.ui_elements = []
 
@@ -330,6 +332,12 @@ class BaseDesignScreen:
             self.refresh_rem_count_label(building.name)
 
     def handlePressPlaceKey(self, key):
+        if self.currently_placing_building == key:  # Meaning Cancel is Clicked
+            self.building_place_buttons[key].set_text("Place")
+            self.currently_placing_building = None
+            self.currently_placing_building_object = None
+            return
+        
         self.turnOffAllAnnotations()
         remCount = self.base.getBuildingMaxCount(key) - self.base.getBuildingCount(key)
         if not remCount: return
@@ -350,7 +358,9 @@ class BaseDesignScreen:
         self.turnOffAllAnnotations()
 
     def handleClickClear(self):
-        self.clearing = not self.clearing
+        flag = not self.clearing
+        self.turnOffAllAnnotations()
+        self.clearing = flag
         if self.clearing: self.buttons["clear"].set_text("Stop")
         else:
             self.buttons["clear"].set_text("Clear")
@@ -379,6 +389,7 @@ class BaseDesignScreen:
             _base = pickle.load(f)
         if self.townHallLevel == _base.townHallLevel:
             self.base = _base
+            self.load_callback(self.base)
             self.turnOffAllAnnotations()
             self.isLoading = False
         else:

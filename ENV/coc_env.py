@@ -57,12 +57,6 @@ class WarzoneEnv(gym.Env):
     def reset(self, seed=None, options=None):
         """ Resets the environment for a new episode. """
         super().reset(seed=seed)
-
-        self.base.clear()
-        self.deck.clear()
-
-        self.base.fillRandomly()
-        self.deck.fillRandomly()
         
         self.warzone = Warzone(
             baseSpace=self.base.getStateSpace(),

@@ -37,7 +37,7 @@
         },
         "font": {
             "name": "fira code",
-            "size": "28",
+            "size": "16",
             "bold": 1
         }
     },
@@ -331,6 +331,88 @@
         },
         "misc": {
             "border_width": "0"
+        }
+    },
+    "#panel_atk_scrn_scene": {
+        "colours": {
+            "normal_bg": "#1D1900",
+            "dark_bg": "#1D1900"
+        }
+    },
+    "#btn_warzone": {
+        "colours": {
+            "normal_bg": "#E2B86A",
+            "dark_bg": "#E2B86A",
+            "hovered_bg": "#FFF6E5",
+            "active_bg": "#E2B86A",
+            "dark_text": "#000000",
+            "active_text": "#000000",
+            "normal_text":"#000000",
+            "hovered_text":"#000000"
+        },
+        "font": {
+            "name":"fira code",
+            "bold": 1,
+            "size": 14
+        },
+        "misc": {
+            "border_width": "0"
+        }
+    },
+
+    "status_bar": {
+        "misc": {
+            "shape":"rounded_rectangle",
+            "shape_corner_radius":"14",
+            "border_width": "0"
+        }
+    },
+    "#elixir_status_bar": {
+        "colours": {
+            "filled_bar": "#C82C68",
+            "unfilled_bar": "#242323"
+        }
+    },
+    "#gold_status_bar": {
+        "colours": {
+            "filled_bar": "#C7B920",
+            "unfilled_bar": "#242323"
+        }
+    },
+    "#dest_perc_status_bar": {
+        "colours": {
+            "filled_bar": "#6DE5A5",
+            "unfilled_bar": "#242323"
+        }
+    },
+    "#invisible_btn": {
+        "colours": {
+            "normal_bg":"rgba(0, 0, 0, 0)",
+            "dark_bg":"rgba(0, 0, 0, 0)",
+            "hovered_bg": "rgba(0, 0, 0, 100)",
+            "active_bg":"rgba(0, 0, 0, 0)",
+            "normal_text": "#FFFFFF"
+        },
+        "font": {
+            "name":"fira code",
+            "size": "16",
+            "bold": 1
+        },
+        "misc": {
+            "border_width": "0"
+        }
+    },
+    "#troop_panel": {
+        "colours": {
+            "normal_bg": "#382D00",
+            "dark_bg": "#382D00"
+        }
+    },
+    "#rem_time_label": {
+        "font": {
+            "name":"fira code",
+            "size": "32",
+            "bold": 1
         }
     }
 }

@@ -47,6 +47,8 @@ class Base:
         self.placedBuildings    = dict()   # ID: Tuple[Object[Building], Position]
         self.buildingCount      = dict()     # Type: Count
 
+        self.id_gen_param = 1
+
     def clear(self):
         self.world = np.ones((self.HEIGHT_WORLD, self.WIDTH_WORLD), dtype=int) * -1
         self.buildingDirectory  = BuildingDirectory(self.townHallLevel)
@@ -98,7 +100,9 @@ class Base:
         return True        
 
     def genBuildingId(self):
-        return len(self.placedBuildings)
+        ret_id = self.id_gen_param
+        self.id_gen_param += 1
+        return ret_id
 
     def placeBuilding(self, building: BaseBuilding, y: int, x: int, _debug=False) -> bool:
 
@@ -503,6 +507,7 @@ class Base:
         mask = np.ones_like(baseState[:, :, 0])
         if not isFlying:
             mask = np.bitwise_and(mask, baseState[:, :, Base.GRID_MAPPING["building_type"]] != BaseBuilding.TYPE_WALL)
+            mask = np.bitwise_or(mask, baseState[:, :, Base.GRID_MAPPING["building_remaining_hp"]] <= 0)
         return mask
     
     @staticmethod

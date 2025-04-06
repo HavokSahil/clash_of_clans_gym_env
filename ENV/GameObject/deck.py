@@ -72,6 +72,17 @@ class Deck:
         7: "SkipMove"
     }
 
+    DECK_NAME_MAPS_ID = {
+        "Barbarian": 0,
+        "Archer": 1,
+        "Giant": 2,
+        "Goblin": 3,
+        "Wall Breaker": 4,
+        "Balloon": 5,
+        "Wizard": 6,
+        "SkipMove": 7
+    }
+
     def __init__(self, townHallLevel: int = 1):
         self.deck = {
             "Barbarian": 0,
@@ -375,6 +386,15 @@ class Deck:
     def get_available_troopID(troopSpace: np.ndarray) -> int:
         return np.min(np.where(troopSpace[:, Deck.TROOP_MAPPING["troopID"]] == -1)[0])
     
+    @staticmethod
+    def get_troop_deckID(troopSpace: np.ndarray, troopID: int) -> int:
+        return troopSpace[troopID, Deck.TROOP_MAPPING["deck_id"]]
+    
+    @staticmethod
+    def getTroopObjectFromDeckID(deckID: int, townhall_level: int) -> TroopBase:
+        name = Deck.DECK_ID_MAPS_NAME[deckID]
+        return TroopDirectory.getTroopObjectStatic(name, townhall_level)
+
     @staticmethod
     def deploy_troop_from_deck(
         deckSpace: np.ndarray,

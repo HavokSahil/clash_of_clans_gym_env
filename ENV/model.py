@@ -3,45 +3,44 @@ from stable_baselines3 import PPO
 from coc_env import WarzoneEnv
 from GameObject.warbase import Base
 from GameObject.deck import Deck
-from stable_baselines3.common.vec_env import DummyVecEnv
+
+import pickle
 
 # Create and initialize environment
-townhall_level = 3
+townhall_level = 1
+base_filename = "th1base.pkl"
+deck_filename = "th1deck.pkl"
 
-base = Base(townhall_level)
-deck = Deck(townhall_level)
-base.fillRandomly()
-deck.fillRandomly()
+with open(base_filename, 'rb') as f:
+    base = pickle.load(f)
+
+with open(deck_filename, "rb") as f:
+    deck = pickle.load(f)
+
 
 env = WarzoneEnv(townHallLevel=townhall_level, base=base, deck=deck, is_rendering=False)
-env = FlattenObservation(env)
-vec_env = DummyVecEnv([lambda: env])
+# env = FlattenObservation(env)
 
-# Train the model
+# # Train the model
 # model = PPO(
-#     "MlpPolicy",
-#     vec_env,
+#     "MultiInputPolicy",
+#     env,
 #     verbose=1,
 #     tensorboard_log="./ppo_warzone_tensorboard/",
 # )
 
-model = PPO.load("ppo_warzone", env=vec_env)
+model = PPO.load("ppo_model", env=env)
 # model.learn(total_timesteps=100_000)
-# model.save("ppo_warzone")
-
-
-raw_env = vec_env.envs[0]
-while hasattr(raw_env, "env"):
-    raw_env = raw_env.env
+# model.save("ppo_model")
 
 # Now you can call your custom method
-raw_env.switch_render(True)
+env.switch_render(True)
 
 # Evaluation loop
-obs = vec_env.reset()
+obs, _ = env.reset()
 done = False
 while not done:
-    action, _ = model.predict(obs)
-    obs, reward, done, info = vec_env.step(action)
-    vec_env.envs[0].render()
+    action, _ = model.predict(obs, deterministic=True)
+    obs, reward, done, truncated, info = env.step(action)
+    env.render()
     

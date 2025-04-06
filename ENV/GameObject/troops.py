@@ -39,6 +39,16 @@ class TroopBase:
         "Wizard": "images/troops/wizard.png",
     }
 
+    AVATAR_MAP = {
+        "Barbarian": "images/troops/avatar/barbarian.png",
+        "Archer": "images/troops/avatar/archer.png",
+        "Giant": "images/troops/avatar/giant.png",
+        "Goblin": "images/troops/avatar/goblin.png",
+        "Wall Breaker": "images/troops/avatar/wall_breaker.png",
+        "Balloon": "images/troops/avatar/balloon.png",
+        "Wizard": "images/troops/avatar/wizard.png",
+    }
+
     def __init__(self, name, level):
         self.id = TroopBase.genID(name)
         assert(self.id != -1)
@@ -105,6 +115,13 @@ class TroopBase:
 
     def getImagePath(self) -> str:
         return self.IMG_MAP[self.name]
+    
+    @staticmethod
+    def getImagePathFromName(name: str) -> str:
+        return TroopBase.IMG_MAP[name]
+    
+    def getAvatarPath(self) -> str:
+        return self.AVATAR_MAP[self.name]
     
     def __str__(self):
         return f"{self.name} (Level {self.level}) - HP: {self.hp}, DPS: {self.dph}, Atk Range: {self.atkRange}, Atk Speed: {self.atkSpeed}, Mov Speed: {self.movSpeed}, Air Target: {self.airTarget}, Ground Target: {self.grndTarget}, Flying: {self.isFlying}"

@@ -98,8 +98,9 @@ class Warzone:
 
 
     def get_reward(self) -> float:
-        gold_loot_fraction = self.loot_gold_in_move / self.total_gold
-        elixir_loot_fraction = self.loot_elixir_in_move / self.total_elixir
+
+        gold_loot_fraction = self.loot_gold_in_move / self.total_gold if self.total_gold else 0.0
+        elixir_loot_fraction = self.loot_elixir_in_move / self.total_elixir if self.total_elixir else 0.0
 
         reward = (
             self.stars_earned_in_move * 100                    
@@ -111,9 +112,9 @@ class Warzone:
             + elixir_loot_fraction * 50                        
             - self.troops_lost_in_move * 3
             - self.troops_deployed_in_move * 5
-            - self.made_invalid_action_in_move * 100           
+            - self.made_invalid_action_in_move * 100
+            - 1 # For being IDLE          
         )
-
 
         # Optional: log raw reward for analysis/debug
         # print(f"Raw reward: {reward}")
@@ -148,7 +149,8 @@ class Warzone:
         self.update_troop()
         self.update_buildings()
 
-        self.destruction_percentage = self.destroyed_building_hp * 100 / self.total_hp
+        self.destruction_percentage = self.destroyed_building_hp * 100 / self.total_hp \
+            if self.total_hp else 100.0
 
         self.stars = 0
         if self.destruction_percentage >= 50:
@@ -304,7 +306,10 @@ class Warzone:
 
             Deck.troop_assign_target(self.troopSpace, troopID, buildingID)
 
-            current = closest_barrier
+            # ISSUE: Troop reaches the wall position, and on forget target,
+            # it crosses the wall, since it was on the wall and didn't percieved it as barrier 
+
+            current = came_from[closest_barrier]
             while current != (start_y, start_x):
                 self.paths[troopID].append(current)
                 current = came_from[current]
@@ -337,7 +342,8 @@ class Warzone:
         if targetID == -1: return False
         positions = Base.get_building_location(self.baseSpace, targetID)
         for y, x in zip(positions[0], positions[1]):
-            if np.sqrt(pow(y-troopPos[0], 2) + pow(x-troopPos[1], 2)) <= troopRange:
+            dist = np.sqrt(pow(y-troopPos[0], 2) + pow(x-troopPos[1], 2))
+            if dist <= troopRange or dist <= 1.415:
                 return True
         
         return False

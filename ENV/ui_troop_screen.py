@@ -14,7 +14,8 @@ class TroopSelectionScreen:
             deck: Deck,
             manager,
             back_callback,
-            next_callback
+            next_callback,
+            load_callback
         ):
 
         self.deck = deck
@@ -24,6 +25,8 @@ class TroopSelectionScreen:
     
         self.back_callback = back_callback
         self.next_callback = next_callback
+        self.load_callback = load_callback
+
         self.buttons = {
             "load": None,
             "save": None,
@@ -290,7 +293,9 @@ class TroopSelectionScreen:
             _deck = pickle.load(f)
         if self.deck.townHallLevel == _deck.townHallLevel:
             self.deck = _deck
+            self.load_callback(self.deck)
             self.isLoading = False
+            # TODO: I should perform tests on this, maybe this is not a good practise
             self.refresh_text_data()
         else:
             self.show_message(f"The file contains deck for Different Townhall (Level: {_deck.townHallLevel})", title="Invalid Action")
@@ -332,6 +337,8 @@ class TroopSelectionScreen:
                         self.openFileSaveDialog()
                     if (key == "load"):
                         self.openFileLoadDoalog()
+                    if (key == "next"):
+                        self.next_callback()
             for name, button in self.troop_add_buttons.items():
                 if event.ui_element == button:
                     self.handle_add_troop(name)
