@@ -1,7 +1,9 @@
 import pygame
 import pygame_gui
 
-background_url = "images/scenes/floating_island.png"
+from utils import resource_path
+
+background_url = resource_path("images/scenes/floating_island.png")
 
 class MainScreen:
     def __init__(self, manager, onLevelSelected):

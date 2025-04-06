@@ -6,6 +6,8 @@ import pickle
 from GameObject.warbase import Base
 from GameObject.buildings import BaseBuilding, DefenseBuilding
 
+from utils import resource_path
+
 class BaseDesignScreen:
 
     TILE_SIZE = 16
@@ -115,7 +117,7 @@ class BaseDesignScreen:
 
             path = building.getImagePath()
             if not path in self.image_cache:
-                self.image_cache[name] = pygame.image.load(path, f"{name} image")
+                self.image_cache[name] = pygame.image.load(resource_path(path), f"{name} image")
             
             panel = pygame_gui.elements.UIPanel(
                 relative_rect=pygame.rect.Rect(x, y, 120, 190),
@@ -185,7 +187,7 @@ class BaseDesignScreen:
 
     def loadImage(self, path, width, height):
         if not path in self.image_cache:
-            image = pygame.image.load(path).convert_alpha()
+            image = pygame.image.load(resource_path(path)).convert_alpha()
             image = pygame.transform.scale(image, (width, height))
             self.image_cache[path] = image
         return self.image_cache[path]

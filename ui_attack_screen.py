@@ -15,6 +15,8 @@ from training_progress_callback import *
 
 from coc_env import WarzoneEnv
 
+from utils import resource_path
+
 path_star_filled = "images/icons/shiny_star.png"
 path_star_empty  = "images/icons/dark_star.png"
 
@@ -81,7 +83,7 @@ class AttackScreen:
     
     def load_model(self):
         from stable_baselines3 import PPO
-        self.model = PPO.load("ppo_model", env=self.warzone_env)
+        self.model = PPO.load(resource_path("models/ppo_model.zip"), env=self.warzone_env)
         self.obs, info = self.warzone_env.reset()
 
     def on_enter(self):
@@ -452,11 +454,12 @@ class AttackScreen:
             self.drawTroop(surface, troopID)
 
     def loadImage(self, path, width, height):
-        if (path, width, height) not in self.image_cache:
-            image = pygame.image.load(path).convert_alpha()
+        key = f"{path}_{width}_{height}"
+        if not key in self.image_cache:
+            image = pygame.image.load(resource_path(path)).convert_alpha()
             image = pygame.transform.scale(image, (width, height))
-            self.image_cache[(path, width, height)] = image
-        return self.image_cache[(path, width, height)]
+            self.image_cache[key] = image
+        return self.image_cache[key]
 
     def looperHover(self, surface: pygame.Surface):
         
@@ -470,7 +473,6 @@ class AttackScreen:
                 int(self.TILE_SIZE * 1.2),
                 int(self.TILE_SIZE * 1.2),
             )
-        
             true_y = y * self.TILE_SIZE
             true_x = x * self.TILE_SIZE
 
