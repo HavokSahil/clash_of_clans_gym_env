@@ -1,0 +1,453 @@
+{
+    "BoostBuilders": {
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "potion_of_speed"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_BUILDERS_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_BUILDERS"
+        ]
+    },
+    "BoostClocktower": {
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "potion_of_clocktower"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_CLOCKTOWER_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_CLOCKTOWER"
+        ]
+    },
+    "BoostProduction": {
+        "BoostProduction": [
+            true
+        ],
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "potion_of_training"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_BOOST_PRODUCTION_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_BOOST_PRODUCTION"
+        ]
+    },
+    "BoostResource": {
+        "BoostResource": [
+            true
+        ],
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "potion_of_resources"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_BOOST_RESOURCES_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_BOOST_RESOURCES"
+        ]
+    },
+    "BuilderStarPotion": {
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "jar_of_bb_star_bonus"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_STAR_POTION_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_STAR_POTION"
+        ]
+    },
+    "FillDarkElixirStorage": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "rune_of_dark_elixir"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FILL_DARK_ELIXIR_STORAGE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FILL_DARK_ELIXIR_STORAGE"
+        ]
+    },
+    "FillElixir2Storage": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "rune_of_builder_elixir"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FILL_ELIXIR2_STORAGE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FILL_ELIXIR2_STORAGE"
+        ]
+    },
+    "FillElixirStorage": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "rune_of_elixir"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FILL_ELIXIR_STORAGE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FILL_ELIXIR_STORAGE"
+        ]
+    },
+    "FillGold2Storage": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "rune_of_builder_gold"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FILL_GOLD2_STORAGE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FILL_GOLD2_STORAGE"
+        ]
+    },
+    "FillGoldStorage": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "rune_of_gold"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FILL_GOLD_STORAGE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FILL_GOLD_STORAGE"
+        ]
+    },
+    "FinishAnyUpgrade": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "book_of_everything"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FINISH_ANY_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FINISH_ANY_UPGRADE"
+        ]
+    },
+    "FinishBuildingUpgrade": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "book_of_buildings"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FINISH_BUILDING_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FINISH_BUILDING_UPGRADE"
+        ]
+    },
+    "FinishHeroUpgrade": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "book_of_heroes"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FINISH_HERO_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FINISH_HERO_UPGRADE"
+        ]
+    },
+    "FinishSpellUpgrade": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "book_of_spells"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FINISH_SPELL_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FINISH_SPELL_UPGRADE"
+        ]
+    },
+    "FinishTroopUpgrade": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "book_of_troops"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FINISH_TROOP_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FINISH_TROOP_UPGRADE"
+        ]
+    },
+    "FreeBuildingUpgrade": {
+        "DiamondValue": [
+            100
+        ],
+        "IconExportName": [
+            "hammer_of_buildings"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FREE_BUILDING_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FREE_BUILDING_UPGRADE"
+        ]
+    },
+    "FreeHeroUpgrade": {
+        "DiamondValue": [
+            100
+        ],
+        "IconExportName": [
+            "hammer_of_heroes"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FREE_HERO_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FREE_HERO_UPGRADE"
+        ]
+    },
+    "FreeSpellUpgrade": {
+        "DiamondValue": [
+            100
+        ],
+        "IconExportName": [
+            "hammer_of_spells"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FREE_SPELL_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FREE_SPELL_UPGRADE"
+        ]
+    },
+    "FreeTroopUpgrade": {
+        "DiamondValue": [
+            100
+        ],
+        "IconExportName": [
+            "hammer_of_troops"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_FREE_TROOP_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            1
+        ],
+        "TID": [
+            "TID_BOOSTER_FREE_TROOP_UPGRADE"
+        ]
+    },
+    "HeroPotion": {
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "potion_of_heroic"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_HERO_POTION_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_HERO_POTION"
+        ]
+    },
+    "LabPotion": {
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "potion_of_research"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_LAB_POTION_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_LAB_POTION"
+        ]
+    },
+    "MaxLevelArmy": {
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "potion_of_strenght"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_MAX_LEVEL_ARMY_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "MaxLevelArmy": [
+            true
+        ],
+        "TID": [
+            "TID_BOOSTER_MAX_LEVEL_ARMY"
+        ]
+    },
+    "MoveObstacle": {
+        "DiamondValue": [
+            50
+        ],
+        "IconExportName": [
+            "shovel_of_obstacles"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_SHOVEL_OBSTACLE_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_MOVE_OBSTACLE"
+        ]
+    },
+    "PetPotion": {
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "potion_of_pet_boost"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_PET_POTION_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_PET_POTION"
+        ]
+    },
+    "SuperPotion": {
+        "DiamondValue": [
+            10
+        ],
+        "IconExportName": [
+            "potion_of_super_troops"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_SUPER_POTION_INFO"
+        ],
+        "MaxItems": [
+            5
+        ],
+        "TID": [
+            "TID_BOOSTER_SUPER_POTION"
+        ]
+    },
+    "UpgradeWall": {
+        "DiamondValue": [
+            5
+        ],
+        "IconExportName": [
+            "ring_of_walls"
+        ],
+        "InfoTID": [
+            "TID_BOOSTER_WALL_UPGRADE_INFO"
+        ],
+        "MaxItems": [
+            25
+        ],
+        "TID": [
+            "TID_BOOSTER_WALL_UPGRADE"
+        ]
+    }
+}

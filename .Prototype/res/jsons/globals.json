@@ -1,0 +1,2362 @@
+{
+    "ADJUST_END_SUBTICK_USE_CURRENT_TIME": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "AIR_WARDEN_TARGETED_EFFECT_OFFSET": {
+        "NumberValue": [
+            80
+        ]
+    },
+    "ALERT_ONLY_WHEN_CLOSE_ENOUGH": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ALLIANCE_ALERT_RADIUS": {
+        "NumberValue": [
+            700
+        ]
+    },
+    "ALLIANCE_CREATE_COST": {
+        "NumberValue": [
+            40000
+        ]
+    },
+    "ALLIANCE_CREATE_RESOURCE": {
+        "TextValue": [
+            "Gold"
+        ]
+    },
+    "ALLIANCE_LEVEL_CAPITAL_UNLOCKS": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "ALLIANCE_SCORE_CONTRIBUTION_PERCENTAGE": {
+        "NumberArray": [
+            50,
+            25,
+            12,
+            10,
+            3
+        ]
+    },
+    "ALLIANCE_SCORE_LIMIT": {
+        "NumberArray": [
+            0,
+            200,
+            400,
+            600,
+            800,
+            1000,
+            1100,
+            1200,
+            1300,
+            1400,
+            1500,
+            1600,
+            1700,
+            1800,
+            1900,
+            2000,
+            2100,
+            2200,
+            2300,
+            2400,
+            2500,
+            2600,
+            2700,
+            2800,
+            2900,
+            3000,
+            3100,
+            3200,
+            3300,
+            3400,
+            3500,
+            3600,
+            3700,
+            3800,
+            3900,
+            4000,
+            4100,
+            4200,
+            4300,
+            4400,
+            4500,
+            4600,
+            4700,
+            4800,
+            4900,
+            5000,
+            5100,
+            5200,
+            5300,
+            5400,
+            5500
+        ]
+    },
+    "ALLIANCE_TROOPS_PATROL": {},
+    "ALLIANCE_TROOP_REQUEST_COOLDOWN": {
+        "NumberValue": [
+            1200
+        ]
+    },
+    "ALLIANCE_UNIT_HOUSING_COST_MULTIPLIER": {},
+    "ALLIANCE_UNIT_HOUSING_COST_MULTIPLIER_FOR_TOTAL": {},
+    "ALLIANCE_WAR_ATTACK_DURATION": {
+        "NumberValue": [
+            1440
+        ]
+    },
+    "ALLIANCE_WAR_ATTACK_WIN_EXP_MULTIPLIER": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "ALLIANCE_WAR_LOOT_BONUS_PERCENT_DRAW": {
+        "NumberValue": [
+            400
+        ]
+    },
+    "ALLIANCE_WAR_LOOT_BONUS_PERCENT_LOSE": {
+        "NumberValue": [
+            350
+        ]
+    },
+    "ALLIANCE_WAR_LOOT_BONUS_PERCENT_WIN": {
+        "NumberValue": [
+            700
+        ]
+    },
+    "ALLIANCE_WAR_NUM_ATTACKS": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "ALLIANCE_WAR_ORE_LOOT_BONUS_PERCENT_DRAW": {
+        "NumberValue": [
+            57
+        ]
+    },
+    "ALLIANCE_WAR_ORE_LOOT_BONUS_PERCENT_LOSE": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "ALLIANCE_WAR_ORE_LOOT_BONUS_PERCENT_WIN": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "ALLIANCE_WAR_PREPARATION_DURATION": {
+        "NumberValue": [
+            1440
+        ]
+    },
+    "ALLIANCE_WAR_STARS_BONUS_EXP": {
+        "NumberArray": [
+            10,
+            25
+        ]
+    },
+    "ALLIANCE_WAR_STARS_BONUS_PERCENT": {
+        "NumberArray": [
+            40,
+            60
+        ]
+    },
+    "ALLIANCE_WAR_WIN_BONUS_EXP": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "ALLOW_CANCEL_BUILDING_CONSTRUCTION": {},
+    "ALLOW_CLANCASTLE_DEPLOY_ON_OBSTACLES": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ALLOW_REPAIR_AFTER_DAMAGE_TICKS": {},
+    "ALLOW_STARS_OVERFLOW_IN_STAR_BONUS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ALLOW_WAR_PRACTICE_ATTACKS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "APPLY_ACTIVE_SPELLS_FOR_DEPLOYED_TROOPS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ARMY_READY_CAPACITY_LEFT": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "ARRANGED_WAR_DURATIONS_MINUTES": {
+        "NumberArray": [
+            15,
+            30,
+            45,
+            60,
+            120,
+            240,
+            360,
+            480,
+            720,
+            960,
+            1200,
+            1440
+        ]
+    },
+    "ARRANGED_WAR_ITEMS_FIRST_X_ITEMS_NOT_IN_PRODUCTION": {},
+    "ARRANGED_WAR_PREPARATION_DURATIONS_MINUTES": {
+        "NumberArray": [
+            5,
+            15,
+            30,
+            60,
+            120,
+            240,
+            360,
+            480,
+            720,
+            960,
+            1200,
+            1440
+        ]
+    },
+    "ARRANGE_WAR_COOLDOWN": {
+        "NumberValue": [
+            30
+        ]
+    },
+    "ATTACK_LENGTH_SEC": {
+        "NumberValue": [
+            180
+        ]
+    },
+    "ATTACK_LENGTH_VILLAGE2_SEC": {
+        "NumberValue": [
+            120
+        ]
+    },
+    "ATTACK_PREPARATION_LENGTH_SEC": {
+        "NumberValue": [
+            30
+        ]
+    },
+    "ATTACK_PREPARATION_LENGTH_VILLAGE2_SEC": {
+        "NumberValue": [
+            60
+        ]
+    },
+    "ATTACK_SHIELD_REDUCE_HOURS": {
+        "NumberArray": [
+            3,
+            4,
+            5,
+            6,
+            8,
+            10,
+            12,
+            16,
+            20,
+            24
+        ]
+    },
+    "AUTO_RETURN_MAIN_VILLAGE_DAYS": {
+        "NumberValue": [
+            7
+        ]
+    },
+    "AUTO_UPGRADE_BUILDINGS_WITH_UPGRADE_TASKS": {},
+    "BARRACKS_BOOST_MINS": {
+        "NumberValue": [
+            60
+        ]
+    },
+    "BARRACKS_BOOST_MULTIPLIER": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "BARRACKS_BOOST_MULTIPLIER_NEW": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "BARRACKS_COMPENSATION": {},
+    "BATTLELOG_STORES_CLAN_CASTLE_TROOPS_SEPARATELY": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "BATTLE_PASS_AUTO_FORGE_SLOT_DISCOUNT_PERCENTAGE": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "BATTLE_PASS_AUTO_PROGRESS_IMPOSSIBLE_TASKS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "BATTLE_PASS_MIN_TOWN_HALL": {
+        "NumberValue": [
+            6
+        ]
+    },
+    "BATTLE_PASS_REPURCHASE_REWARD_EXTRA_POINTS": {
+        "NumberValue": [
+            200
+        ]
+    },
+    "BATTLE_PASS_REPURCHASE_REWARD_MAX_DAYS_AFTER_LAST": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "BATTLE_PASS_RESOURCE_REWARD_ALT_GEMS": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "BATTLE_PASS_STARTING_BUILDER_SEASON_BANK_SIZE": {
+        "NumberValue": [
+            20000
+        ]
+    },
+    "BATTLE_PASS_STARTING_SEASON_BANK_SIZE": {
+        "NumberValue": [
+            50000
+        ]
+    },
+    "BATTLE_PASS_TIER_SKIP_COST": {
+        "NumberValue": [
+            90
+        ]
+    },
+    "BLOCKED_ATTACK_POSITION_PENALTY": {
+        "NumberValue": [
+            6
+        ]
+    },
+    "BOOKMARKS_MAX_ALLIANCES": {
+        "NumberValue": [
+            30
+        ]
+    },
+    "BOOSTER_BUILDERS_DURATION": {
+        "NumberValue": [
+            3600
+        ]
+    },
+    "BOOSTER_BUILDERS_SPEEDUP": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "BOOSTER_CLOCKTOWER_DURATION": {
+        "NumberValue": [
+            1800
+        ]
+    },
+    "BOOSTER_DIAMOND_DIVIDER": {
+        "NumberValue": [
+            2000
+        ]
+    },
+    "BOOSTER_HERO_POTION_ADD_LEVELS": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "BOOSTER_HERO_POTION_DURATION": {
+        "NumberValue": [
+            3600
+        ]
+    },
+    "BOOSTER_LABORATORY_DURATION": {
+        "NumberValue": [
+            3600
+        ]
+    },
+    "BOOSTER_LABORATORY_SPEEDUP": {
+        "NumberValue": [
+            24
+        ]
+    },
+    "BOOSTER_MAX_OUT_ARMY_CONFIRMATION": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "BOOSTER_MAX_OUT_ARMY_COST": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "BOOSTER_MAX_OUT_ARMY_DURATION": {
+        "NumberValue": [
+            3600
+        ]
+    },
+    "BOOSTER_MAX_OUT_HEROES": {},
+    "BOOSTER_PET_SHOP_DURATION": {
+        "NumberValue": [
+            3600
+        ]
+    },
+    "BOOSTER_PET_SHOP_SPEEDUP": {
+        "NumberValue": [
+            24
+        ]
+    },
+    "BP_START_BONUS_MAX_DAYS_LEFT": {
+        "NumberValue": [
+            3
+        ]
+    },
+    "BP_START_BONUS_MAX_PERCENTAGE": {
+        "NumberValue": [
+            65
+        ]
+    },
+    "BP_START_BONUS_MIN_DAYS_LEFT": {
+        "NumberValue": [
+            25
+        ]
+    },
+    "BP_START_BONUS_MIN_PERCENTAGE": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "BUILDER_BASE_OBSTACLE_RESPAWN_SECONDS": {
+        "NumberValue": [
+            57600
+        ]
+    },
+    "BUILDER_BASE_SNAPSHOT_SAVE_HOME": {},
+    "BUILD_CANCEL_MULTIPLIER": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "BUNKER_SEARCH_TIME": {
+        "NumberValue": [
+            320
+        ]
+    },
+    "CAN_ELDER_EDIT_WAR_TOOLS_NOTES": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CAN_MEMBER_EDIT_WAR_TOOLS_NOTES": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CAPITAL_ATTACK_BONUS_MULTIPLIER": {
+        "NumberValue": [
+            3
+        ]
+    },
+    "CAPITAL_ATTACK_BONUS_SCALE_BY_REMAINING_HITPOINTS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CAPITAL_BUILDING_NO_DEPLOY_MARGIN": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "CAPITAL_RESOURCE_CAPS": {
+        "NumberArray": [
+            35000
+        ]
+    },
+    "CAPITAL_REWARD_CAPS": {
+        "NumberArray": [
+            5000
+        ]
+    },
+    "CAPITAL_REWARD_GEM_CONVERSION_PCT": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "CASTLE_DEFENDER_SEARCH_RADIUS": {
+        "NumberValue": [
+            9
+        ]
+    },
+    "CHALLENGE_BASE_COOLDOWN_ENABLED_ON_TH": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "CHALLENGE_BASE_SAVE_COOLDOWN": {
+        "NumberValue": [
+            86400
+        ]
+    },
+    "CHALLENGE_COOLDOWN": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "CHAR_VS_CHAR_RADIUS_FOR_ATTACKER": {
+        "NumberValue": [
+            7
+        ]
+    },
+    "CHAR_VS_CHAR_RANDOM_DIST_LIMIT": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "CHAT_TAG_CLAN_MIN_ROLE": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "CHAT_TAG_INDIVIDUAL_MIN_ROLE": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "CHAT_TAG_INSTIGATOR_THROTTLE_MAX_TOKENS": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "CHAT_TAG_INSTIGATOR_THROTTLE_TOKEN_RECOVERY_SECONDS": {
+        "NumberValue": [
+            3600
+        ]
+    },
+    "CHAT_TAG_LEADERS_MIN_ROLE": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "CHAT_TAG_MIN_MEMBER_AGE_MINUTES": {
+        "NumberValue": [
+            30
+        ]
+    },
+    "CHAT_TAG_MIN_ROLE_OVERRIDE_MEMBER_AGE_LIMIT": {
+        "NumberValue": [
+            3
+        ]
+    },
+    "CHAT_TAG_SEND_PUSH_NOTIFICATION_MIN_ROLE": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "CHAT_TAG_TARGET_THROTTLE_MAX_TOKENS": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "CHAT_TAG_TARGET_THROTTLE_TOKEN_RECOVERY_SECONDS": {
+        "NumberValue": [
+            300
+        ]
+    },
+    "CLAMP_AVATAR_TIMERS_TO_MAX": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CLAMP_BUILDING_TIMES": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CLAMP_LONG_TIME_STAMPS_TO_DAYS": {
+        "NumberValue": [
+            365
+        ]
+    },
+    "CLAMP_UPGRADE_TIMES": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CLAN_CASTLE_RADIUS": {
+        "NumberValue": [
+            13
+        ]
+    },
+    "CLAN_GAMES_AUTO_EXPIRE_REWARDS_ON_NEW_GAMES": {},
+    "CLAN_GAMES_AUTO_EXPIRE_REWARDS_ON_TIME_LIMIT": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CLAN_GAMES_DELAY_AFTER_END_FOR_SCORE": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "CLAN_GAMES_INITIAL_TRASH_COOLDOWN": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "CLAN_GAMES_MAX_TIME_AFTER_EVENT_FOR_REWARDS": {
+        "NumberValue": [
+            604800
+        ]
+    },
+    "CLAN_GAMES_MAX_TRASH_COOLDOWN": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "CLAN_GAMES_MIN_BB_TASKS": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "CLAN_GAMES_MIN_HV_TASKS": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "CLAN_GAMES_MIN_TOWN_HALL": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "CLAN_GAMES_TIME_BEFORE_END_LAST_TASK": {
+        "NumberValue": [
+            60
+        ]
+    },
+    "CLAN_GAMES_TRASH_COOLDOWN_INCREMENT": {},
+    "CLAN_GAMES_TRASH_COOLDOWN_SKIP_COST_PCT": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "CLAN_MAIL_COOLDOWN": {
+        "NumberValue": [
+            3600
+        ]
+    },
+    "CLAN_TAG_COUNT": {
+        "NumberValue": [
+            3
+        ]
+    },
+    "CLAN_TOURNAMENT_ENABLED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CLEAN_UP_ALLIANCE_UNITS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CLEAN_UP_BUILDER_BASE_UNITS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CLEAN_UP_CALENDAR_UNITS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CLEAN_UP_PRESET_ARMIES_FROM_CALENDAR_UNITS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "CLEAR_ALERT_STATE_IF_NO_TARGET_FOUND": {},
+    "CLOCK_TOWER_BOOST_COOLDOWN_MINS": {
+        "NumberValue": [
+            1320
+        ]
+    },
+    "CLOCK_TOWER_BOOST_MINS": {
+        "NumberArray": [
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32
+        ]
+    },
+    "CLOCK_TOWER_BOOST_MULTIPLIER": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "CLOCK_TOWER_SPEEDUP_MULTIPLIER": {
+        "NumberValue": [
+            34
+        ]
+    },
+    "CLONE_HEALER_WEIGHT_PERCENT": {
+        "NumberValue": [
+            40
+        ]
+    },
+    "COLLECT_ALL_RESOURCES_AT_ONCE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "COMMON_ORE_DIAMOND_COST": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "COMPLETE_CONSTRUCTIONS_ONLY_HOME": {},
+    "CONSTANT_HIT_BOX_RADIUS_FOR_FLYING_UNITS": {},
+    "COPY_LAYOUT_ALLOWED_TH_DIFFERENCE": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "CRL_SUPPORT": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "DARK_BARRACKS_COMPENSATION": {},
+    "DARK_ELIXIR_DIAMOND_COST_1": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "DARK_ELIXIR_DIAMOND_COST_10": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "DARK_ELIXIR_DIAMOND_COST_100": {
+        "NumberValue": [
+            25
+        ]
+    },
+    "DARK_ELIXIR_DIAMOND_COST_1000": {
+        "NumberValue": [
+            125
+        ]
+    },
+    "DARK_ELIXIR_DIAMOND_COST_10000": {
+        "NumberValue": [
+            600
+        ]
+    },
+    "DARK_ELIXIR_DIAMOND_COST_100000": {
+        "NumberValue": [
+            3000
+        ]
+    },
+    "DARK_ELIXIR_TO_ELIXIR_VALUE_MULTIPLIER": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "DARK_SPELL_DONATION_XP": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "DEFAULT_DEFENSE_VILLAGE_GUARD": {
+        "NumberValue": [
+            15
+        ]
+    },
+    "DEFAULT_PLAYER_NAME_CN": {
+        "TextValue": [
+            "\u7528\u6237"
+        ]
+    },
+    "DEFENSIVE_CAPITAL_REWARD_DENOMINATOR": {
+        "NumberValue": [
+            25
+        ]
+    },
+    "DELAY_BETWEEN_STAGES": {
+        "NumberValue": [
+            5000
+        ]
+    },
+    "DESTRUCTION_TO_SHIELD": {
+        "NumberArray": [
+            30,
+            60,
+            90
+        ]
+    },
+    "DEVELOPER_PAYLOAD_ENABLED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "DEVICE_LINK_CODE_LENGTH": {
+        "NumberValue": [
+            12
+        ]
+    },
+    "DEVICE_LINK_CODE_VALID_SECONDS": {
+        "NumberValue": [
+            120
+        ]
+    },
+    "DO_MIGRATION_FROM_OLD_TRAINING_TO_NEW": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "DRAG_IN_TRAINING": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "DUEL_LOOT_LIMIT_FREE_SPEEDUPS": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "DUEL_MATCHMAKING_ALLOWED_OFFLINE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ELDER_KICK_COOLDOWN": {
+        "NumberValue": [
+            1200
+        ]
+    },
+    "ELO_OFFSET_DAMPENING_ENABLED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ELO_OFFSET_DAMPENING_FACTOR": {
+        "NumberValue": [
+            51
+        ]
+    },
+    "ELO_OFFSET_DAMPENING_LIMIT": {
+        "NumberValue": [
+            51
+        ]
+    },
+    "ELO_OFFSET_DAMPENING_SCORE_LIMIT": {
+        "NumberValue": [
+            9291
+        ]
+    },
+    "ENABLE_AUTOMATIC_TRAINING": {},
+    "ENABLE_BASE_LAYOUT_COPYING": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_CHAT_TAGGING": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_COPY_LAYOUT_AT_TH": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "ENABLE_DEFENDING_ALLIANCE_TROOP_JUMP": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_LEAGUES": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_NAME_CHANGE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_NAME_CHANGE_TH_LEVEL": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "ENABLE_PRESETS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_PRESETS_TH_LEVEL": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "ENABLE_PREVIOUS_ARMY": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_PREVIOUS_ARMY_TH_LEVEL": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "ENABLE_QUICK_DONATE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_QUICK_DONATE_WAR": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_REQUIRED_TROOP_REQUEST": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_TRADER": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_TROOP_DELETION": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "ENABLE_WAR_DONATION_XP": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "END_WAR_IF_NO_ATTACKS_LEFT": {},
+    "EPIC_ORE_DIAMOND_COST": {
+        "NumberValue": [
+            35
+        ]
+    },
+    "EVENT_REWARD_OVERFLOW_ALLOWED": {},
+    "EXTRA_TARGET_PATH_COST_PENALTY": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "FIX_CLAN_PORTAL_BATTLE_NOT_ENDING": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "FIX_MERGE_OLD_BARRACK_BOOST_PAUSING": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "FIX_WAR_PREP_BUILDING_VISIBILITY": {},
+    "FORCE_NEW_TARGET_DEFAULT_MAX_NOISE": {
+        "NumberValue": [
+            800
+        ]
+    },
+    "FORCE_NEW_TARGET_JUMP_MAX_NOISE": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "FORCE_NEW_TARGET_TESLA_MAX_NOISE": {
+        "NumberValue": [
+            400
+        ]
+    },
+    "FORGET_TARGET_TIME": {
+        "NumberValue": [
+            6000
+        ]
+    },
+    "FORGE_SLOTS_REQUIRED_TH": {
+        "NumberArray": [
+            5,
+            8,
+            10,
+            11,
+            13,
+            6
+        ]
+    },
+    "FREE_HERO_HEALTH_CAP": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "FREE_UNIT_HOUSING_CAP_PERCENTAGE": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "GUARD_POST_NOT_FUNCTIONAL_UNDER_UGPRADE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "HEAL_STACK_PERCENT": {
+        "NumberArray": [
+            100,
+            100,
+            90,
+            90,
+            70,
+            40,
+            10,
+            0
+        ]
+    },
+    "HERO_DEFENCE_AUTO_HEAL": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "HERO_HEALTH_SPEED_UP_COST_MULTIPLIER": {
+        "NumberValue": [
+            300
+        ]
+    },
+    "HERO_HOUSING_COST_MULTIPLIER": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "HERO_HOUSING_COST_MULTIPLIER_FOR_TOTAL": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "HERO_RAGE_MULTIPLIER": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "HERO_RAGE_SPEED_MULTIPLIER": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "HERO_REST_BOOST_MINS": {
+        "NumberValue": [
+            60
+        ]
+    },
+    "HERO_REST_BOOST_MULTIPLIER": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "HERO_STOP_TIME": {
+        "NumberValue": [
+            5000
+        ]
+    },
+    "HERO_UPGRADE_CANCEL_MULTIPLIER": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "HIDDEN_BUILDING_APPEAR_DESTRUCTION_PERCENTAGE": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "IGNORE_ALLIANCE_ALERT_FOR_NON_VALID_TARGETS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "INFERNO_DRAGON_BEAM_COOLDOWN_TIME": {
+        "NumberValue": [
+            600
+        ]
+    },
+    "INVITE_FRIENDS_TO_ALLIANCE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "JUMP_WHEN_HIT_JUMPABLE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "LAYOUT_GEM_PRICES": {
+        "NumberArray": [
+            1000,
+            1500,
+            2000
+        ]
+    },
+    "LAYOUT_SLOT_2_TH_LEVEL": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "LAYOUT_SLOT_2_TH_LEVEL_VILLAGE2": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "LAYOUT_SLOT_3_TH_LEVEL": {
+        "NumberValue": [
+            7
+        ]
+    },
+    "LAYOUT_SLOT_3_TH_LEVEL_VILLAGE2": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "LEAGUE_BONUS_PERCENTAGES": {
+        "AltNumberArray": [
+            80,
+            100
+        ],
+        "NumberArray": [
+            50,
+            70
+        ]
+    },
+    "LEGENDS_SECONDS_ATTACKS_DISABLED_BEFORE_DAY_END": {
+        "NumberValue": [
+            300
+        ]
+    },
+    "LIMIT_TROPHIES_OUTSIDE_LEGENDS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "LIVE_REPLAY_ENABLED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "LIVE_REPLAY_ON_OWN_BASE_UNDER_ATTACK": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "LIVE_REPLAY_UPDATE_FREQUENCY_SECONDS": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "LOOT_CART_DEFENSE_PERCENTAGE": {
+        "NumberValue": [
+            20
+        ]
+    },
+    "LOOT_CART_ENABLED_FOR_TH": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "LOOT_CART_REENGAGEMENT_MINUTES_MAX": {
+        "NumberValue": [
+            129600
+        ]
+    },
+    "LOOT_CART_REENGAGEMENT_MINUTES_MIN": {
+        "NumberValue": [
+            4320
+        ]
+    },
+    "LOOT_MULTIPLIER_BY_TH_DIFF": {
+        "NumberArray": [
+            100,
+            100,
+            100,
+            100,
+            100,
+            80,
+            50,
+            25,
+            5
+        ]
+    },
+    "MAJOR_LIMIT": {
+        "NumberValue": [
+            20000
+        ]
+    },
+    "MAX_ABSENCE_REENGAGEMENT_SCALING_DAYS": {
+        "NumberValue": [
+            365
+        ]
+    },
+    "MAX_ACTIVE_SUPER_LICENCES": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "MAX_ALLIANCE_FEEDBACK_MESSAGE_LENGTH": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "MAX_ALLIANCE_MAIL_LENGTH": {
+        "NumberValue": [
+            256
+        ]
+    },
+    "MAX_ATTACK_POSITION_CIRCLE_RADIUS": {
+        "NumberValue": [
+            2000
+        ]
+    },
+    "MAX_CAPITAL_AVERAGE_LOOT_PER_ATTACK": {
+        "NumberValue": [
+            6100
+        ]
+    },
+    "MAX_CAPITAL_OFFENSIVE_REWARD_PER_ATTACK": {
+        "NumberValue": [
+            270
+        ]
+    },
+    "MAX_CAPITAL_REWARD": {
+        "NumberValue": [
+            5000
+        ]
+    },
+    "MAX_FRIENDLY_WAR_OPEN_CHALLENGES_AT_SAME_TIME": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "MAX_MEDALS": {
+        "NumberValue": [
+            2500
+        ]
+    },
+    "MAX_MESSAGE_LENGTH": {
+        "NumberValue": [
+            128
+        ]
+    },
+    "MAX_SIEGE_DONATION_COUNT": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "MAX_SPAWN_DISTANCE": {
+        "NumberValue": [
+            300
+        ]
+    },
+    "MAX_SPAWN_DISTANCE_CAPITAL": {
+        "NumberValue": [
+            200
+        ]
+    },
+    "MAX_SPELL_DONATION_COUNT": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "MAX_TARGET_LIST_SIZE": {
+        "NumberValue": [
+            6
+        ]
+    },
+    "MAX_TROOP_DONATION_COUNT": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "MAX_WAR_CALLS_FOR_PLAYER": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "MAX_WAR_CALLS_FOR_TARGET": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "MAYBE_BLOCKED_ATTACK_POSITION_PENALTY": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "MEDAL_GEM_CONVERSION_PCT": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "MINER_HIDE_TIME": {
+        "NumberValue": [
+            1000
+        ]
+    },
+    "MINER_HIDE_TIME_RANDOM": {
+        "NumberValue": [
+            250
+        ]
+    },
+    "MINER_SPEED_RAND_P": {},
+    "MINER_TARGET_RAND_P": {},
+    "MINIMUM_CHANGE_FOR_REAL_BATTLE": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "MIN_ABSENCE_TRIGGER_REENGAGEMENT_DAYS": {
+        "NumberValue": [
+            90
+        ]
+    },
+    "MIN_BUILDINGS_FOR_VALID_LEGEND_LAYOUT": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "MIN_REENGAGEMENT_SCALING": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "MIN_REENGAGEMENT_TOWN_HALL": {
+        "NumberValue": [
+            3
+        ]
+    },
+    "MIN_TH_LEVEL_FOR_CAPITAL": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "MIN_TH_LEVEL_FOR_SUPER_LICENCES": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "MIN_TH_LEVEL_FOR_TRADER": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "MIN_TH_LEVEL_FOR_TRADER_GEM_OFERS": {
+        "NumberValue": [
+            7
+        ]
+    },
+    "MIN_TIME_TRIGGER_REENGAGEMENT_DAYS": {
+        "NumberValue": [
+            365
+        ]
+    },
+    "MORE_PRECISE_TARGET_SELECTION": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "MOVEMENT_OVERRIDE_COOLDOWN_MS": {
+        "NumberValue": [
+            1000
+        ]
+    },
+    "MOVING_UNITS_USE_SIMPLE_SELECT": {},
+    "NAME_CHANGE_COOLDOWN_HOURS": {
+        "NumberValue": [
+            168
+        ]
+    },
+    "NAME_CHANGE_GEM_COST": {
+        "NumberArray": [
+            0,
+            500,
+            1000,
+            1500,
+            2000,
+            2500,
+            3000,
+            3500,
+            4000,
+            4500,
+            5000,
+            5500,
+            6000,
+            6500,
+            7000,
+            7500,
+            8000,
+            8500,
+            9000,
+            9500,
+            10000
+        ]
+    },
+    "NEWBIE_PROTECTION_EXP_LEVEL": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "NEWBIE_PROTECTION_LEVEL": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "NEWBIE_SHIELD_HOURS": {
+        "NumberValue": [
+            72
+        ]
+    },
+    "NEW_MEMBER_CANT_GET_GIFT_MINUTES": {
+        "NumberValue": [
+            3600
+        ]
+    },
+    "NEW_TRAINING_BOOST_BARRACKS_COST": {
+        "NumberValue": [
+            30
+        ]
+    },
+    "NEW_TRAINING_BOOST_LABORATORY_COST": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "NPC_CHALLENGE_TEST_ENABLED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "OBSTACLE_COUNT_MAX": {
+        "NumberValue": [
+            45
+        ]
+    },
+    "OBSTACLE_RESPAWN_SECONDS": {
+        "NumberValue": [
+            28800
+        ]
+    },
+    "OLD_CAPITAL_SCORE_WEIGHT_PERCENTAGE": {
+        "NumberValue": [
+            80
+        ]
+    },
+    "OVERLAY_ENABLED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "PAID_NAME_CHANGES_ENABLED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "PAUSE_BOOSTS_THRESHOLD_SECONDS": {
+        "NumberValue": [
+            18000
+        ]
+    },
+    "PERSONAL_BREAK_LIMIT_SECONDS": {
+        "NumberValue": [
+            14400
+        ]
+    },
+    "PET_HOUSING_COST_MULTIPLIER": {},
+    "PET_SPAWN_DELAY": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "PLAYER_TAG_COUNT": {
+        "NumberValue": [
+            3
+        ]
+    },
+    "PROGRESS_TRACK_EVENT_END_NOTIFICATION_PERIOD_HOURS": {
+        "NumberValue": [
+            168
+        ]
+    },
+    "PROGRESS_TRACK_EVENT_EVENT_PASS_PURCHASE_CUTOFF_HOURS": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "PROGRESS_TRACK_EVENT_RESOURCE_MAX_AMOUNT": {
+        "NumberValue": [
+            200000000
+        ]
+    },
+    "PROGRESS_TRACK_EVENT_TOKEN_GOLD_CONVERSION_MULTIPLIER": {
+        "NumberValue": [
+            1000
+        ]
+    },
+    "PROGRESS_TRACK_EVENT_TOKEN_MAX_AMOUNT": {
+        "NumberValue": [
+            1000000
+        ]
+    },
+    "PRUNE_ATTACK_POSITION_EVALUATION_PATHS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "PRUNE_MOVEMENT_PATHS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "PUBLISH_WAR_LOG_BY_DEFAULT": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "RARE_ORE_DIAMOND_COST": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "READY_FOR_WAR_ATTACK_CHECK": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "RECONNECT_THROUGH_PRODUCTION": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "RECRUIT_RECOMMENDER_OPT_IN_HOURS": {
+        "NumberValue": [
+            192
+        ]
+    },
+    "REENGAGEMENT_PVP_EASY_ATTACK_COUNT": {
+        "NumberValue": [
+            25
+        ]
+    },
+    "REENGAGEMENT_PVP_VERY_EASY_ATTACK_COUNT": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "REENGAGEMENT_REINFORCEMENT_COUNTDOWN": {
+        "NumberValue": [
+            15
+        ]
+    },
+    "REENGAGEMENT_REINFORCEMENT_MAX_HOUSING_FILLED": {
+        "NumberValue": [
+            30
+        ]
+    },
+    "REENGAGEMENT_STAR_BONUS_BOOST_DAYS": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "REENGAGEMENT_TRAINING_BOOST_HOURS": {
+        "NumberValue": [
+            120
+        ]
+    },
+    "REENGAGEMENT_TROPHY_DECAY_PERCENTAGE": {},
+    "REENGAGEMENT_VILLAGE_GUARD_HOURS": {
+        "NumberValue": [
+            24
+        ]
+    },
+    "REINFORCEMENT_CAMP_BUILD_TIME_SECONDS": {
+        "NumberArray": [
+            172800,
+            864000
+        ]
+    },
+    "REINFORCEMENT_CAMP_COST": {
+        "NumberArray": [
+            1500000,
+            4000000
+        ]
+    },
+    "REMEMBER_ORIGINAL_TARGET": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "REMOVE_REVENGE_WHEN_BATTLE_IS_LOADED": {},
+    "REMOVE_UNTRIGGERED_TESLA": {},
+    "REPATH_DURING_FLY": {},
+    "REPLAY_REMOVE_UNTRIGGERED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "REPLAY_SHARE_COOLDOWN": {
+        "NumberValue": [
+            300
+        ]
+    },
+    "REQUIRE_ALL_BUILDINGS_PLACED_FOR_TOWN_HALL_UPGRADE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "RESOURCE_DIAMOND_COST_100": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "RESOURCE_DIAMOND_COST_1000": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "RESOURCE_DIAMOND_COST_10000": {
+        "NumberValue": [
+            25
+        ]
+    },
+    "RESOURCE_DIAMOND_COST_100000": {
+        "NumberValue": [
+            125
+        ]
+    },
+    "RESOURCE_DIAMOND_COST_1000000": {
+        "NumberValue": [
+            600
+        ]
+    },
+    "RESOURCE_DIAMOND_COST_10000000": {
+        "NumberValue": [
+            3000
+        ]
+    },
+    "RESOURCE_PRODUCTION_BOOST_MINS": {
+        "NumberValue": [
+            1440
+        ]
+    },
+    "RESOURCE_PRODUCTION_BOOST_MULTIPLIER": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "RESOURCE_PRODUCTION_LOOT_PERCENTAGE": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "RESOURCE_PRODUCTION_LOOT_PERCENTAGE_DARK_ELIXIR": {
+        "NumberValue": [
+            75
+        ]
+    },
+    "RESTART_ATTACK_TIMER_ON_AREA_DAMAGE_TURRETS": {},
+    "RETARGET_AFTER_DESTROYING_WALL": {},
+    "RETARGET_WHEN_EXITING_JUMP_SPELL": {},
+    "REVENGE_GIVE_LEAGUE_BONUS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "REVENGE_GIVE_STAR_BONUS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "REVERT_BROKEN_WAR_LAYOUTS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "REVIVE_MAX_HITPOINTS": {},
+    "REVOKE_ALLOW_NEGATIVE_BOOSTERS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "REVOKE_ALLOW_NEGATIVE_RESOURCES": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SAVE_SPELL_STATE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SAVE_VILLAGE_OBJECTS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SCID_REWARDS_UNLOCK_TOWNHALL_LEVEL": {
+        "NumberValue": [
+            6
+        ]
+    },
+    "SCORE_MULTIPLIER_ON_ATTACK_LOSE": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "SCORING_ONLY_FROM_MM": {},
+    "SELECTED_WALL_TIME": {
+        "NumberValue": [
+            4000
+        ]
+    },
+    "SHIELD_HOURS": {
+        "NumberArray": [
+            12,
+            14,
+            16
+        ]
+    },
+    "SHIELD_TRIGGER_PERCENTAGE_HOUSING_SPACE": {
+        "NumberValue": [
+            33
+        ]
+    },
+    "SHOVELED_OBSTACLE_MAX_COUNT": {
+        "NumberValue": [
+            500
+        ]
+    },
+    "SHOW_CLAN_CHAT_RULES_INTERVAL_DAYS": {
+        "NumberValue": [
+            30
+        ]
+    },
+    "SHOW_CLAN_CHAT_RULES_PERIODICALLY": {},
+    "SHOW_LEGEND_LOOT_IN_STORAGES": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SHOW_NPC_LOOT_IN_STORAGES": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SHRINK_SPELL_DURATION_SECONDS": {
+        "NumberValue": [
+            7
+        ]
+    },
+    "SIEGE_MACHINE_SELF_DESTRUCT_ON_REACHING_TARGET": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SIEGE_MACHINE_USE_DOUBLE_TAP_DEPLOY_FIX": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SKELETON_OPEN_CC": {},
+    "SLIDE_ALONG_OBSTACLES": {},
+    "SPEEDUP_BOOST_COOLDOWN_COST_MULTIPLIER": {
+        "NumberValue": [
+            400
+        ]
+    },
+    "SPEEDUP_BOOST_VILLAGE2_LOOT_LIMITCOOLDOWN_COST_MULTIPLIER": {
+        "NumberValue": [
+            500
+        ]
+    },
+    "SPEED_UP_CONFIRMATION_ENABLED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SPEED_UP_DIAMOND_COST_1_HOUR": {
+        "NumberValue": [
+            20
+        ]
+    },
+    "SPEED_UP_DIAMOND_COST_1_MIN": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "SPEED_UP_DIAMOND_COST_1_WEEK": {
+        "NumberValue": [
+            1000
+        ]
+    },
+    "SPEED_UP_DIAMOND_COST_24_HOURS": {
+        "NumberValue": [
+            260
+        ]
+    },
+    "SPELL_FACTORY_BOOST_MINS": {
+        "NumberValue": [
+            60
+        ]
+    },
+    "SPELL_FACTORY_BOOST_MULTIPLIER": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "SPELL_FACTORY_BOOST_MULTIPLIER_NEW": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "SPELL_HOUSING_COST_MULTIPLIER": {
+        "NumberValue": [
+            500
+        ]
+    },
+    "SPELL_HOUSING_COST_MULTIPLIER_FOR_TOTAL": {},
+    "SPELL_SPEED_UP_COST_MULTIPLIER": {
+        "NumberValue": [
+            400
+        ]
+    },
+    "SPELL_TRAINING_COST_MULTIPLIER": {
+        "NumberValue": [
+            400
+        ]
+    },
+    "STARTING_DIAMONDS": {
+        "NumberValue": [
+            500
+        ]
+    },
+    "STARTING_ELIXIR": {
+        "NumberValue": [
+            750
+        ]
+    },
+    "STARTING_ELIXIR2": {
+        "NumberValue": [
+            12500
+        ]
+    },
+    "STARTING_GOLD": {
+        "NumberValue": [
+            750
+        ]
+    },
+    "STARTING_GOLD2": {
+        "NumberValue": [
+            5000
+        ]
+    },
+    "START_IN_LAST_USED_VILLAGE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "STAR_BONUS_COOLDOWN_MINUTES": {
+        "NumberValue": [
+            1440
+        ]
+    },
+    "STAR_BONUS_STAR_COUNT": {
+        "NumberValue": [
+            5
+        ]
+    },
+    "STICK_TO_TARGETED_BUILDING_WHEN_FORCING_RETARGET": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "STOP_BOOST_PAUSE_WHEN_BOOST_TIME_ZERO_ON_LOAD": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SUPER_LIMIT": {
+        "NumberValue": [
+            100000
+        ]
+    },
+    "SUPPORT_CREATOR_ENABLED": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "SUPPORT_CREATOR_VALID_DAYS": {
+        "NumberValue": [
+            7
+        ]
+    },
+    "TALLGRASS_RESPAWN_SECONDS": {
+        "NumberValue": [
+            10800
+        ]
+    },
+    "TARGET_LIST_SIZE": {
+        "NumberValue": [
+            3
+        ]
+    },
+    "TAVERN_LEVEL_TO_HERO_SLOT_COUNT": {
+        "AltNumberArray": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "NumberArray": [
+            1,
+            3,
+            5,
+            7
+        ]
+    },
+    "TEMPERATURE_MAP_VISION_MULTIPLIER": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "TEMPERATURE_MAP_VISION_OFFSET": {
+        "NumberValue": [
+            15
+        ]
+    },
+    "TH_UPGRADE_EASY_ATTACK_COUNT": {
+        "NumberValue": [
+            20
+        ]
+    },
+    "TH_UPGRADE_STAR_BONUS_BOOST_MULTIPLIER": {
+        "NumberValue": [
+            4
+        ]
+    },
+    "TIGHTER_ATTACK_POSITION": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "TORNADO_SIEGE_FORCE_TIER": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "TOWN_HALL_LOOT_PERCENTAGE": {
+        "NumberValue": [
+            -1
+        ]
+    },
+    "TRACK_CURRENCY_BALANCE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "TREASURY_SIZE_BASED_ON_TH": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "TROOP_HOUSING_V2_BUILD_TIME_SECONDS": {
+        "NumberArray": [
+            120,
+            300,
+            10800,
+            28800,
+            259200,
+            518400
+        ]
+    },
+    "TROOP_HOUSING_V2_COST": {
+        "NumberArray": [
+            0,
+            12000,
+            180000,
+            350000,
+            2000000,
+            3000000
+        ]
+    },
+    "TROOP_REQUEST_SPEED_UP_COST_MULTIPLIER": {
+        "NumberValue": [
+            600
+        ]
+    },
+    "TROOP_TRAINING_COST_MULTIPLIER": {
+        "NumberValue": [
+            400
+        ]
+    },
+    "TROOP_TRAINING_SPEED_UP_COST_TUTORIAL": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "UNDERGROUND_UNIT_GROUND_SPEED_PERCENTAGE": {
+        "NumberValue": [
+            70
+        ]
+    },
+    "UNIT_HOUSING_COST_MULTIPLIER": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "UNIT_HOUSING_COST_MULTIPLIER_FOR_TOTAL": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "UNIT_PRODUCTION_FIND_BIGGEST": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "UPGRADING_PRODUCTION_BUILDING_SLOWDOWN_PERCENTAGE": {
+        "NumberValue": [
+            100
+        ]
+    },
+    "USE_ACCURATE_ROUNDING_FOR_MOVEMENT": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_ALLIANCE_WARS_XP_BY_STRENGTH": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_ARRANGED_WARS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_ATTACK_POS_RANDOM_ON_1ST_TARGET": {},
+    "USE_BLOCKED_SEGMENT_HANDLING": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_DEPLOY_STEP_3STARS_WARNING_POPUP": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_EFFECT_FOR_DEFENDING_HERO_INDICATOR": {},
+    "USE_FALLBACK_REENGAGEMENT": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_FIREMODES_WITH_COPY_LAYOUT": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_GOBLIN_PRACTICE_STAR_BUG_WORKAROUND": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_HEAT_MAP_IN_ATTACK_POSITION_SELECTION": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_MORE_ACCURATE_LOOT_CAP": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_MORE_ATTACK_POSITIONS_ON_ARCS": {},
+    "USE_NEW_SPEEDUP_CALCULATION": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_NEW_TRAINING": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_NEW_VILLAGE_SCRAMBLER": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_OLD_RELOAD": {},
+    "USE_POISON_AVOIDANCE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_PREPARATION_DAY_HOME_VIEW": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_REENGAGEMENT_EVENT": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_SIEGE_IN_PRESETS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_SMARTER_HEALER": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_SMART_SPRING_TRAPS": {},
+    "USE_STAR_BONUS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_SWAP_BUILDINGS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_TOWNHALL_LOOT_PENALTY_IN_WAR": {},
+    "USE_TREASURY_WINDOW": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_TROOP_REQUEST_SPEED_UP": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_TROOP_WALKS_OUT_FROM_TRAINING": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_VERSUS_BATTLE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_VILLAGE_OBJECTS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_WALL_WEIGHTS_FOR_JUMP_SPELL": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "USE_WAR_TOOLS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "VALIDATE_TROOP_UPGRADE_LEVELS": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "VALKYRIE_PREFERS_4_BUILDINGS": {},
+    "VILLAGE2_DO_NOT_ALLOW_CLEAR_OBSTACLE_TH": {
+        "NumberValue": [
+            2
+        ]
+    },
+    "VILLAGE2_FIRST_VICTORY_ELIXIR": {},
+    "VILLAGE2_FIRST_VICTORY_GOLD": {
+        "NumberValue": [
+            7500
+        ]
+    },
+    "VILLAGE2_FIRST_VICTORY_TROPHIES": {
+        "NumberValue": [
+            40
+        ]
+    },
+    "VILLAGE2_LOW_TROPHY_LIMIT": {
+        "NumberValue": [
+            200
+        ]
+    },
+    "VILLAGE2_LOW_TROPHY_OFFER": {
+        "NumberValue": [
+            30
+        ]
+    },
+    "VILLAGE2_RESOURCE_DIAMOND_COST_100": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "VILLAGE2_RESOURCE_DIAMOND_COST_1000": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "VILLAGE2_RESOURCE_DIAMOND_COST_10000": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "VILLAGE2_RESOURCE_DIAMOND_COST_100000": {
+        "NumberValue": [
+            250
+        ]
+    },
+    "VILLAGE2_RESOURCE_DIAMOND_COST_1000000": {
+        "NumberValue": [
+            1200
+        ]
+    },
+    "VILLAGE2_RESOURCE_DIAMOND_COST_10000000": {
+        "NumberValue": [
+            6000
+        ]
+    },
+    "VILLAGE2_SPEED_UP_DIAMOND_COST_1_HOUR": {
+        "NumberValue": [
+            20
+        ]
+    },
+    "VILLAGE2_SPEED_UP_DIAMOND_COST_1_MIN": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "VILLAGE2_SPEED_UP_DIAMOND_COST_1_WEEK": {
+        "NumberValue": [
+            1000
+        ]
+    },
+    "VILLAGE2_SPEED_UP_DIAMOND_COST_24_HOURS": {
+        "NumberValue": [
+            260
+        ]
+    },
+    "VILLAGE2_START_UNIT": {
+        "TextValue": [
+            "Barbarian2"
+        ]
+    },
+    "VILLAGE2_START_UNIT_LEVEL": {
+        "NumberValue": [
+            10
+        ]
+    },
+    "VILLAGERS_COOLDOWN_TIME": {
+        "NumberValue": [
+            82800
+        ]
+    },
+    "WALL_BREAKER_SMART_CNT_LIMIT": {
+        "NumberValue": [
+            30
+        ]
+    },
+    "WALL_BREAKER_SMART_RADIUS": {
+        "NumberValue": [
+            2500
+        ]
+    },
+    "WALL_BREAKER_SMART_RETARGET_LIMIT": {
+        "NumberValue": [
+            2000
+        ]
+    },
+    "WALL_BREAKER_USE_ROOMS": {},
+    "WALL_COST_BASE": {
+        "NumberValue": [
+            1000
+        ]
+    },
+    "WARDEN_WAITS_FOR_GROUP_RETARGETING": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "WAR_BASES_LOCKED_DURING_PREPARATION": {},
+    "WAR_EXP_AVAILABLE": {
+        "BooleanValue": [
+            true
+        ]
+    },
+    "WAR_LOOT_PERCENTAGE": {
+        "NumberValue": [
+            3
+        ]
+    },
+    "WAR_MAX_EXCLUDE_MEMBERS": {
+        "NumberValue": [
+            50
+        ]
+    },
+    "WAR_TIE_BREAKING_MODE": {
+        "NumberValue": [
+            1
+        ]
+    },
+    "WORKER_COST_2ND": {
+        "NumberValue": [
+            250
+        ]
+    },
+    "WORKER_COST_3RD": {
+        "NumberValue": [
+            500
+        ]
+    },
+    "WORKER_COST_4TH": {
+        "NumberValue": [
+            1000
+        ]
+    },
+    "WORKER_COST_5TH": {
+        "NumberValue": [
+            2000
+        ]
+    },
+    "WORKER_FOR_ZERO_BUILD_TIME": {
+        "BooleanValue": [
+            true
+        ]
+    }
+}
