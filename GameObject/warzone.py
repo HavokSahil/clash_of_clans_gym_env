@@ -325,7 +325,7 @@ class Warzone:
 
     def deploy_troop(self, deckID: int, position: Tuple[int, int]) -> bool:
         # Perform the deploy action given by the gym environment update
-        if 0 <= deckID < len(self.deckSpace[:, 0]):
+        if 0 <= deckID < len(self.deckSpace[:, 0]) and Base.get_building_type_for_position(self.baseSpace, position) == BaseBuilding.TYPE_EMPTY:
             troopID = Deck.get_available_troopID(self.troopSpace)
             deployed =  Deck.deploy_troop_from_deck(self.deckSpace, self.troopSpace, deckID, troopID, position)
             self.troops_deployed += deployed
