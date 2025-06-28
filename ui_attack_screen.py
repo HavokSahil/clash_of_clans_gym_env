@@ -587,6 +587,18 @@ class AttackScreen:
             self.mouse_pressed = True
         elif event.type == pygame.MOUSEBUTTONUP:
             self.mouse_pressed = False
+        elif event.type == pygame.USEREVENT:
+            if "progress" in event.__dict__:
+                value = int(event.progress * 100)
+                self.progress_bar.set_current_progress(value)
+            if event.type == pygame_gui.UI_WINDOW_CLOSE:
+                if event.ui_element == self.progress_dialog:
+                    self.on_cancel_training()
+                    print("Training Cancelled")
+                    self.training_in_progress = False
+                    self.handleClickReset()
+                else:
+                    print("Something Else")
         elif event.type == pygame_gui.UI_BUTTON_PRESSED:
             for key, button in self.buttons.items():
                 if event.ui_element == button:
@@ -604,19 +616,6 @@ class AttackScreen:
             for key, button in self.troop_buttons.items():
                 if event.ui_element == button:
                     self.handleClickDeckCard(key)
-
-        elif event.type == pygame.USEREVENT:
-            if "progress" in event.__dict__:
-                value = int(event.progress * 100)
-                self.progress_bar.set_current_progress(value)
-            if event.type == pygame_gui.UI_WINDOW_CLOSE:
-                if event.ui_element == self.progress_dialog:
-                    self.on_cancel_training()
-                    print("Training Cancelled")
-                    self.training_in_progress = False
-                    self.handleClickReset()
-                else:
-                    print("Something Else")
             
         elif event.type == pygame.USEREVENT + 1:
             self.progress_dialog.set_display_title("Training Complete")
